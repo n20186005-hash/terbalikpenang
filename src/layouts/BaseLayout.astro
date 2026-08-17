@@ -6,32 +6,37 @@
 import "../styles/global.css";
 
 interface Props {
-  title: string;
-  description: string;
+  titleMs: string;
+  titleEn: string;
+  titleZh: string;
+  descMs: string;
+  descEn: string;
+  descZh: string;
   image?: string;
   noindex?: boolean;
 }
 
-const { title, description, image = "/upside-down-museum-exterior.jpg", noindex = false } = Astro.props;
+const { titleMs, titleEn, titleZh, descMs, descEn, descZh, image = "/upside-down-museum-exterior.jpg", noindex = false } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="ms">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" data-i18n="meta_description" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descMs} />
     {canonical && <link rel="canonical" href={canonical.toString()} />}
     {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" data-i18n="meta_og_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh} content={titleMs} />
+    <meta property="og:description" data-i18n="meta_og_desc" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descMs} />
+    <meta property="og:locale" data-i18n="meta_og_locale" data-ms="ms_MY" data-en="en_US" data-zh="zh_CN" content="ms_MY" />
     {canonical && <meta property="og:url" content={canonical.toString()} />}
     {socialImage && <meta property="og:image" content={socialImage.toString()} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <title>{title}</title>
+    <title data-i18n="meta_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh}>{titleMs}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" />
     <link rel="icon" href="/favicon-16.svg" sizes="16x16" type="image/svg+xml" />
@@ -39,7 +44,71 @@ const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script is:inline>
+      (function () {
+        var STORAGE_KEY = "ui_lang";
+        var SUPPORTED = { ms: true, en: true, zh: true };
+        var DEFAULT = "ms";
+        function currentLang() {
+          try {
+            var s = localStorage.getItem(STORAGE_KEY);
+            if (s && SUPPORTED[s]) return s;
+          } catch (e) {}
+          try {
+            var nav = (navigator.language || "").toLowerCase();
+            if (nav.indexOf("zh") === 0) return "zh";
+            if (nav.indexOf("ms") === 0 || nav.indexOf("id") === 0) return "ms";
+            if (nav.indexOf("en") === 0) return "en";
+          } catch (e) {}
+          return DEFAULT;
+        }
+        function applyLang(lang) {
+          if (!SUPPORTED[lang]) lang = DEFAULT;
+          document.documentElement.setAttribute("lang", lang);
+          document.documentElement.setAttribute("data-ui-lang", lang);
+          var nodes = document.querySelectorAll("[data-i18n]");
+          for (var i = 0; i < nodes.length; i++) {
+            var el = nodes[i];
+            var v = el.getAttribute("data-" + lang);
+            if (v == null) continue;
+            if (el.tagName === "META") {
+              if (el.hasAttribute("content")) el.setAttribute("content", v);
+            } else if (el.tagName === "TITLE") {
+              el.textContent = v;
+            } else {
+              el.textContent = v;
+            }
+          }
+          var switches = document.querySelectorAll("[data-lang-switch]");
+          for (var j = 0; j < switches.length; j++) {
+            var b = switches[j];
+            var target = b.getAttribute("data-lang-switch");
+            if (target === lang) b.classList.add("is-active");
+            else b.classList.remove("is-active");
+          }
+          try {
+            localStorage.setItem(STORAGE_KEY, lang);
+          } catch (e) {}
+        }
+        function boot() {
+          applyLang(currentLang());
+          document.addEventListener("click", function (e) {
+            var t = e.target;
+            while (t && t.getAttribute && !t.getAttribute("data-lang-switch")) t = t.parentNode;
+            if (!t) return;
+            e.preventDefault();
+            applyLang(t.getAttribute("data-lang-switch"));
+          });
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", boot);
+        } else {
+          boot();
+        }
+        window.__applyUiLang = applyLang;
+      })();
+    </script>
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
