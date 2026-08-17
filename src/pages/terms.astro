@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projectName = "Upside Down Museum Guide";
+const lastUpdated = "2026年8月";
+const cityHall = "碧瑶市政厅（Baguio City Hall）";
+const tourismOffice = "碧瑶旅游局（Baguio Tourism Office）";
+const nationalTourism = "菲律宾国家旅游局（Philippine Department of Tourism）";
+---
+
+<BaseLayout title={`服务条款 — ${projectName}`} description={`${projectName} 服务条款，阐明访问与使用本网站所适用的法律条件与免责声明。`} noindex={true}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "服务条款",
+    description: `${projectName} 服务条款`,
+    lastReviewed: "2026-08-17"
+  })} />
+  <header class="site-header" id="atas">
+    <a class="brand" href="/" aria-label="返回首页"><img src="/manus-storage/upside-down-museum-logo_b5f71d4f.png" alt="" width="48" height="48" /><span><strong>Upside Down</strong><small>Museum · Baguio</small></span></a>
+    <nav aria-label="Navigasi utama"><a href="/#pengalaman">景点概览</a><a href="/#rancang">出行规划</a><a href="/#sekitar">周边推荐</a><a href="/#soalan">常见问题</a></nav>
+  </header>
+  <main>
+    <section class="legal-hero" aria-labelledby="tajuk-hero">
+      <div class="section-wrap legal-hero-inner">
+        <p class="eyebrow"><span></span> 法律声明 · {lastUpdated}</p>
+        <h1 id="tajuk-hero">服务<em>条款</em></h1>
+        <p class="hero-intro">欢迎访问 {projectName}。请在使用本网站前仔细阅读以下服务条款。访问、浏览或使用本网站任何内容，即表示您已阅读、理解并同意受本条款约束。如您不同意任何条款，请立即停止使用本网站。</p>
+      </div>
+    </section>
+    <div class="poster-break" aria-hidden="true"><span>↘</span><span>↗</span><span>↘</span></div>
+    <section class="legal-content section-wrap">
+      <div class="legal-toc" aria-label="目录">
+        <div class="section-marker"><span></span><i></i><span>本文目录</span></div>
+        <ol>
+          <li><a href="#guna-kandungan">内容使用</a></li>
+          <li><a href="#ketepatan">信息的准确性</a></li>
+          <li><a href="#harta-intelek">知识产权</a></li>
+          <li><a href="#had-liabiliti">责任限制</a></li>
+          <li><a href="#pautan-luar">外部链接</a></li>
+          <li><a href="#perubahan">条款变更</a></li>
+          <li><a href="#perkara-lain">其他条款</a></li>
+        </ol>
+      </div>
+      <article class="legal-body">
+        <section id="guna-kandungan" class="legal-block">
+          <div class="section-marker"><span>01</span><i></i><span>内容使用</span></div>
+          <h2>仅供参考的<em>非营利信息</em>平台。</h2>
+          <p>本网站所有内容——包括文字、图片、排版、数据整理与信息架构——均以公共教育与非营利信息传播为唯一目的。访问与使用本网站，即表示您确认并同意以下各项：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>独立第三方立场</strong>
+              <p>本网站为一个独立的非营利游客信息指南项目，与任何旅游景点运营方、酒店管理集团、政府机构或商业旅游运营商均无直接隶属、合伙、代理或赞助关系。我们不以任何形式接受商业付费内容植入，亦不发布带有佣金导向的推荐链接。</p>
+            </li>
+            <li>
+              <strong>个人非商业使用</strong>
+              <p>您可出于个人旅行规划、学术研究或公共教育目的，下载、打印或摘录本网站的文字与图片摘要，但不得用于任何形式的商业产品、付费服务、广告宣传或竞争性内容平台。</p>
+            </li>
+            <li>
+              <strong>禁止不当使用</strong>
+              <p>严禁以任何技术手段抓取、镜像、批量复制本网站内容，亦不得将本网站内容用于虚假陈述、误导性宣传或损害本项目名誉的场景。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="ketepatan" class="legal-block">
+          <div class="section-marker"><span>02</span><i></i><span>信息的准确性</span></div>
+          <h2>我们力求严谨，<em>但请以官方为准。</em></h2>
+          <p>本网站所刊载的景点、交通、票务、开放时间等信息，均参考并对照考证自 {cityHall}、{tourismOffice} 与 {nationalTourism} 的公开资料，辅以实地走访与多方交叉验证。尽管我们尽合理努力保持信息准确、及时与完整，仍请您充分注意以下事项：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>信息可能变更</strong>
+              <p>开放时间、票价、交通班次、停车安排与公共服务设施等均可能因节假日、维修工程、特殊活动或行政调整而临时变更，恕不另行通知。</p>
+            </li>
+            <li>
+              <strong>出行前核实义务</strong>
+              <p>您在做出具体旅行决定前，尤其是涉及远程交通、住宿预订或团体安排时，务必通过景点官方渠道、市政公开热线或授权票务代理核实当日前述关键信息。</p>
+            </li>
+            <li>
+              <strong>无商业推荐承诺</strong>
+              <p>本网站提及的周边餐饮、购物或住宿场所仅作为地理信息参考，不构成商业背书或品质担保。实际消费体验可能因季节、经营者变更或个人偏好而异。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="harta-intelek" class="legal-block">
+          <div class="section-marker"><span>03</span><i></i><span>知识产权</span></div>
+          <h2>每一项创作都<em>值得被尊重</em>。</h2>
+          <p>本项目高度重视原创内容保护与他人知识产权的尊重。关于网站各组成部分的权利归属，请您知悉：</p>
+          <div class="third-party-grid">
+            <article class="third-party-card">
+              <div class="block-topline"><span>网站设计</span><span aria-hidden="true">▰</span></div>
+              <h3>版式与排版</h3>
+              <p>本网站的版式设计、页面结构、视觉系统、色彩体系、信息架构及原创文案内容，版权归 {projectName} 项目贡献者所有，受国际版权条约与菲律宾知识产权法典保护。</p>
+            </article>
+            <article class="third-party-card">
+              <div class="block-topline"><span>实景照片</span><span aria-hidden="true">✳</span></div>
+              <h3>图片产权</h3>
+              <p>本网站所展示的所有实景照片，其产权及版权均归原摄影者所有。图片主要通过 Unsplash 开放图库授权使用，另有部分来自贡献者署名授权。未经原权利人书面许可，不得以任何形式转载或商用。</p>
+            </article>
+            <article class="third-party-card">
+              <div class="block-topline"><span>地图数据</span><span aria-hidden="true">▱</span></div>
+              <h3>Google Maps</h3>
+              <p>嵌入式地图与地理定位数据的使用完全遵循 Google Maps/Google Earth 服务条款与 API 许可协议。您对地图功能的进一步使用需同时遵守 Google 单独制定的相关条款。</p>
+              <a class="text-link dark-link" href="https://cloud.google.com/maps-platform/terms" target="_blank" rel="noreferrer">查看 Google Maps 条款 <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+          <p class="quiet-note">如您认为本网站任何内容侵犯了您的著作权或其他合法权益，请通过隐私政策页面所列联系邮箱向我们发出权利通知，我们将在核实后 15 个工作日内采取移除或标注等合理措施。</p>
+        </section>
+        <section id="had-liabiliti" class="legal-block">
+          <div class="section-marker"><span>04</span><i></i><span>责任限制</span></div>
+          <h2>按"现状"提供，<em>不作默示担保。</em></h2>
+          <p>在适用法律允许的最大范围内，本网站及其维护者、贡献者、合作机构对于您因使用或无法使用本网站内容所产生的任何直接、间接、附带、特殊、惩罚性或后果性损害——包括但不限于基于本网站信息做出的旅行安排、消费决策、时间成本、财物损失或人身伤害——不承担任何合同责任、侵权责任或其他法律责任，即使已被告知发生此类损害的可能性。</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>不担保</strong>
+              <p>本网站按"现状（AS IS）"与"现有（AS AVAILABLE）"基础提供，不作任何明示或默示担保，包括但不限于对适销性、特定用途适用性、内容准确性或非侵权性的担保。</p>
+            </li>
+            <li>
+              <strong>服务中断</strong>
+              <p>我们不保证网站将不间断、及时、安全或无错运行，亦不保证缺陷会被纠正。因服务器维护、网络故障或不可抗力导致的服务中断，我们不承担赔偿责任。</p>
+            </li>
+            <li>
+              <strong>独立判断</strong>
+              <p>您使用本网站信息时应自行承担风险，并运用独立判断进行交叉验证。涉及人身安全、重大财物支出或法律决策的事项，请务必咨询专业人士。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="pautan-luar" class="legal-block">
+          <div class="section-marker"><span>05</span><i></i><span>外部链接</span></div>
+          <h2>离开本站后，<em>请留意其条款。</em></h2>
+          <p>本网站可能包含指向 Google Maps、Unsplash、官方旅游局网站等第三方资源的超链接。此类链接仅为方便访问者获取补充信息而设，不代表我们对该等网站内容、产品、服务或政策的背书、担保或控制。您访问任何外部网站时所产生的风险，均由您自行承担。</p>
+          <p>我们鼓励您在离开本网站时阅读每一个访问网站的服务条款与隐私政策，特别是涉及个人信息提交或在线支付的场景。</p>
+        </section>
+        <section id="perubahan" class="legal-block">
+          <div class="section-marker"><span>06</span><i></i><span>条款变更</span></div>
+          <h2>我们会在必要时<em>更新条款内容。</em></h2>
+          <p>我们保留随时修改本服务条款的权利。任何修改将在本页面发布后立即生效，并于页面顶部标注"最后更新时间"。您在变更发布后继续使用本网站，即视为接受修订后的条款。</p>
+          <p>对于涉及用户权利重大减损或数据处理方式根本变更的修改，我们将在首页设置显著提示，并保留至少 30 日的过渡说明期。</p>
+        </section>
+        <section id="perkara-lain" class="legal-block">
+          <div class="section-marker"><span>07</span><i></i><span>其他条款</span></div>
+          <h2>法律适用与<em>完整协议</em>。</h2>
+          <ul class="bullet-list">
+            <li>
+              <strong>法律适用</strong>
+              <p>本服务条款的订立、履行、解释与争议解决，适用菲律宾共和国法律，并优先适用 {cityHall} 所在地有管辖权的法院。</p>
+            </li>
+            <li>
+              <strong>可分割性</strong>
+              <p>如本条款中任何一项或多项规定被有权机关认定为无效、违法或不可执行，其余条款的有效性、合法性与可执行性不受任何影响。</p>
+            </li>
+            <li>
+              <strong>完整协议</strong>
+              <p>本服务条款连同《隐私政策》与《Cookie 设置》页面，共同构成您与 {projectName} 之间关于网站使用的完整协议，取代任何先前口头或书面的谅解与约定。</p>
+            </li>
+          </ul>
+          <div class="contact-card" style="margin-top:3rem">
+            <div class="contact-row"><span>项目名称</span><strong>{projectName}</strong></div>
+            <div class="contact-row"><span>最后更新</span><strong>{lastUpdated}</strong></div>
+            <div class="contact-row"><span>联系邮箱</span><strong>legal@upsidedownmuseum-guide.org</strong></div>
+            <div class="contact-row"><span>资料参考来源</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
+          </div>
+        </section>
+      </article>
+    </section>
+    <section class="closing-section">
+      <div class="closing-copy">
+        <p class="eyebrow light"><span></span> 独立 · 非盈利 · 社区导向</p>
+        <h2>返回<em>首页</em>继续您的行程规划。</h2>
+        <a class="button button-paper" href="/">浏览景点指南 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <a class="brand footer-brand" href="/" aria-label="返回首页"><img src="/manus-storage/upside-down-museum-logo_b5f71d4f.png" alt="" width="42" height="42" /><span><strong>Upside Down</strong><small>Museum · Baguio</small></span></a>
+    <div class="footer-legal-links">
+      <a href="/privacy">隐私政策</a><span>·</span>
+      <a href="/terms">服务条款</a><span>·</span>
+      <a href="/cookies">Cookie 设置</a>
+    </div>
+    <a href="#atas">Ke atas ↑</a>
+  </footer>
+</BaseLayout>
+
+<style>
+  .legal-hero{position:relative;min-height:420px;padding:clamp(4rem,8vw,8rem) 0;background:var(--ink);color:var(--paper);overflow:hidden}.legal-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(17,43,73,.97) 0%,rgba(17,43,73,.8) 50%,rgba(17,43,73,.25) 85%);opacity:.55}.legal-hero-inner{position:relative;z-index:1;max-width:900px}.legal-hero h1 em{color:var(--mango)}.legal-hero .hero-intro{max-width:720px;color:rgba(247,240,223,.8);font-size:clamp(1rem,1.3vw,1.1rem);line-height:1.75}
+  .legal-content{padding:clamp(4.5rem,9vw,9rem) 0;display:grid;grid-template-columns:260px 1fr;gap:clamp(2.5rem,6vw,7rem);align-items:start}
+  .legal-toc{position:sticky;top:7rem;padding:1.8rem;border:1px solid var(--line);background:var(--paper)}.legal-toc ol{margin:1.6rem 0 0;padding:0 0 0 1.15rem;display:grid;gap:.8rem;list-style:none;counter-reset:toc}.legal-toc ol li{counter-increment:toc;position:relative;padding-left:2rem}.legal-toc ol li::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;top:.05rem;color:var(--coral);font-family:var(--serif);font-size:.95rem}.legal-toc a{color:var(--slate);font-size:.78rem;font-weight:600;border-bottom:1px solid transparent;transition:color .18s ease,border-color .18s ease}.legal-toc a:hover{color:var(--ink);border-color:var(--coral)}
+  .legal-body{display:grid;gap:clamp(4rem,8vw,8rem);max-width:780px}
+  .legal-block h2{margin:1.8rem 0 1.3rem;font-size:clamp(2.4rem,4.3vw,4.2rem)}.legal-block h2 em{font-style:italic;color:var(--coral)}.legal-block p{color:var(--slate);font-size:.95rem;line-height:1.8}
+  .bullet-list{margin:1.6rem 0 0;padding:0;list-style:none;display:grid;gap:1.4rem;border-top:1px solid var(--line)}.bullet-list li{padding:1.35rem 0 0;border-bottom:1px solid var(--line)}.bullet-list strong{display:block;margin-bottom:.55rem;font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--ink)}.bullet-list p{margin:0}
+  .third-party-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}.third-party-card{display:flex;flex-direction:column;min-height:300px;padding:1.8rem 1.5rem;background:var(--paper-deep);transition:transform .22s ease}.third-party-card:hover{transform:translateY(-4px) rotate(-.6deg)}.third-party-card h3{margin:1.5rem 0 .7rem;font-family:var(--serif);font-size:1.5rem;font-weight:400;line-height:1.15}.third-party-card p{font-size:.8rem;color:var(--slate);margin-bottom:auto}.third-party-card a{margin-top:1.2rem;align-self:flex-start;font-size:.68rem}
+  .contact-card{margin-top:2rem;padding:.4rem 0;border-top:2px solid var(--coral);border-bottom:1px solid var(--line)}.contact-row{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-row:last-child{border-bottom:0}.contact-row span{color:var(--slate);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-top:.15rem}.contact-row strong{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ink)}
+  .footer-legal-links{color:rgba(247,240,223,.65);font-size:.67rem;font-weight:700;letter-spacing:.06em}.footer-legal-links a{transition:color .18s ease}.footer-legal-links a:hover{color:var(--mango)}.footer-legal-links span{margin:0 .5rem;opacity:.45}
+  @media(max-width:880px){.legal-content{grid-template-columns:1fr}.legal-toc{position:static}.third-party-grid{grid-template-columns:1fr}.contact-row{grid-template-columns:1fr;gap:.3rem}.contact-row span{padding:0}}
+  @media(max-width:560px){.third-party-grid{grid-template-columns:1fr}.legal-hero{min-height:auto;padding-block:4.5rem}}
+</style>

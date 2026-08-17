@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projectName = "Upside Down Museum Guide";
+const lastUpdated = "2026年8月";
+const cityHall = "碧瑶市政厅（Baguio City Hall）";
+const tourismOffice = "碧瑶旅游局（Baguio Tourism Office）";
+const nationalTourism = "菲律宾国家旅游局（Philippine Department of Tourism）";
+---
+
+<BaseLayout title={`隐私政策 — ${projectName}`} description={`${projectName} 隐私政策，说明我们如何收集、使用和保护您的个人数据。`} noindex={true}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "隐私政策",
+    description: `${projectName} 隐私政策`,
+    lastReviewed: "2026-08-17",
+    mainEntity: {
+      "@type": "CreativeWork",
+      name: "隐私政策"
+    }
+  })} />
+  <header class="site-header" id="atas">
+    <a class="brand" href="/" aria-label="返回首页"><img src="/manus-storage/upside-down-museum-logo_b5f71d4f.png" alt="" width="48" height="48" /><span><strong>Upside Down</strong><small>Museum · Baguio</small></span></a>
+    <nav aria-label="Navigasi utama"><a href="/#pengalaman">景点概览</a><a href="/#rancang">出行规划</a><a href="/#sekitar">周边推荐</a><a href="/#soalan">常见问题</a></nav>
+  </header>
+  <main>
+    <section class="legal-hero" aria-labelledby="tajuk-hero">
+      <div class="section-wrap legal-hero-inner">
+        <p class="eyebrow"><span></span> 法律声明 · {lastUpdated}</p>
+        <h1 id="tajuk-hero">隐私<em>政策</em></h1>
+        <p class="hero-intro">本政策阐明 {projectName} 如何收集、使用、存储及保护您在访问本网站时提供的个人数据。我们秉持数据最小化原则，仅在为您提供服务所必需的范围内处理信息。</p>
+      </div>
+    </section>
+    <div class="poster-break" aria-hidden="true"><span>↘</span><span>↗</span><span>↘</span></div>
+    <section class="legal-content section-wrap">
+      <div class="legal-toc" aria-label="目录">
+        <div class="section-marker"><span></span><i></i><span>本文目录</span></div>
+        <ol>
+          <li><a href="#kumpul">我们收集的信息</a></li>
+          <li><a href="#guna">我们如何使用您的信息</a></li>
+          <li><a href="#pihak-ketiga">第三方服务</a></li>
+          <li><a href="#hak">您的权利</a></li>
+          <li><a href="#simpan">数据存储与安全</a></li>
+          <li><a href="#hubungi">联系我们</a></li>
+        </ol>
+      </div>
+      <article class="legal-body">
+        <section id="kumpul" class="legal-block">
+          <div class="section-marker"><span>01</span><i></i><span>我们收集的信息</span></div>
+          <h2>仅为服务所必需的<em>最低限度</em>数据。</h2>
+          <p>我们严格遵循数据最小化原则，绝不收集与提供服务无关的个人信息。当您访问本网站时，可能被收集的数据类别包括：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>浏览数据</strong>
+              <p>包括您的 IP 地址（经匿名化处理后用于流量统计）、浏览器类型与版本、操作系统、访问时间戳、请求页面 URL 及引荐来源。这些数据用于诊断服务器问题、管理网站及汇总匿名使用统计。</p>
+            </li>
+            <li>
+              <strong>Cookie 与类似技术</strong>
+              <p>我们使用少量 Cookie 以维持网站基本功能、记住您的语言及主题偏好，并通过匿名化数据了解访客互动模式。详见《Cookie 设置》页面。</p>
+            </li>
+            <li>
+              <strong>您自愿提供的信息</strong>
+              <p>若您通过联系表格、电子邮件或其他方式主动与我们沟通，我们将保存您的消息内容及附带的联系信息（如邮箱地址），仅用于回应您的查询与后续跟进。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="guna" class="legal-block">
+          <div class="section-marker"><span>02</span><i></i><span>我们如何使用您的信息</span></div>
+          <h2>每一项处理都有<em>明确且合法</em>的目的。</h2>
+          <p>我们基于正当利益、合同必要性或法律义务等合法基础处理您的个人数据，具体使用场景限于：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>改善网站内容与用户体验</strong>
+              <p>通过分析访问路径与页面停留时长，识别内容结构与导航设计的优化空间，持续提升信息呈现的清晰度与可读性。</p>
+            </li>
+            <li>
+              <strong>分析流量与使用模式</strong>
+              <p>汇总匿名访问统计，了解热门内容、设备分布与地域来源，以便合理分配服务器资源并规划内容方向。</p>
+            </li>
+            <li>
+              <strong>回应您的请求</strong>
+              <p>针对您通过邮件或联系表单提交的咨询、反馈或建议进行回复、存档及必要的后续追踪。</p>
+            </li>
+            <li>
+              <strong>遵守法律义务</strong>
+              <p>在法律法规要求或有权机关依法请求的范围内，提供必要的数据以配合司法程序、行政执法或税务审计。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="pihak-ketiga" class="legal-block">
+          <div class="section-marker"><span>03</span><i></i><span>第三方服务</span></div>
+          <h2>清晰列明<em>每一个</em>外部数据处理方。</h2>
+          <p>本网站为提升功能与浏览体验，可能集成以下第三方服务。各服务提供商独立承担其数据处理责任，建议您查阅其相应的隐私政策：</p>
+          <div class="third-party-grid">
+            <article class="third-party-card">
+              <div class="block-topline"><span>地图服务</span><span aria-hidden="true">▰</span></div>
+              <h3>Google Maps</h3>
+              <p>用于嵌入式景点地图、地理定位与路线指引。当您加载地图模块时，Google 可能记录您的 IP 与交互行为。</p>
+              <a class="text-link dark-link" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">查看 Google 隐私政策 <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="third-party-card">
+              <div class="block-topline"><span>流量分析</span><span aria-hidden="true">▱</span></div>
+              <h3>Google Analytics</h3>
+              <p>用于收集匿名访问统计，帮助我们理解访客如何与网站互动。启用 IP 匿名化功能后，您的 IP 地址会在欧盟境内被截断。</p>
+              <a class="text-link dark-link" href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">查看 Google Analytics 说明 <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="third-party-card">
+              <div class="block-topline"><span>图片资源</span><span aria-hidden="true">✳</span></div>
+              <h3>Unsplash</h3>
+              <p>本网站所展示的实景照片来源于 Unsplash 开放图库。图片加载过程中，Unsplash 可能接收标准 HTTP 请求日志，不涉及账户级个人识别。</p>
+              <a class="text-link dark-link" href="https://unsplash.com/privacy" target="_blank" rel="noreferrer">查看 Unsplash 隐私政策 <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+          <p class="quiet-note">除上述列明服务商外，我们不会将您的个人数据出售、出租或共享给任何无关的广告网络、数据经纪商或营销机构。</p>
+        </section>
+        <section id="hak" class="legal-block">
+          <div class="section-marker"><span>04</span><i></i><span>您的权利</span></div>
+          <h2>数据主体始终享有<em>知情与控制</em>权。</h2>
+          <p>根据《通用数据保护条例》（GDPR）、《菲律宾数据隐私法》（Republic Act 10173）及其他适用的数据保护立法，您对您的个人数据享有以下权利：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>访问权</strong>
+              <p>您有权请求获取我们所持有的关于您的个人数据副本及处理活动说明。</p>
+            </li>
+            <li>
+              <strong>更正权</strong>
+              <p>如您发现我们保存的个人数据不准确或不完整，您有权要求及时更正。</p>
+            </li>
+            <li>
+              <strong>删除权（被遗忘权）</strong>
+              <p>在法定情形下，您有权要求删除您的个人数据，例如数据已无收集目的必要或您撤回同意。</p>
+            </li>
+            <li>
+              <strong>限制处理权</strong>
+              <p>在特定情形下（如您对数据准确性提出异议、处理非法或我们不再需要数据），您有权要求限制数据处理。</p>
+            </li>
+            <li>
+              <strong>反对权</strong>
+              <p>您有权随时反对基于正当利益或直接营销目的对您个人数据的处理。</p>
+            </li>
+            <li>
+              <strong>数据可携权</strong>
+              <p>在适用条件下，您有权请求以结构化、通用且机器可读的格式接收您提供给我们的个人数据。</p>
+            </li>
+            <li>
+              <strong>投诉权</strong>
+              <p>若您认为我们的数据处理活动违反适用法规，您有权向居住地的数据保护监管机构提出投诉。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="simpan" class="legal-block">
+          <div class="section-marker"><span>05</span><i></i><span>数据存储与安全</span></div>
+          <h2>技术与组织<em>双重保障</em>。</h2>
+          <p>我们采取合理的技术与组织措施以保护您的个人数据免遭意外或非法销毁、丢失、篡改、未经授权的披露或访问：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>存储期限</strong>
+              <p>浏览日志保留期限不超过 12 个月，期满后自动匿名化或删除。您主动提交的联系信息将在相关请求处理完毕后保存不超过 3 年，以满足法律义务或争议解决需要。</p>
+            </li>
+            <li>
+              <strong>传输安全</strong>
+              <p>本网站全站启用 HTTPS 加密传输，所有页面数据在浏览器与服务器之间均通过 TLS 1.2 或更高版本协议加密传送。</p>
+            </li>
+            <li>
+              <strong>访问控制</strong>
+              <p>仅极少数维护人员在履行职责所需范围内可访问非匿名化日志，且访问均有审计记录。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="hubungi" class="legal-block">
+          <div class="section-marker"><span>06</span><i></i><span>联系我们</span></div>
+          <h2>疑问或请求？<em>我们会认真回应。</em></h2>
+          <p>若您对本隐私政策有任何疑问、希望行使数据主体权利，或发现我们的数据处理活动存在瑕疵，请通过以下渠道与我们联系。我们将在收到请求后 30 个工作日内予以书面回复：</p>
+          <div class="contact-card">
+            <div class="contact-row"><span>项目名称</span><strong>{projectName}</strong></div>
+            <div class="contact-row"><span>项目性质</span><strong>独立非营利游客信息指南</strong></div>
+            <div class="contact-row"><span>联系邮箱</span><strong>privacy@upsidedownmuseum-guide.org</strong></div>
+            <div class="contact-row"><span>信息参考来源</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
+          </div>
+          <p class="quiet-note">我们保留不时更新本隐私政策的权利。如有重大变更，将在本页面显著位置标注更新日期并保留历史版本以供查阅。本版本最后更新日期：{lastUpdated}。</p>
+        </section>
+      </article>
+    </section>
+    <section class="closing-section">
+      <div class="closing-copy">
+        <p class="eyebrow light"><span></span> 独立 · 非盈利 · 社区导向</p>
+        <h2>返回<em>首页</em>继续您的行程规划。</h2>
+        <a class="button button-paper" href="/">浏览景点指南 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <a class="brand footer-brand" href="/" aria-label="返回首页"><img src="/manus-storage/upside-down-museum-logo_b5f71d4f.png" alt="" width="42" height="42" /><span><strong>Upside Down</strong><small>Museum · Baguio</small></span></a>
+    <div class="footer-legal-links">
+      <a href="/privacy">隐私政策</a><span>·</span>
+      <a href="/terms">服务条款</a><span>·</span>
+      <a href="/cookies">Cookie 设置</a>
+    </div>
+    <a href="#atas">Ke atas ↑</a>
+  </footer>
+</BaseLayout>
+
+<style>
+  .legal-hero{position:relative;min-height:420px;padding:clamp(4rem,8vw,8rem) 0;background:var(--ink);color:var(--paper);overflow:hidden}.legal-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(17,43,73,.97) 0%,rgba(17,43,73,.8) 50%,rgba(17,43,73,.25) 85%);opacity:.55}.legal-hero-inner{position:relative;z-index:1;max-width:900px}.legal-hero h1 em{color:var(--mango)}.legal-hero .hero-intro{max-width:720px;color:rgba(247,240,223,.8);font-size:clamp(1rem,1.3vw,1.1rem);line-height:1.75}
+  .legal-content{padding:clamp(4.5rem,9vw,9rem) 0;display:grid;grid-template-columns:260px 1fr;gap:clamp(2.5rem,6vw,7rem);align-items:start}
+  .legal-toc{position:sticky;top:7rem;padding:1.8rem;border:1px solid var(--line);background:var(--paper)}.legal-toc ol{margin:1.6rem 0 0;padding:0 0 0 1.15rem;display:grid;gap:.8rem;list-style:none;counter-reset:toc}.legal-toc ol li{counter-increment:toc;position:relative;padding-left:2rem}.legal-toc ol li::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;top:.05rem;color:var(--coral);font-family:var(--serif);font-size:.95rem}.legal-toc a{color:var(--slate);font-size:.78rem;font-weight:600;border-bottom:1px solid transparent;transition:color .18s ease,border-color .18s ease}.legal-toc a:hover{color:var(--ink);border-color:var(--coral)}
+  .legal-body{display:grid;gap:clamp(4rem,8vw,8rem);max-width:780px}
+  .legal-block h2{margin:1.8rem 0 1.3rem;font-size:clamp(2.4rem,4.3vw,4.2rem)}.legal-block h2 em{font-style:italic;color:var(--coral)}.legal-block p{color:var(--slate);font-size:.95rem;line-height:1.8}
+  .bullet-list{margin:1.6rem 0 0;padding:0;list-style:none;display:grid;gap:1.4rem;border-top:1px solid var(--line)}.bullet-list li{padding:1.35rem 0 0;border-bottom:1px solid var(--line)}.bullet-list strong{display:block;margin-bottom:.55rem;font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--ink)}.bullet-list p{margin:0}
+  .third-party-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}.third-party-card{display:flex;flex-direction:column;min-height:300px;padding:1.8rem 1.5rem;background:var(--paper-deep);transition:transform .22s ease}.third-party-card:hover{transform:translateY(-4px) rotate(-.6deg)}.third-party-card h3{margin:1.5rem 0 .7rem;font-family:var(--serif);font-size:1.5rem;font-weight:400;line-height:1.15}.third-party-card p{font-size:.8rem;color:var(--slate);margin-bottom:auto}.third-party-card a{margin-top:1.2rem;align-self:flex-start;font-size:.68rem}
+  .contact-card{margin-top:2rem;padding:.4rem 0;border-top:2px solid var(--coral);border-bottom:1px solid var(--line)}.contact-row{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-row:last-child{border-bottom:0}.contact-row span{color:var(--slate);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-top:.15rem}.contact-row strong{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ink)}
+  .footer-legal-links{color:rgba(247,240,223,.65);font-size:.67rem;font-weight:700;letter-spacing:.06em}.footer-legal-links a{transition:color .18s ease}.footer-legal-links a:hover{color:var(--mango)}.footer-legal-links span{margin:0 .5rem;opacity:.45}
+  @media(max-width:880px){.legal-content{grid-template-columns:1fr}.legal-toc{position:static}.third-party-grid{grid-template-columns:1fr}.contact-row{grid-template-columns:1fr;gap:.3rem}.contact-row span{padding:0}}
+  @media(max-width:560px){.third-party-grid{grid-template-columns:1fr}.legal-hero{min-height:auto;padding-block:4.5rem}}
+</style>
