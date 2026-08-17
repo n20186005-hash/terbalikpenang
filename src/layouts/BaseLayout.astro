@@ -12,7 +12,7 @@ interface Props {
   noindex?: boolean;
 }
 
-const { title, description, image = "/manus-storage/upside-down-museum-exterior_be70b49d.jpg", noindex = false } = Astro.props;
+const { title, description, image = "/upside-down-museum-exterior.jpg", noindex = false } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
 ---
