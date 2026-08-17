@@ -1,0 +1,385 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projectName = "Upside Down Museum Guide";
+const lastUpdated = "2026年8月";
+const cityHall = "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）";
+const tourismOffice = "槟城旅游局（Penang Global Tourism）";
+const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）";
+---
+
+<BaseLayout title={`Cookie 设置 — ${projectName}`} description={`${projectName} Cookie 设置页面，说明各类 Cookie 的用途并提供偏好管理。`} noindex={true}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Cookie 设置",
+    description: `${projectName} Cookie 偏好管理`,
+    lastReviewed: "2026-08-17"
+  })} />
+  <header class="site-header" id="atas">
+    <a class="brand" href="/" aria-label="返回首页"><img src="/manus-storage/upside-down-museum-logo_b5f71d4f.png" alt="" width="48" height="48" /><span><strong>Upside Down</strong><small>Museum · 槟城</small></span></a>
+    <nav aria-label="主导航"><a href="/#pengalaman">景点概览</a><a href="/#rancang">出行规划</a><a href="/#sekitar">周边推荐</a><a href="/#soalan">常见问题</a></nav>
+  </header>
+  <main>
+    <section class="legal-hero" aria-labelledby="tajuk-hero">
+      <div class="section-wrap legal-hero-inner">
+        <p class="eyebrow"><span></span> 法律声明 · {lastUpdated}</p>
+        <h1 id="tajuk-hero">Cookie<em>设置</em></h1>
+        <p class="hero-intro">本页面说明 {projectName} 如何使用 Cookie 及类似技术。您可以在此管理您的偏好设置，随时更改同意状态。禁用部分 Cookie 可能影响网站的部分功能体验。</p>
+      </div>
+    </section>
+    <div class="poster-break" aria-hidden="true"><span>↘</span><span>↗</span><span>↘</span></div>
+    <section class="legal-content section-wrap">
+      <div class="legal-toc" aria-label="目录">
+        <div class="section-marker"><span></span><i></i><span>本文目录</span></div>
+        <ol>
+          <li><a href="#apa">什么是 Cookie</a></li>
+          <li><a href="#jenis">Cookie 分类</a></li>
+          <li><a href="#urus">偏好管理面板</a></li>
+          <li><a href="#padam">如何删除 Cookie</a></li>
+          <li><a href="#lain">更多信息</a></li>
+        </ol>
+      </div>
+      <article class="legal-body">
+        <section id="apa" class="legal-block">
+          <div class="section-marker"><span>01</span><i></i><span>什么是 Cookie</span></div>
+          <h2>小文本文件，<em>大体验差异。</em></h2>
+          <p>Cookie 是网站在您访问时通过浏览器存储在您设备（电脑、平板或手机）上的小型文本文件。每个 Cookie 通常包含名称、值、过期时间与域名信息，用于：</p>
+          <ul class="bullet-list">
+            <li>
+              <strong>记住您的设置</strong>
+              <p>例如语言选择、页面主题偏好或同意状态，使您在后续访问时无需重新配置。</p>
+            </li>
+            <li>
+              <strong>统计访问数据</strong>
+              <p>帮助运营方了解哪些页面被访问、访客从何处进入网站，以及是否出现错误，从而持续改进服务。</p>
+            </li>
+            <li>
+              <strong>提供个性化体验</strong>
+              <p>在允许情况下，基于您的浏览历史推荐内容或展示相关广告。</p>
+            </li>
+          </ul>
+          <p>除 Cookie 外，我们还可能使用像素标签（pixel tag）、本地存储（localStorage/sessionStorage）等类似技术，其管理原则与 Cookie 一致。</p>
+        </section>
+        <section id="jenis" class="legal-block">
+          <div class="section-marker"><span>02</span><i></i><span>Cookie 分类</span></div>
+          <h2>每一类都有<em>明确的用途边界。</em></h2>
+          <p>我们按用途将 Cookie 划分为四个类别。仅"必要 Cookie"为网站运行所必需，无法由您关闭；其余类别您可在下方偏好面板中自由选择开启或关闭。</p>
+          <div class="cookie-categories" role="list">
+            <article class="cookie-card necessary" role="listitem">
+              <div class="cookie-card-header">
+                <div>
+                  <div class="block-topline"><span>类别 01</span><span aria-hidden="true">◆</span></div>
+                  <h3>必要 Cookie</h3>
+                  <p class="cookie-tag locked"><span aria-hidden="true">🔒</span> 始终保持活跃</p>
+                </div>
+                <label class="switch disabled" aria-label="必要 Cookie 无法关闭">
+                  <input type="checkbox" disabled checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="cookie-card-body">
+                <p>这些 Cookie 对于网站正常运行至关重要，无法被禁用。它们通常仅在您进行相当于服务请求的操作（如设置隐私偏好、登录、填写表单）时才会被设置。</p>
+                <table class="cookie-table">
+                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>数据类型</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>cookie_consent</code></td><td>记录您的 Cookie 同意状态与偏好设置</td><td>12 个月</td><td>本地存储</td></tr>
+                    <tr><td><code>lang_pref</code></td><td>记住您选择的界面语言</td><td>会话结束</td><td>会话 Cookie</td></tr>
+                    <tr><td><code>session_id</code></td><td>维持您在同一浏览会话中的请求连续性</td><td>会话结束</td><td>会话 Cookie</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="cookie-card analytics" role="listitem">
+              <div class="cookie-card-header">
+                <div>
+                  <div class="block-topline"><span>类别 02</span><span aria-hidden="true">▰</span></div>
+                  <h3>分析型 Cookie</h3>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" data-cookie="analytics" />
+                  <span class="slider"></span>
+                  <span class="status-text" data-status="analytics">停用</span>
+                </label>
+              </div>
+              <div class="cookie-card-body">
+                <p>它们通过收集匿名使用数据，帮助我们了解访客如何与网站互动。这些信息全部汇总处理，不包含可直接识别您身份的个人信息。</p>
+                <table class="cookie-table">
+                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>提供方</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>_ga</code></td><td>区分唯一访客，计算访客与会话数据</td><td>2 年</td><td>Google Analytics</td></tr>
+                    <tr><td><code>_ga_*</code></td><td>记录当前会话状态</td><td>2 年</td><td>Google Analytics</td></tr>
+                    <tr><td><code>_gid</code></td><td>区分当日唯一访客</td><td>24 小时</td><td>Google Analytics</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="cookie-card preference" role="listitem">
+              <div class="cookie-card-header">
+                <div>
+                  <div class="block-topline"><span>类别 03</span><span aria-hidden="true">✳</span></div>
+                  <h3>偏好 Cookie</h3>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" data-cookie="preference" checked />
+                  <span class="slider"></span>
+                  <span class="status-text" data-status="preference">激活</span>
+                </label>
+              </div>
+              <div class="cookie-card-body">
+                <p>它们会记住您的设置，例如语言、主题与对比度偏好，使您在后续访问时获得更一致且舒适的阅读体验。</p>
+                <table class="cookie-table">
+                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>数据类型</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>ui_theme</code></td><td>保存界面主题选择（浅色/高对比度）</td><td>6 个月</td><td>本地存储</td></tr>
+                    <tr><td><code>font_scale</code></td><td>保存字体缩放偏好</td><td>6 个月</td><td>本地存储</td></tr>
+                    <tr><td><code>site_settings</code></td><td>保存用户界面与辅助功能偏好</td><td>12 个月</td><td>本地存储</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="cookie-card marketing" role="listitem">
+              <div class="cookie-card-header">
+                <div>
+                  <div class="block-topline"><span>类别 04</span><span aria-hidden="true">◇</span></div>
+                  <h3>营销 Cookie</h3>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" data-cookie="marketing" />
+                  <span class="slider"></span>
+                  <span class="status-text" data-status="marketing">停用</span>
+                </label>
+              </div>
+              <div class="cookie-card-body">
+                <p>它们用于展示与您兴趣相关的广告并衡量广告活动的有效性。我们默认<em>不启用</em>此类 Cookie，且本项目作为非营利信息平台，不参与任何付费广告投放网络。</p>
+                <table class="cookie-table">
+                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>提供方</th></tr></thead>
+                  <tbody>
+                    <tr><td>—</td><td>当前未部署任何营销类 Cookie</td><td>—</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="urus" class="legal-block">
+          <div class="section-marker"><span>03</span><i></i><span>偏好管理面板</span></div>
+          <h2>您的同意，<em>随时可撤回。</em></h2>
+          <p>您可通过以下操作即时更改 Cookie 偏好。更改将立即生效，并写入 <code>cookie_consent</code> 本地存储记录，保存期限为 12 个月。</p>
+          <div class="consent-panel" role="region" aria-label="Cookie 偏好管理">
+            <div class="consent-summary">
+              <div class="consent-state" id="consentState">
+                <div class="consent-indicator"></div>
+                <div>
+                  <strong id="consentTitle">未保存偏好</strong>
+                  <small id="consentSubtitle">请勾选您同意的类别后保存偏好</small>
+                </div>
+              </div>
+              <div class="consent-actions">
+                <button type="button" class="button button-paper" id="acceptAll">接受全部</button>
+                <button type="button" class="button button-coral" id="savePrefs">保存偏好设置</button>
+                <button type="button" class="button text-link dark-link" id="rejectAll" style="border:1px solid var(--line);padding-inline:1.2rem">拒绝一切非必要</button>
+              </div>
+            </div>
+            <div class="consent-detail">
+              <div class="consent-item">
+                <span class="consent-label">必要 Cookie</span>
+                <span class="consent-badge on" id="consentNecessary">始终启用</span>
+              </div>
+              <div class="consent-item">
+                <span class="consent-label">分析型 Cookie</span>
+                <span class="consent-badge off" id="consentAnalytics">未激活</span>
+              </div>
+              <div class="consent-item">
+                <span class="consent-label">偏好 Cookie</span>
+                <span class="consent-badge on" id="consentPreference">已激活</span>
+              </div>
+              <div class="consent-item">
+                <span class="consent-label">营销 Cookie</span>
+                <span class="consent-badge off" id="consentMarketing">未激活</span>
+              </div>
+              <div class="consent-item">
+                <span class="consent-label">上次保存</span>
+                <span class="consent-badge meta" id="consentTimestamp">—</span>
+              </div>
+            </div>
+            <div class="consent-note" id="consentNote" role="status" aria-live="polite"></div>
+          </div>
+        </section>
+        <section id="padam" class="legal-block">
+          <div class="section-marker"><span>04</span><i></i><span>如何删除 Cookie</span></div>
+          <h2>浏览器级别的<em>完全控制。</em></h2>
+          <p>除本页面板外，您也可随时通过浏览器设置直接删除或阻止 Cookie。以下是主流浏览器的说明链接（均为外部网站）：</p>
+          <div class="browser-grid">
+            <article class="browser-card">
+              <h3>Google Chrome</h3>
+              <a class="text-link dark-link" href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noreferrer">清除、启用和管理 Cookie <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="browser-card">
+              <h3>Microsoft Edge</h3>
+              <a class="text-link dark-link" href="https://support.microsoft.com/microsoft-edge/delete-cookies-in-microsoft-edge" target="_blank" rel="noreferrer">删除 Microsoft Edge 中的 Cookie <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="browser-card">
+              <h3>Mozilla Firefox</h3>
+              <a class="text-link dark-link" href="https://support.mozilla.org/kb/clear-cookies-and-site-data-firefox" target="_blank" rel="noreferrer">删除 Cookie 以移除网站存放的资料 <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="browser-card">
+              <h3>Safari（macOS/iOS）</h3>
+              <a class="text-link dark-link" href="https://support.apple.com/HT201265" target="_blank" rel="noreferrer">清除 Safari 中的 Cookie 和历史记录 <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+          <p class="quiet-note">请注意，清除浏览器 Cookie 将同时重置您在本网站与其他众多网站上保存的偏好设置、登录状态与同意记录。</p>
+        </section>
+        <section id="lain" class="legal-block">
+          <div class="section-marker"><span>05</span><i></i><span>更多信息</span></div>
+          <h2>仍有疑问？<em>欢迎来信。</em></h2>
+          <p>如您对本 Cookie 设置页面内容或数据处理方式有任何进一步疑问，请参考《隐私政策》或通过以下渠道直接联系我们：</p>
+          <div class="contact-card">
+            <div class="contact-row"><span>项目名称</span><strong>{projectName}</strong></div>
+            <div class="contact-row"><span>项目性质</span><strong>独立非营利游客信息指南</strong></div>
+            <div class="contact-row"><span>联系邮箱</span><strong>privacy@upsidedownmuseum-guide.org</strong></div>
+            <div class="contact-row"><span>资料参考来源</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
+            <div class="contact-row"><span>配套政策</span><strong><a href="/privacy" style="color:var(--coral)">隐私政策</a> · <a href="/terms" style="color:var(--coral)">服务条款</a></strong></div>
+          </div>
+          <p class="quiet-note">本 Cookie 设置页面最后更新日期：{lastUpdated}。若我们引入新的 Cookie 类别或变更既有处理目的，将在本页显著位置标注变更并重新征求同意。</p>
+        </section>
+      </article>
+    </section>
+    <section class="closing-section">
+      <div class="closing-copy">
+        <p class="eyebrow light"><span></span> 独立 · 非盈利 · 社区导向</p>
+        <h2>返回<em>首页</em>继续您的行程规划。</h2>
+        <a class="button button-paper" href="/">浏览景点指南 <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <a class="brand footer-brand" href="/" aria-label="返回首页"><img src="/manus-storage/upside-down-museum-logo_b5f71d4f.png" alt="" width="42" height="42" /><span><strong>Upside Down</strong><small>Museum · 槟城</small></span></a>
+    <div class="footer-legal-links">
+      <a href="/privacy">隐私政策</a><span>·</span>
+      <a href="/terms">服务条款</a><span>·</span>
+      <a href="/cookies">Cookie 设置</a>
+    </div>
+    <a href="#atas">回到顶部 ↑</a>
+  </footer>
+</BaseLayout>
+
+<script is:inline>
+(function(){
+  const STORAGE_KEY = 'cookie_consent';
+  const CATEGORIES = ['necessary','analytics','preference','marketing'];
+  const DEFAULTS = { necessary: true, analytics: false, preference: true, marketing: false };
+
+  function loadPrefs(){
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return Object.assign({}, DEFAULTS, { timestamp: null });
+      const p = JSON.parse(raw);
+      return Object.assign({}, DEFAULTS, p);
+    } catch { return Object.assign({}, DEFAULTS, { timestamp: null }); }
+  }
+  function savePrefs(p){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch {}
+  }
+  function applySwitches(p){
+    CATEGORIES.forEach(cat=>{
+      const el = document.querySelector(`input[data-cookie="${cat}"]`);
+      if(!el) return;
+      el.checked = !!p[cat];
+      updateStatus(cat, !!p[cat]);
+    });
+    updateSummary(p);
+  }
+  function updateStatus(cat, on){
+    const s = document.querySelector(`.status-text[data-status="${cat}"]`);
+    if(s){ s.textContent = on ? '激活' : '停用'; }
+    const badgeMap = { analytics: 'consentAnalytics', preference: 'consentPreference', marketing: 'consentMarketing' };
+    const b = document.getElementById(badgeMap[cat]);
+    if(b){ b.textContent = on ? '已激活' : '未激活'; b.className = 'consent-badge ' + (on ? 'on' : 'off'); }
+  }
+  function updateSummary(p){
+    const ts = document.getElementById('consentTimestamp');
+    const title = document.getElementById('consentTitle');
+    const sub = document.getElementById('consentSubtitle');
+    if(p.timestamp){
+      try { ts.textContent = new Date(p.timestamp).toLocaleString(); } catch { ts.textContent = '—'; }
+    } else { ts.textContent = '尚未保存'; }
+    const onCount = (p.analytics?1:0)+(p.preference?1:0)+(p.marketing?1:0);
+    if(p.timestamp){
+      title.textContent = onCount === 0 ? '仅接受必要 Cookie' : onCount === 3 ? '已接受全部类别' : `已启用 ${onCount} 项非必要类别`;
+      sub.textContent = '您的偏好已保存在本地存储';
+    } else {
+      title.textContent = '未保存偏好';
+      sub.textContent = '请勾选您同意的类别后保存偏好';
+    }
+  }
+  function showNote(msg, type='info'){
+    const n = document.getElementById('consentNote');
+    n.textContent = msg;
+    n.className = 'consent-note ' + type;
+    clearTimeout(n._t);
+    n._t = setTimeout(()=>{ n.textContent=''; n.className='consent-note'; }, 4500);
+  }
+  function readSwitches(){
+    const p = { necessary: true };
+    CATEGORIES.forEach(cat=>{
+      if(cat==='necessary'){ p[cat]=true; return; }
+      const el = document.querySelector(`input[data-cookie="${cat}"]`);
+      p[cat] = el ? el.checked : !!DEFAULTS[cat];
+    });
+    return p;
+  }
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const prefs = loadPrefs();
+    applySwitches(prefs);
+    updateSummary(prefs);
+
+    CATEGORIES.forEach(cat=>{
+      const el = document.querySelector(`input[data-cookie="${cat}"]`);
+      if(!el) return;
+      el.addEventListener('change', e => updateStatus(cat, e.target.checked));
+    });
+
+    document.getElementById('savePrefs').addEventListener('click', ()=>{
+      const p = Object.assign(readSwitches(), { timestamp: Date.now() });
+      savePrefs(p);
+      updateSummary(p);
+      showNote('偏好设置已保存，感谢您的选择。', 'ok');
+    });
+
+    document.getElementById('acceptAll').addEventListener('click', ()=>{
+      const p = { necessary:true, analytics:true, preference:true, marketing:true, timestamp: Date.now() };
+      savePrefs(p);
+      applySwitches(p);
+      showNote('已保存：已接受全部 Cookie 类别。', 'ok');
+    });
+
+    document.getElementById('rejectAll').addEventListener('click', ()=>{
+      const p = { necessary:true, analytics:false, preference:false, marketing:false, timestamp: Date.now() };
+      savePrefs(p);
+      applySwitches(p);
+      showNote('已保存：仅保留网站运行所必需的 Cookie。', 'ok');
+    });
+  });
+})();
+</script>
+
+<style>
+  .legal-hero{position:relative;min-height:420px;padding:clamp(4rem,8vw,8rem) 0;background:var(--ink);color:var(--paper);overflow:hidden}.legal-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(17,43,73,.97) 0%,rgba(17,43,73,.8) 50%,rgba(17,43,73,.25) 85%);opacity:.55}.legal-hero-inner{position:relative;z-index:1;max-width:900px}.legal-hero h1 em{color:var(--mango)}.legal-hero .hero-intro{max-width:720px;color:rgba(247,240,223,.8);font-size:clamp(1rem,1.3vw,1.1rem);line-height:1.75}
+  .legal-content{padding:clamp(4.5rem,9vw,9rem) 0;display:grid;grid-template-columns:260px 1fr;gap:clamp(2.5rem,6vw,7rem);align-items:start}
+  .legal-toc{position:sticky;top:7rem;padding:1.8rem;border:1px solid var(--line);background:var(--paper)}.legal-toc ol{margin:1.6rem 0 0;padding:0 0 0 1.15rem;display:grid;gap:.8rem;list-style:none;counter-reset:toc}.legal-toc ol li{counter-increment:toc;position:relative;padding-left:2rem}.legal-toc ol li::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;top:.05rem;color:var(--coral);font-family:var(--serif);font-size:.95rem}.legal-toc a{color:var(--slate);font-size:.78rem;font-weight:600;border-bottom:1px solid transparent;transition:color .18s ease,border-color .18s ease}.legal-toc a:hover{color:var(--ink);border-color:var(--coral)}
+  .legal-body{display:grid;gap:clamp(4rem,8vw,8rem);max-width:780px}
+  .legal-block h2{margin:1.8rem 0 1.3rem;font-size:clamp(2.4rem,4.3vw,4.2rem)}.legal-block h2 em{font-style:italic;color:var(--coral)}.legal-block p{color:var(--slate);font-size:.95rem;line-height:1.8}
+  .bullet-list{margin:1.6rem 0 0;padding:0;list-style:none;display:grid;gap:1.4rem;border-top:1px solid var(--line)}.bullet-list li{padding:1.35rem 0 0;border-bottom:1px solid var(--line)}.bullet-list strong{display:block;margin-bottom:.55rem;font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--ink)}.bullet-list p{margin:0}
+  .cookie-categories{margin-top:2rem;display:grid;gap:1.3rem}.cookie-card{border:1px solid var(--line);background:var(--paper)}.cookie-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;padding:1.6rem 1.7rem;border-bottom:1px solid var(--line)}.cookie-card-header h3{margin:.5rem 0 .4rem;font-family:var(--serif);font-size:1.55rem;font-weight:400}.cookie-tag{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .7rem;background:var(--paper-deep);color:var(--slate);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.cookie-card.necessary{border-top:4px solid var(--ink)}.cookie-card.analytics{border-top:4px solid var(--coral)}.cookie-card.preference{border-top:4px solid var(--mango)}.cookie-card.marketing{border-top:4px solid var(--slate)}
+  .switch{position:relative;display:inline-flex;align-items:center;gap:.75rem;cursor:pointer;min-height:44px;padding-top:.2rem}.switch.disabled{cursor:not-allowed;opacity:.85}.switch input{position:absolute;opacity:0;width:0;height:0}.slider{position:relative;width:54px;height:28px;background:var(--paper-deep);border:1px solid var(--line);border-radius:999px;transition:background .22s ease,border-color .22s ease}.slider::before{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;background:var(--paper);border:1px solid var(--line);border-radius:50%;transition:transform .22s cubic-bezier(.23,1,.32,1),background .22s ease}.switch input:checked + .slider{background:var(--coral);border-color:var(--coral-dark)}.switch input:checked + .slider::before{transform:translateX(26px);border-color:transparent;background:#fff}.switch.disabled input:checked + .slider{background:var(--ink);border-color:var(--ink-deep)}.status-text{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);min-width:42px}
+  .cookie-card-body{padding:1.5rem 1.7rem 1.7rem}.cookie-card-body p{margin:0 0 1.3rem}.cookie-table{width:100%;border-collapse:collapse;font-size:.78rem}.cookie-table th,.cookie-table td{padding:.8rem .7rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.cookie-table th{color:var(--ink);font-size:.62rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;background:var(--paper-deep)}.cookie-table td{color:var(--slate);line-height:1.55}.cookie-table code{padding:.12rem .35rem;background:var(--paper-deep);color:var(--ink);font-size:.72rem;border-radius:3px}
+  .consent-panel{margin-top:2rem;padding:1.8rem;border:2px solid var(--ink);background:var(--paper)}.consent-summary{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-bottom:1.4rem;border-bottom:1px solid var(--line)}.consent-state{display:flex;align-items:center;gap:1rem}.consent-indicator{width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(223,93,79,.14)}.consent-state strong{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:400}.consent-state small{color:var(--slate);font-size:.7rem}.consent-actions{display:flex;flex-wrap:wrap;gap:.9rem}
+  .consent-detail{margin-top:1.4rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.2rem 2rem}.consent-item{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--line)}.consent-label{font-size:.74rem;font-weight:700;color:var(--ink);letter-spacing:.03em}.consent-badge{padding:.28rem .65rem;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.consent-badge.on{background:rgba(23,59,99,.08);color:var(--ink)}.consent-badge.off{background:var(--paper-deep);color:var(--slate)}.consent-badge.meta{background:rgba(245,186,78,.18);color:var(--ink)}
+  .consent-note{margin-top:1.2rem;padding:.9rem 1rem;font-size:.78rem;font-weight:600;border-left:3px solid var(--line);color:var(--slate);background:var(--paper-deep)}.consent-note.ok{border-left-color:var(--coral);background:rgba(223,93,79,.06);color:var(--ink)}
+  .browser-grid{margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.browser-card{padding:1.4rem 1.3rem;background:var(--paper-deep);display:flex;flex-direction:column;gap:.7rem;transition:transform .2s ease}.browser-card:hover{transform:translateY(-3px)}.browser-card h3{margin:0;font-family:var(--serif);font-size:1.1rem;font-weight:400}.browser-card a{align-self:flex-start;font-size:.64rem}
+  .contact-card{margin-top:2rem;padding:.4rem 0;border-top:2px solid var(--coral);border-bottom:1px solid var(--line)}.contact-row{display:grid;grid-template-columns:160px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}.contact-row:last-child{border-bottom:0}.contact-row span{color:var(--slate);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-top:.15rem}.contact-row strong{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ink)}
+  .footer-legal-links{color:rgba(247,240,223,.65);font-size:.67rem;font-weight:700;letter-spacing:.06em}.footer-legal-links a{transition:color .18s ease}.footer-legal-links a:hover{color:var(--mango)}.footer-legal-links span{margin:0 .5rem;opacity:.45}
+  @media(max-width:880px){.legal-content{grid-template-columns:1fr}.legal-toc{position:static}.browser-grid{grid-template-columns:repeat(2,1fr)}.consent-detail{grid-template-columns:1fr}.contact-row{grid-template-columns:1fr;gap:.3rem}.contact-row span{padding:0}.cookie-table th:nth-child(4),.cookie-table td:nth-child(4){display:none}}
+  @media(max-width:560px){.legal-hero{min-height:auto;padding-block:4.5rem}.consent-actions{width:100%}.consent-actions .button{flex:1 1 100%}.cookie-card-header{flex-direction:column;align-items:stretch}.cookie-table th:nth-child(3),.cookie-table td:nth-child(3){display:none}}
+</style>
