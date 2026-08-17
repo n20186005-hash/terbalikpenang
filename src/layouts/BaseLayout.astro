@@ -1,0 +1,54 @@
+---
+/**
+ * Design reminder: “Graviti songsang, poster Nyonya” — deep indigo ink,
+ * coral route marks, warm paper and real Penang photography; never generic UI.
+ */
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image = "/manus-storage/upside-down-museum-exterior_be70b49d.jpg", noindex = false } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
+---
+
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical.toString()} />}
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical.toString()} />}
+    {socialImage && <meta property="og:image" content={socialImage.toString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-16.svg" sizes="16x16" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HXM22WWPKP');
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

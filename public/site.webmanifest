@@ -1,0 +1,13 @@
+{
+  "name": "Upside Down Museum — Penang",
+  "short_name": "Upside Down",
+  "lang": "ms",
+  "icons": [
+    { "src": "/favicon-16.svg", "sizes": "16x16", "type": "image/svg+xml" },
+    { "src": "/favicon-32.svg", "sizes": "32x32", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.svg", "sizes": "180x180", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#173B63",
+  "background_color": "#F7F0DF",
+  "display": "standalone"
+}
