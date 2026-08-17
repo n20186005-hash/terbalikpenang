@@ -6,43 +6,128 @@ const lastUpdated = "2026年8月";
 const cityHall = "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）";
 const tourismOffice = "槟城旅游局（Penang Global Tourism）";
 const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）";
+
+const t = {
+  header_aria_brand: { ms: "Kembali ke laman utama", en: "Back to homepage", zh: "返回首页" },
+  brand_small: { ms: "Muzium · Pulau Pinang", en: "Museum · Penang", zh: "Museum · 槟城" },
+  nav_aria: { ms: "Navigasi utama", en: "Main navigation", zh: "主导航" },
+  nav_pengalaman: { ms: "Pengalaman", en: "Experience", zh: "景点概览" },
+  nav_rancang: { ms: "Rancang", en: "Plan", zh: "出行规划" },
+  nav_sekitar: { ms: "Sekitar", en: "Nearby", zh: "周边推荐" },
+  nav_soalan: { ms: "Soalan", en: "FAQ", zh: "常见问题" },
+  hero_eyebrow: { ms: "Pernyataan Undang-Undang · Ogos 2026", en: "Legal Notice · August 2026", zh: "法律声明 · 2026年8月" },
+  hero_title_part_a: { ms: "Tetapan ", en: "Cookie ", zh: "Cookie" },
+  hero_title_part_b: { ms: "Cookie", en: "Settings", zh: "设置" },
+  hero_intro_ms: { ms: `Halaman ini menerangkan tetapan Cookie bagi ${projectName} dan cara kami menggunakan teknologi serupa. Anda boleh menguruskan keutamaan anda di sini dan menukar status persetujuan pada bila-bila masa. Menyahaktifkan sebahagian Cookie mungkin menjejaskan sebahagian fungsi tapak web.`, en: `This page explains the Cookie settings for ${projectName} and how we use similar technologies. You can manage your preferences here and change your consent status at any time. Disabling some Cookies may affect parts of the website experience.`, zh: `本页面说明 ${projectName} Cookie 设置说明以及我们如何使用类似技术。您可以在此管理您的偏好设置，随时更改同意状态。禁用部分 Cookie 可能影响网站的部分功能体验。` },
+  toc_title: { ms: "Isi kandungan", en: "Table of contents", zh: "本文目录" },
+  toc_1: { ms: "Apakah itu Cookie", en: "What are Cookies", zh: "什么是 Cookie" },
+  toc_2: { ms: "Kategori Cookie", en: "Cookie categories", zh: "Cookie 分类" },
+  toc_3: { ms: "Panel pengurusan keutamaan", en: "Preference management panel", zh: "偏好管理面板" },
+  toc_4: { ms: "Cara padam Cookie", en: "How to delete Cookies", zh: "如何删除 Cookie" },
+  toc_5: { ms: "Maklumat lanjut", en: "More information", zh: "更多信息" },
+  marker_01: { ms: "Apakah itu Cookie", en: "What are Cookies", zh: "什么是 Cookie" },
+  marker_02: { ms: "Kategori Cookie", en: "Cookie categories", zh: "Cookie 分类" },
+  marker_03: { ms: "Panel pengurusan keutamaan", en: "Preference management panel", zh: "偏好管理面板" },
+  marker_04: { ms: "Cara padam Cookie", en: "How to delete Cookies", zh: "如何删除 Cookie" },
+  marker_05: { ms: "Maklumat lanjut", en: "More information", zh: "更多信息" },
+  switcher_aria: { ms: "Penukar bahasa", en: "Language switcher", zh: "语言切换器" },
+  lang_switch_ms: { ms: "MS", en: "MS", zh: "马来" },
+  lang_switch_en: { ms: "EN", en: "EN", zh: "英文" },
+  lang_switch_zh: { ms: "中", en: "中", zh: "中文" },
+  cookie_cat_necessary: { ms: "Cookie Diperlukan", en: "Necessary Cookies", zh: "必要 Cookie" },
+  cookie_cat_locked: { ms: "Kekal Aktif", en: "Always active", zh: "始终保持活跃" },
+  cookie_cat_analytics: { ms: "Cookie Analitik", en: "Analytics Cookies", zh: "分析型 Cookie" },
+  cookie_cat_preference: { ms: "Cookie Keutamaan", en: "Preference Cookies", zh: "偏好 Cookie" },
+  cookie_cat_marketing: { ms: "Cookie Pemasaran", en: "Marketing Cookies", zh: "营销 Cookie" },
+  cookie_th_name: { ms: "Nama Cookie", en: "Cookie name", zh: "Cookie 名称" },
+  cookie_th_purpose: { ms: "Tujuan", en: "Purpose", zh: "用途说明" },
+  cookie_th_duration: { ms: "Tempoh Simpanan", en: "Retention", zh: "保存期限" },
+  cookie_th_type: { ms: "Jenis Data", en: "Data type", zh: "数据类型" },
+  cookie_th_provider: { ms: "Pembekal", en: "Provider", zh: "提供方" },
+  contact_project: { ms: "Nama projek", en: "Project name", zh: "项目名称" },
+  contact_nature: { ms: "Sifat projek", en: "Project nature", zh: "项目性质" },
+  contact_nature_val: { ms: "Panduan maklumat pelawat bebas bukan untung", en: "Independent non-profit visitor guide", zh: "独立非营利游客信息指南" },
+  contact_email: { ms: "Emel sokongan", en: "Contact email", zh: "联系邮箱" },
+  contact_sources: { ms: "Sumber rujukan maklumat", en: "Reference sources", zh: "信息参考来源" },
+  contact_policies: { ms: "Polisi berkaitan", en: "Related policies", zh: "配套政策" },
+  closing_tagline: { ms: "Bebas · Bukan untung · Berorientasikan komuniti", en: "Independent · Non-profit · Community-driven", zh: "独立 · 非盈利 · 社区导向" },
+  closing_title_a: { ms: "Kembali ke ", en: "Back to the ", zh: "返回" },
+  closing_title_b: { ms: "laman utama", en: "homepage", zh: "首页" },
+  closing_button: { ms: "Lihat panduan pelancongan", en: "Browse the guide", zh: "浏览景点指南" },
+  footer_nonprofit: { ms: "Laman web ini adalah projek panduan maklumat pelawat bebas dan bukan untung. Tiada pertalian dengan mana-mana agensi kerajaan atau organisasi rasmi.", en: "This website is an independent, non-profit visitor information guide project. It is not affiliated with any government agency or official organization.", zh: "本网站为一个独立的非营利游客信息指南项目，与任何政府机构或官方组织均无隶属关系。" },
+  footer_legal_heading: { ms: "Maklumat undang-undang", en: "Legal", zh: "法律信息" },
+  footer_legal_privacy: { ms: "Dasar Privasi", en: "Privacy Policy", zh: "隐私政策" },
+  footer_legal_terms: { ms: "Terma Perkhidmatan", en: "Terms of Service", zh: "服务条款" },
+  footer_legal_cookies: { ms: "Tetapan Cookie", en: "Cookie Settings", zh: "Cookie 设置" },
+  footer_copyright: { ms: `© 2026 ${projectName}. Hak cipta terpelihara.`, en: `© 2026 ${projectName}. All rights reserved.`, zh: `© 2026 ${projectName}。保留所有权利。` },
+  footer_image_heading: { ms: "Pernyataan hak cipta gambar", en: "Image copyright notice", zh: "图片产权声明" },
+  footer_image_note: { ms: "Semua gambar yang dipaparkan di laman ini adalah hak cipta pemilik fotografi asal. Kebanyakan gambar dilesenkan melalui galeri terbuka Unsplash, sebahagian lagi disumbangkan oleh penyumbang dengan atribusi.", en: "All images displayed on this site remain the copyright of their original photographers. Most are licensed via the Unsplash open library; some are donated by attributed contributors.", zh: "本网站所展示的所有图片产权及版权均归原摄影者所有。图片主要通过 Unsplash 开放图库授权使用，另有部分来自贡献者署名授权。" },
+  footer_to_top: { ms: "Ke atas ↑", en: "Back to top ↑", zh: "回到顶部 ↑" }
+};
+const sourceSentence = {
+  ms: `Maklumat pelancongan di laman ini dirujuk dan disahkan berdasarkan sumber awam daripada <strong>${cityHall}</strong>, <strong>${tourismOffice}</strong> dan <strong>${nationalTourism}</strong>. Tidak mengandungi sebarang cadangan komersial.`,
+  en: `Tourism information on this site is referenced and cross-checked against public sources from <strong>${cityHall}</strong>, <strong>${tourismOffice}</strong> and <strong>${nationalTourism}</strong>. No commercial recommendations are included.`,
+  zh: `本站景点信息均参考并对照考证自<strong>${cityHall}</strong>、<strong>${tourismOffice}</strong>与<strong>${nationalTourism}</strong>公开资料，不包含任何商业性推荐。`
+};
 ---
 
-<BaseLayout title={`Cookie 设置 — ${projectName}`} description={`${projectName} Cookie 设置页面，说明各类 Cookie 的用途并提供偏好管理。`} noindex={true}>
+<BaseLayout
+  titleMs={`Tetapan Cookie — ${projectName}`}
+  titleEn={`Cookie Settings — ${projectName}`}
+  titleZh={`Cookie 设置 — ${projectName}`}
+  descMs={`Tetapan Cookie ${projectName} — menerangkan kategori Cookie, tujuan penggunaan dan cara menguruskan keutamaan anda.`}
+  descEn={`${projectName} Cookie Settings — explaining Cookie categories, usage purposes and how to manage your preferences.`}
+  descZh={`${projectName} Cookie 设置页面，说明各类 Cookie 的用途并提供偏好管理。`}
+  noindex={true}
+>
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Cookie 设置",
-    description: `${projectName} Cookie 偏好管理`,
-    lastReviewed: "2026-08-17"
+    name: "Tetapan Cookie / Cookie Settings / Cookie 设置",
+    description: `${projectName} — Tetapan Cookie 3 bahasa`,
+    lastReviewed: "2026-08-17",
+    mainEntity: { "@type": "CreativeWork", name: "Cookie Settings" }
   })} />
   <header class="site-header" id="atas">
-    <a class="brand" href="/" aria-label="返回首页"><img src="/upside-down-museum-logo.png" alt="" width="48" height="48" /><span><strong>Upside Down</strong><small>Museum · 槟城</small></span></a>
-    <nav aria-label="主导航"><a href="/#pengalaman">景点概览</a><a href="/#rancang">出行规划</a><a href="/#sekitar">周边推荐</a><a href="/#soalan">常见问题</a></nav>
+    <a class="brand" href="/" data-i18n="header_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
+      <img src="/upside-down-museum-logo.png" alt="" width="48" height="48" />
+      <span><strong>Upside Down</strong><small data-i18n="brand_small" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small></span>
+    </a>
+    <nav data-i18n="nav_aria" data-ms={t.nav_aria.ms} data-en={t.nav_aria.en} data-zh={t.nav_aria.zh} aria-label={t.nav_aria.ms}>
+      <a href="/#pengalaman" data-i18n="nav_pengalaman" data-ms={t.nav_pengalaman.ms} data-en={t.nav_pengalaman.en} data-zh={t.nav_pengalaman.zh}>{t.nav_pengalaman.ms}</a>
+      <a href="/#rancang" data-i18n="nav_rancang" data-ms={t.nav_rancang.ms} data-en={t.nav_rancang.en} data-zh={t.nav_rancang.zh}>{t.nav_rancang.ms}</a>
+      <a href="/#sekitar" data-i18n="nav_sekitar" data-ms={t.nav_sekitar.ms} data-en={t.nav_sekitar.en} data-zh={t.nav_sekitar.zh}>{t.nav_sekitar.ms}</a>
+      <a href="/#soalan" data-i18n="nav_soalan" data-ms={t.nav_soalan.ms} data-en={t.nav_soalan.en} data-zh={t.nav_soalan.zh}>{t.nav_soalan.ms}</a>
+    </nav>
+    <div class="lang-switcher" role="group" data-i18n="switcher_aria" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} aria-label={t.switcher_aria.ms}>
+      <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
+      <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
+      <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
+    </div>
   </header>
   <main>
     <section class="legal-hero" aria-labelledby="tajuk-hero">
       <div class="section-wrap legal-hero-inner">
-        <p class="eyebrow"><span></span> 法律声明 · {lastUpdated}</p>
-        <h1 id="tajuk-hero">Cookie<em>设置</em></h1>
-        <p class="hero-intro">本页面说明 {projectName} 如何使用 Cookie 及类似技术。您可以在此管理您的偏好设置，随时更改同意状态。禁用部分 Cookie 可能影响网站的部分功能体验。</p>
+        <p class="eyebrow"><span></span> <span data-i18n="hero_eyebrow" data-ms={t.hero_eyebrow.ms} data-en={t.hero_eyebrow.en} data-zh={t.hero_eyebrow.zh}>{t.hero_eyebrow.ms}</span></p>
+        <h1 id="tajuk-hero"><span data-i18n="hero_title_a" data-ms={t.hero_title_part_a.ms} data-en={t.hero_title_part_a.en} data-zh={t.hero_title_part_a.zh}>{t.hero_title_part_a.ms}</span><em data-i18n="hero_title_b" data-ms={t.hero_title_part_b.ms} data-en={t.hero_title_part_b.en} data-zh={t.hero_title_part_b.zh}>{t.hero_title_part_b.ms}</em></h1>
+        <p class="hero-intro" data-i18n="hero_intro" data-ms={t.hero_intro_ms.ms} data-en={t.hero_intro_ms.en} data-zh={t.hero_intro_ms.zh}>{t.hero_intro_ms.ms}</p>
       </div>
     </section>
     <div class="poster-break" aria-hidden="true"><span>↘</span><span>↗</span><span>↘</span></div>
     <section class="legal-content section-wrap">
       <div class="legal-toc" aria-label="目录">
-        <div class="section-marker"><span></span><i></i><span>本文目录</span></div>
+        <div class="section-marker"><span></span><i></i><span data-i18n="toc_title" data-ms={t.toc_title.ms} data-en={t.toc_title.en} data-zh={t.toc_title.zh}>{t.toc_title.ms}</span></div>
         <ol>
-          <li><a href="#apa">什么是 Cookie</a></li>
-          <li><a href="#jenis">Cookie 分类</a></li>
-          <li><a href="#urus">偏好管理面板</a></li>
-          <li><a href="#padam">如何删除 Cookie</a></li>
-          <li><a href="#lain">更多信息</a></li>
+          <li><a href="#apa" data-i18n="toc_1" data-ms={t.toc_1.ms} data-en={t.toc_1.en} data-zh={t.toc_1.zh}>{t.toc_1.ms}</a></li>
+          <li><a href="#jenis" data-i18n="toc_2" data-ms={t.toc_2.ms} data-en={t.toc_2.en} data-zh={t.toc_2.zh}>{t.toc_2.ms}</a></li>
+          <li><a href="#urus" data-i18n="toc_3" data-ms={t.toc_3.ms} data-en={t.toc_3.en} data-zh={t.toc_3.zh}>{t.toc_3.ms}</a></li>
+          <li><a href="#padam" data-i18n="toc_4" data-ms={t.toc_4.ms} data-en={t.toc_4.en} data-zh={t.toc_4.zh}>{t.toc_4.ms}</a></li>
+          <li><a href="#lain" data-i18n="toc_5" data-ms={t.toc_5.ms} data-en={t.toc_5.en} data-zh={t.toc_5.zh}>{t.toc_5.ms}</a></li>
         </ol>
       </div>
       <article class="legal-body">
         <section id="apa" class="legal-block">
-          <div class="section-marker"><span>01</span><i></i><span>什么是 Cookie</span></div>
+          <div class="section-marker"><span>01</span><i></i><span data-i18n="marker_01" data-ms={t.marker_01.ms} data-en={t.marker_01.en} data-zh={t.marker_01.zh}>{t.marker_01.ms}</span></div>
           <h2>小文本文件，<em>大体验差异。</em></h2>
           <p>Cookie 是网站在您访问时通过浏览器存储在您设备（电脑、平板或手机）上的小型文本文件。每个 Cookie 通常包含名称、值、过期时间与域名信息，用于：</p>
           <ul class="bullet-list">
@@ -62,7 +147,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           <p>除 Cookie 外，我们还可能使用像素标签（pixel tag）、本地存储（localStorage/sessionStorage）等类似技术，其管理原则与 Cookie 一致。</p>
         </section>
         <section id="jenis" class="legal-block">
-          <div class="section-marker"><span>02</span><i></i><span>Cookie 分类</span></div>
+          <div class="section-marker"><span>02</span><i></i><span data-i18n="marker_02" data-ms={t.marker_02.ms} data-en={t.marker_02.en} data-zh={t.marker_02.zh}>{t.marker_02.ms}</span></div>
           <h2>每一类都有<em>明确的用途边界。</em></h2>
           <p>我们按用途将 Cookie 划分为四个类别。仅"必要 Cookie"为网站运行所必需，无法由您关闭；其余类别您可在下方偏好面板中自由选择开启或关闭。</p>
           <div class="cookie-categories" role="list">
@@ -70,8 +155,8 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-header">
                 <div>
                   <div class="block-topline"><span>类别 01</span><span aria-hidden="true">◆</span></div>
-                  <h3>必要 Cookie</h3>
-                  <p class="cookie-tag locked"><span aria-hidden="true">🔒</span> 始终保持活跃</p>
+                  <h3 data-i18n="cookie_cat_necessary" data-ms={t.cookie_cat_necessary.ms} data-en={t.cookie_cat_necessary.en} data-zh={t.cookie_cat_necessary.zh}>{t.cookie_cat_necessary.ms}</h3>
+                  <p class="cookie-tag locked"><span aria-hidden="true">🔒</span> <span data-i18n="cookie_cat_locked" data-ms={t.cookie_cat_locked.ms} data-en={t.cookie_cat_locked.en} data-zh={t.cookie_cat_locked.zh}>{t.cookie_cat_locked.ms}</span></p>
                 </div>
                 <label class="switch disabled" aria-label="必要 Cookie 无法关闭">
                   <input type="checkbox" disabled checked />
@@ -81,7 +166,12 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-body">
                 <p>这些 Cookie 对于网站正常运行至关重要，无法被禁用。它们通常仅在您进行相当于服务请求的操作（如设置隐私偏好、登录、填写表单）时才会被设置。</p>
                 <table class="cookie-table">
-                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>数据类型</th></tr></thead>
+                  <thead><tr>
+                    <th data-i18n="cookie_th_name" data-ms={t.cookie_th_name.ms} data-en={t.cookie_th_name.en} data-zh={t.cookie_th_name.zh}>{t.cookie_th_name.ms}</th>
+                    <th data-i18n="cookie_th_purpose" data-ms={t.cookie_th_purpose.ms} data-en={t.cookie_th_purpose.en} data-zh={t.cookie_th_purpose.zh}>{t.cookie_th_purpose.ms}</th>
+                    <th data-i18n="cookie_th_duration" data-ms={t.cookie_th_duration.ms} data-en={t.cookie_th_duration.en} data-zh={t.cookie_th_duration.zh}>{t.cookie_th_duration.ms}</th>
+                    <th data-i18n="cookie_th_type" data-ms={t.cookie_th_type.ms} data-en={t.cookie_th_type.en} data-zh={t.cookie_th_type.zh}>{t.cookie_th_type.ms}</th>
+                  </tr></thead>
                   <tbody>
                     <tr><td><code>cookie_consent</code></td><td>记录您的 Cookie 同意状态与偏好设置</td><td>12 个月</td><td>本地存储</td></tr>
                     <tr><td><code>lang_pref</code></td><td>记住您选择的界面语言</td><td>会话结束</td><td>会话 Cookie</td></tr>
@@ -94,7 +184,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-header">
                 <div>
                   <div class="block-topline"><span>类别 02</span><span aria-hidden="true">▰</span></div>
-                  <h3>分析型 Cookie</h3>
+                  <h3 data-i18n="cookie_cat_analytics" data-ms={t.cookie_cat_analytics.ms} data-en={t.cookie_cat_analytics.en} data-zh={t.cookie_cat_analytics.zh}>{t.cookie_cat_analytics.ms}</h3>
                 </div>
                 <label class="switch">
                   <input type="checkbox" data-cookie="analytics" />
@@ -105,7 +195,12 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-body">
                 <p>它们通过收集匿名使用数据，帮助我们了解访客如何与网站互动。这些信息全部汇总处理，不包含可直接识别您身份的个人信息。</p>
                 <table class="cookie-table">
-                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>提供方</th></tr></thead>
+                  <thead><tr>
+                    <th data-i18n="cookie_th_name_2" data-ms={t.cookie_th_name.ms} data-en={t.cookie_th_name.en} data-zh={t.cookie_th_name.zh}>{t.cookie_th_name.ms}</th>
+                    <th data-i18n="cookie_th_purpose_2" data-ms={t.cookie_th_purpose.ms} data-en={t.cookie_th_purpose.en} data-zh={t.cookie_th_purpose.zh}>{t.cookie_th_purpose.ms}</th>
+                    <th data-i18n="cookie_th_duration_2" data-ms={t.cookie_th_duration.ms} data-en={t.cookie_th_duration.en} data-zh={t.cookie_th_duration.zh}>{t.cookie_th_duration.ms}</th>
+                    <th data-i18n="cookie_th_provider_2" data-ms={t.cookie_th_provider.ms} data-en={t.cookie_th_provider.en} data-zh={t.cookie_th_provider.zh}>{t.cookie_th_provider.ms}</th>
+                  </tr></thead>
                   <tbody>
                     <tr><td><code>_ga</code></td><td>区分唯一访客，计算访客与会话数据</td><td>2 年</td><td>Google Analytics</td></tr>
                     <tr><td><code>_ga_*</code></td><td>记录当前会话状态</td><td>2 年</td><td>Google Analytics</td></tr>
@@ -118,7 +213,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-header">
                 <div>
                   <div class="block-topline"><span>类别 03</span><span aria-hidden="true">✳</span></div>
-                  <h3>偏好 Cookie</h3>
+                  <h3 data-i18n="cookie_cat_preference" data-ms={t.cookie_cat_preference.ms} data-en={t.cookie_cat_preference.en} data-zh={t.cookie_cat_preference.zh}>{t.cookie_cat_preference.ms}</h3>
                 </div>
                 <label class="switch">
                   <input type="checkbox" data-cookie="preference" checked />
@@ -129,7 +224,12 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-body">
                 <p>它们会记住您的设置，例如语言、主题与对比度偏好，使您在后续访问时获得更一致且舒适的阅读体验。</p>
                 <table class="cookie-table">
-                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>数据类型</th></tr></thead>
+                  <thead><tr>
+                    <th data-i18n="cookie_th_name_3" data-ms={t.cookie_th_name.ms} data-en={t.cookie_th_name.en} data-zh={t.cookie_th_name.zh}>{t.cookie_th_name.ms}</th>
+                    <th data-i18n="cookie_th_purpose_3" data-ms={t.cookie_th_purpose.ms} data-en={t.cookie_th_purpose.en} data-zh={t.cookie_th_purpose.zh}>{t.cookie_th_purpose.ms}</th>
+                    <th data-i18n="cookie_th_duration_3" data-ms={t.cookie_th_duration.ms} data-en={t.cookie_th_duration.en} data-zh={t.cookie_th_duration.zh}>{t.cookie_th_duration.ms}</th>
+                    <th data-i18n="cookie_th_type_3" data-ms={t.cookie_th_type.ms} data-en={t.cookie_th_type.en} data-zh={t.cookie_th_type.zh}>{t.cookie_th_type.ms}</th>
+                  </tr></thead>
                   <tbody>
                     <tr><td><code>ui_theme</code></td><td>保存界面主题选择（浅色/高对比度）</td><td>6 个月</td><td>本地存储</td></tr>
                     <tr><td><code>font_scale</code></td><td>保存字体缩放偏好</td><td>6 个月</td><td>本地存储</td></tr>
@@ -142,7 +242,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-header">
                 <div>
                   <div class="block-topline"><span>类别 04</span><span aria-hidden="true">◇</span></div>
-                  <h3>营销 Cookie</h3>
+                  <h3 data-i18n="cookie_cat_marketing" data-ms={t.cookie_cat_marketing.ms} data-en={t.cookie_cat_marketing.en} data-zh={t.cookie_cat_marketing.zh}>{t.cookie_cat_marketing.ms}</h3>
                 </div>
                 <label class="switch">
                   <input type="checkbox" data-cookie="marketing" />
@@ -153,7 +253,12 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
               <div class="cookie-card-body">
                 <p>它们用于展示与您兴趣相关的广告并衡量广告活动的有效性。我们默认<em>不启用</em>此类 Cookie，且本项目作为非营利信息平台，不参与任何付费广告投放网络。</p>
                 <table class="cookie-table">
-                  <thead><tr><th>Cookie 名称</th><th>用途说明</th><th>保存期限</th><th>提供方</th></tr></thead>
+                  <thead><tr>
+                    <th data-i18n="cookie_th_name_4" data-ms={t.cookie_th_name.ms} data-en={t.cookie_th_name.en} data-zh={t.cookie_th_name.zh}>{t.cookie_th_name.ms}</th>
+                    <th data-i18n="cookie_th_purpose_4" data-ms={t.cookie_th_purpose.ms} data-en={t.cookie_th_purpose.en} data-zh={t.cookie_th_purpose.zh}>{t.cookie_th_purpose.ms}</th>
+                    <th data-i18n="cookie_th_duration_4" data-ms={t.cookie_th_duration.ms} data-en={t.cookie_th_duration.en} data-zh={t.cookie_th_duration.zh}>{t.cookie_th_duration.ms}</th>
+                    <th data-i18n="cookie_th_provider_4" data-ms={t.cookie_th_provider.ms} data-en={t.cookie_th_provider.en} data-zh={t.cookie_th_provider.zh}>{t.cookie_th_provider.ms}</th>
+                  </tr></thead>
                   <tbody>
                     <tr><td>—</td><td>当前未部署任何营销类 Cookie</td><td>—</td><td>—</td></tr>
                   </tbody>
@@ -163,7 +268,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           </div>
         </section>
         <section id="urus" class="legal-block">
-          <div class="section-marker"><span>03</span><i></i><span>偏好管理面板</span></div>
+          <div class="section-marker"><span>03</span><i></i><span data-i18n="marker_03" data-ms={t.marker_03.ms} data-en={t.marker_03.en} data-zh={t.marker_03.zh}>{t.marker_03.ms}</span></div>
           <h2>您的同意，<em>随时可撤回。</em></h2>
           <p>您可通过以下操作即时更改 Cookie 偏好。更改将立即生效，并写入 <code>cookie_consent</code> 本地存储记录，保存期限为 12 个月。</p>
           <div class="consent-panel" role="region" aria-label="Cookie 偏好管理">
@@ -207,7 +312,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           </div>
         </section>
         <section id="padam" class="legal-block">
-          <div class="section-marker"><span>04</span><i></i><span>如何删除 Cookie</span></div>
+          <div class="section-marker"><span>04</span><i></i><span data-i18n="marker_04" data-ms={t.marker_04.ms} data-en={t.marker_04.en} data-zh={t.marker_04.zh}>{t.marker_04.ms}</span></div>
           <h2>浏览器级别的<em>完全控制。</em></h2>
           <p>除本页面板外，您也可随时通过浏览器设置直接删除或阻止 Cookie。以下是主流浏览器的说明链接（均为外部网站）：</p>
           <div class="browser-grid">
@@ -231,15 +336,15 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           <p class="quiet-note">请注意，清除浏览器 Cookie 将同时重置您在本网站与其他众多网站上保存的偏好设置、登录状态与同意记录。</p>
         </section>
         <section id="lain" class="legal-block">
-          <div class="section-marker"><span>05</span><i></i><span>更多信息</span></div>
+          <div class="section-marker"><span>05</span><i></i><span data-i18n="marker_05" data-ms={t.marker_05.ms} data-en={t.marker_05.en} data-zh={t.marker_05.zh}>{t.marker_05.ms}</span></div>
           <h2>仍有疑问？<em>欢迎来信。</em></h2>
           <p>如您对本 Cookie 设置页面内容或数据处理方式有任何进一步疑问，请参考《隐私政策》或通过以下渠道直接联系我们：</p>
           <div class="contact-card">
-            <div class="contact-row"><span>项目名称</span><strong>{projectName}</strong></div>
-            <div class="contact-row"><span>项目性质</span><strong>独立非营利游客信息指南</strong></div>
-            <div class="contact-row"><span>联系邮箱</span><strong>claritleonelmnicol@gmail.com</strong></div>
-            <div class="contact-row"><span>资料参考来源</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
-            <div class="contact-row"><span>配套政策</span><strong><a href="/privacy" style="color:var(--coral)">隐私政策</a> · <a href="/terms" style="color:var(--coral)">服务条款</a></strong></div>
+            <div class="contact-row"><span data-i18n="contact_project" data-ms={t.contact_project.ms} data-en={t.contact_project.en} data-zh={t.contact_project.zh}>{t.contact_project.ms}</span><strong>{projectName}</strong></div>
+            <div class="contact-row"><span data-i18n="contact_nature" data-ms={t.contact_nature.ms} data-en={t.contact_nature.en} data-zh={t.contact_nature.zh}>{t.contact_nature.ms}</span><strong data-i18n="contact_nature_val" data-ms={t.contact_nature_val.ms} data-en={t.contact_nature_val.en} data-zh={t.contact_nature_val.zh}>{t.contact_nature_val.ms}</strong></div>
+            <div class="contact-row"><span data-i18n="contact_email" data-ms={t.contact_email.ms} data-en={t.contact_email.en} data-zh={t.contact_email.zh}>{t.contact_email.ms}</span><strong>claritleonelmnicol@gmail.com</strong></div>
+            <div class="contact-row"><span data-i18n="contact_sources" data-ms={t.contact_sources.ms} data-en={t.contact_sources.en} data-zh={t.contact_sources.zh}>{t.contact_sources.ms}</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
+            <div class="contact-row"><span data-i18n="contact_policies" data-ms={t.contact_policies.ms} data-en={t.contact_policies.en} data-zh={t.contact_policies.zh}>{t.contact_policies.ms}</span><strong><a href="/privacy" style="color:var(--coral)" data-i18n="footer_legal_privacy_contact" data-ms={t.footer_legal_privacy.ms} data-en={t.footer_legal_privacy.en} data-zh={t.footer_legal_privacy.zh}>{t.footer_legal_privacy.ms}</a> · <a href="/terms" style="color:var(--coral)" data-i18n="footer_legal_terms_contact" data-ms={t.footer_legal_terms.ms} data-en={t.footer_legal_terms.en} data-zh={t.footer_legal_terms.zh}>{t.footer_legal_terms.ms}</a></strong></div>
           </div>
           <p class="quiet-note">本 Cookie 设置页面最后更新日期：{lastUpdated}。若我们引入新的 Cookie 类别或变更既有处理目的，将在本页显著位置标注变更并重新征求同意。</p>
         </section>
@@ -247,20 +352,45 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
     </section>
     <section class="closing-section">
       <div class="closing-copy">
-        <p class="eyebrow light"><span></span> 独立 · 非盈利 · 社区导向</p>
-        <h2>返回<em>首页</em>继续您的行程规划。</h2>
-        <a class="button button-paper" href="/">浏览景点指南 <span aria-hidden="true">↗</span></a>
+        <p class="eyebrow light"><span></span> <span data-i18n="closing_tagline" data-ms={t.closing_tagline.ms} data-en={t.closing_tagline.en} data-zh={t.closing_tagline.zh}>{t.closing_tagline.ms}</span></p>
+        <h2><span data-i18n="closing_title_a" data-ms={t.closing_title_a.ms} data-en={t.closing_title_a.en} data-zh={t.closing_title_a.zh}>{t.closing_title_a.ms}</span><em data-i18n="closing_title_b" data-ms={t.closing_title_b.ms} data-en={t.closing_title_b.en} data-zh={t.closing_title_b.zh}>{t.closing_title_b.ms}</em>继续您的行程规划。</h2>
+        <a class="button button-paper" href="/"><span data-i18n="closing_button" data-ms={t.closing_button.ms} data-en={t.closing_button.en} data-zh={t.closing_button.zh}>{t.closing_button.ms}</span> <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
-  <footer>
-    <a class="brand footer-brand" href="/" aria-label="返回首页"><img src="/upside-down-museum-logo.png" alt="" width="42" height="42" /><span><strong>Upside Down</strong><small>Museum · 槟城</small></span></a>
-    <div class="footer-legal-links">
-      <a href="/privacy">隐私政策</a><span>·</span>
-      <a href="/terms">服务条款</a><span>·</span>
-      <a href="/cookies">Cookie 设置</a>
+  <footer class="site-footer">
+    <div class="footer-grid section-wrap">
+      <div class="footer-brand-col">
+        <a class="brand footer-brand" href="#atas" data-i18n="footer_brand_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
+          <img src="/upside-down-museum-logo.png" alt="" width="42" height="42" />
+          <span>
+            <strong>Upside Down</strong>
+            <small data-i18n="brand_small_footer" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small>
+          </span>
+        </a>
+        <div class="lang-switcher" data-i18n="switcher_aria_footer" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
+          <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
+          <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
+          <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
+        </div>
+        <p class="footer-nonprofit" data-i18n="footer_nonprofit" data-ms={t.footer_nonprofit.ms} data-en={t.footer_nonprofit.en} data-zh={t.footer_nonprofit.zh}>{t.footer_nonprofit.ms}</p>
+        <p class="footer-sources" data-i18n="footer_sources" data-ms={sourceSentence.ms} data-en={sourceSentence.en} data-zh={sourceSentence.zh} set:html={sourceSentence.ms}></p>
+      </div>
+      <div class="footer-links-col">
+        <p class="footer-heading" data-i18n="footer_legal_heading" data-ms={t.footer_legal_heading.ms} data-en={t.footer_legal_heading.en} data-zh={t.footer_legal_heading.zh}>{t.footer_legal_heading.ms}</p>
+        <nav class="footer-nav" aria-label="法律页面导航">
+          <a href="/privacy" data-i18n="footer_legal_privacy" data-ms={t.footer_legal_privacy.ms} data-en={t.footer_legal_privacy.en} data-zh={t.footer_legal_privacy.zh}>{t.footer_legal_privacy.ms}</a>
+          <a href="/terms" data-i18n="footer_legal_terms" data-ms={t.footer_legal_terms.ms} data-en={t.footer_legal_terms.en} data-zh={t.footer_legal_terms.zh}>{t.footer_legal_terms.ms}</a>
+          <a href="/cookies" data-i18n="footer_legal_cookies" data-ms={t.footer_legal_cookies.ms} data-en={t.footer_legal_cookies.en} data-zh={t.footer_legal_cookies.zh}>{t.footer_legal_cookies.ms}</a>
+        </nav>
+        <p class="footer-copyright" data-i18n="footer_copyright" data-ms={t.footer_copyright.ms} data-en={t.footer_copyright.en} data-zh={t.footer_copyright.zh}>{t.footer_copyright.ms}</p>
+      </div>
+      <div class="footer-image-col">
+        <p class="footer-heading" data-i18n="footer_image_heading" data-ms={t.footer_image_heading.ms} data-en={t.footer_image_heading.en} data-zh={t.footer_image_heading.zh}>{t.footer_image_heading.ms}</p>
+        <p class="footer-image-note" data-i18n="footer_image_note" data-ms={t.footer_image_note.ms} data-en={t.footer_image_note.en} data-zh={t.footer_image_note.zh}>{t.footer_image_note.ms}</p>
+        <a class="footer-to-top" href="#atas" data-i18n="footer_to_top" data-ms={t.footer_to_top.ms} data-en={t.footer_to_top.en} data-zh={t.footer_to_top.zh}>{t.footer_to_top.ms}</a>
+      </div>
     </div>
-    <a href="#atas">回到顶部 ↑</a>
   </footer>
 </BaseLayout>
 
