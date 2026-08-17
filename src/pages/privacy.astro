@@ -6,48 +6,130 @@ const lastUpdated = "2026年8月";
 const cityHall = "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）";
 const tourismOffice = "槟城旅游局（Penang Global Tourism）";
 const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）";
+
+const t = {
+  header_aria_brand: { ms: "Kembali ke laman utama", en: "Back to homepage", zh: "返回首页" },
+  brand_small: { ms: "Muzium · Pulau Pinang", en: "Museum · Penang", zh: "Museum · 槟城" },
+  nav_aria: { ms: "Navigasi utama", en: "Main navigation", zh: "主导航" },
+  nav_pengalaman: { ms: "Pengalaman", en: "Experience", zh: "景点概览" },
+  nav_rancang: { ms: "Rancang", en: "Plan", zh: "出行规划" },
+  nav_sekitar: { ms: "Sekitar", en: "Nearby", zh: "周边推荐" },
+  nav_soalan: { ms: "Soalan", en: "FAQ", zh: "常见问题" },
+  hero_eyebrow: { ms: "Pernyataan Undang-Undang · Ogos 2026", en: "Legal Notice · August 2026", zh: "法律声明 · 2026年8月" },
+  hero_title_part_a: { ms: "Dasar ", en: "Privacy ", zh: "隐私" },
+  hero_title_part_b: { ms: "Privasi", en: "Policy", zh: "政策" },
+  hero_intro_ms: { ms: `Dasar ini menerangkan bagaimana ${projectName} mengumpul, menggunakan, menyimpan dan melindungi data peribadi yang anda berikan semasa melawat laman web ini. Kami berpegang pada prinsip pendata-minima: hanya memproses maklumat yang diperlukan untuk menyediakan perkhidmatan.`, en: `This policy explains how ${projectName} collects, uses, stores and protects your personal data when you visit this site. We follow strict data-minimisation: we only process information necessary to deliver the service.`, zh: `本政策阐明 ${projectName} 如何收集、使用、存储及保护您在访问本网站时提供的个人数据。我们秉持数据最小化原则，仅在为您提供服务所必需的范围内处理信息。` },
+  toc_title: { ms: "Isi kandungan", en: "Table of contents", zh: "本文目录" },
+  toc_1: { ms: "Maklumat yang kami kumpul", en: "Information we collect", zh: "我们收集的信息" },
+  toc_2: { ms: "Cara kami guna maklumat", en: "How we use your info", zh: "我们如何使用您的信息" },
+  toc_3: { ms: "Perkhidmatan pihak ketiga", en: "Third-party services", zh: "第三方服务" },
+  toc_4: { ms: "Hak anda", en: "Your rights", zh: "您的权利" },
+  toc_5: { ms: "Simpan & keselamatan data", en: "Storage & security", zh: "数据存储与安全" },
+  toc_6: { ms: "Hubungi kami", en: "Contact us", zh: "联系我们" },
+  marker_01: { ms: "Maklumat yang kami kumpul", en: "Information we collect", zh: "我们收集的信息" },
+  marker_02: { ms: "Cara kami guna maklumat", en: "How we use your info", zh: "我们如何使用您的信息" },
+  marker_03: { ms: "Perkhidmatan pihak ketiga", en: "Third-party services", zh: "第三方服务" },
+  marker_04: { ms: "Hak anda", en: "Your rights", zh: "您的权利" },
+  marker_05: { ms: "Simpan & keselamatan data", en: "Storage & security", zh: "数据存储与安全" },
+  marker_06: { ms: "Hubungi kami", en: "Contact us", zh: "联系我们" },
+  switcher_aria: { ms: "Penukar bahasa", en: "Language switcher", zh: "语言切换器" },
+  lang_switch_ms: { ms: "MS", en: "MS", zh: "马来" },
+  lang_switch_en: { ms: "EN", en: "EN", zh: "英文" },
+  lang_switch_zh: { ms: "中", en: "中", zh: "中文" },
+  card_map_label: { ms: "Perkhidmatan Peta", en: "Maps", zh: "地图服务" },
+  card_map_desc: { ms: "Digunakan untuk peta terlampir, penentuan lokasi dan panduan arah. Apabila anda memuatkan peta, Google mungkin merekodkan IP dan tingkah laku interaksi anda.", en: "Used for the embedded map, geolocation and directions. When you load the map module Google may record your IP and interaction behaviour.", zh: "用于嵌入式景点地图、地理定位与路线指引。当您加载地图模块时，Google 可能记录您的 IP 与交互行为。" },
+  card_map_link: { ms: "Lihat Dasar Privasi Google", en: "View Google Privacy Policy", zh: "查看 Google 隐私政策" },
+  card_ga_label: { ms: "Analisis Trafik", en: "Analytics", zh: "流量分析" },
+  card_ga_desc: { ms: "Mengumpul statistik lawatan tanpa nama untuk membantu kami memahami cara pelawat berinteraksi dengan laman web. Dengan penyahmampatan IP, alamat IP anda akan dipotong dalam wilayah EU sebelum dihantar.", en: "Collects anonymous visit statistics so we can understand how visitors interact with the site. With IP anonymization enabled, your IP is truncated within the EU before transmission.", zh: "用于收集匿名访问统计，帮助我们理解访客如何与网站互动。启用 IP 匿名化功能后，您的 IP 地址会在欧盟境内被截断。" },
+  card_ga_link: { ms: "Lihat penjelasan Google Analytics", en: "View Google Analytics info", zh: "查看 Google Analytics 说明" },
+  card_img_label: { ms: "Sumber Imej", en: "Images", zh: "图片资源" },
+  card_img_desc: { ms: "Foto sebenar di laman web ini berasal dari galeri terbuka Unsplash. Semasa imej dimuatkan, Unsplash mungkin menerima log permintaan HTTP standard — tiada pengenalan peringkat akaun terlibat.", en: "Real photos on this site come from the Unsplash open library. When images load, Unsplash may receive standard HTTP request logs — no account-level identification is involved.", zh: "本网站所展示的实景照片来源于 Unsplash 开放图库。图片加载过程中，Unsplash 可能接收标准 HTTP 请求日志，不涉及账户级个人识别。" },
+  card_img_link: { ms: "Lihat Dasar Privasi Unsplash", en: "View Unsplash Privacy Policy", zh: "查看 Unsplash 隐私政策" },
+  third_party_quite: { ms: "Selain penyedia yang disenaraikan di atas, kami tidak menjual, menyewakan atau berkongsi data peribadi anda dengan rangkaian iklan, broker data atau agensi pemasaran yang tidak berkaitan.", en: "Besides the listed providers above, we do not sell, rent or share your personal data with unrelated ad networks, data brokers or marketing agencies.", zh: "除上述列明服务商外，我们不会将您的个人数据出售、出租或共享给任何无关的广告网络、数据经纪商或营销机构。" },
+  contact_project: { ms: "Nama projek", en: "Project name", zh: "项目名称" },
+  contact_nature: { ms: "Sifat projek", en: "Project nature", zh: "项目性质" },
+  contact_nature_val: { ms: "Panduan maklumat pelawat bebas bukan untung", en: "Independent non-profit visitor guide", zh: "独立非营利游客信息指南" },
+  contact_email: { ms: "Emel sokongan", en: "Contact email", zh: "联系邮箱" },
+  contact_sources: { ms: "Sumber rujukan maklumat", en: "Reference sources", zh: "信息参考来源" },
+  closing_tagline: { ms: "Bebas · Bukan untung · Berorientasikan komuniti", en: "Independent · Non-profit · Community-driven", zh: "独立 · 非盈利 · 社区导向" },
+  closing_title_a: { ms: "Kembali ke ", en: "Back to the ", zh: "返回" },
+  closing_title_b: { ms: "laman utama", en: "homepage", zh: "首页" },
+  closing_button: { ms: "Lihat panduan pelancongan", en: "Browse the guide", zh: "浏览景点指南" },
+  footer_nonprofit: { ms: "Laman web ini adalah projek panduan maklumat pelawat bebas dan bukan untung. Tiada pertalian dengan mana-mana agensi kerajaan atau organisasi rasmi.", en: "This website is an independent, non-profit visitor information guide project. It is not affiliated with any government agency or official organization.", zh: "本网站为一个独立的非营利游客信息指南项目，与任何政府机构或官方组织均无隶属关系。" },
+  footer_legal_heading: { ms: "Maklumat undang-undang", en: "Legal", zh: "法律信息" },
+  footer_legal_privacy: { ms: "Dasar Privasi", en: "Privacy Policy", zh: "隐私政策" },
+  footer_legal_terms: { ms: "Terma Perkhidmatan", en: "Terms of Service", zh: "服务条款" },
+  footer_legal_cookies: { ms: "Tetapan Cookie", en: "Cookie Settings", zh: "Cookie 设置" },
+  footer_copyright: { ms: `© 2026 ${projectName}. Hak cipta terpelihara.`, en: `© 2026 ${projectName}. All rights reserved.`, zh: `© 2026 ${projectName}。保留所有权利。` },
+  footer_image_heading: { ms: "Pernyataan hak cipta gambar", en: "Image copyright notice", zh: "图片产权声明" },
+  footer_image_note: { ms: "Semua gambar yang dipaparkan di laman ini adalah hak cipta pemilik fotografi asal. Kebanyakan gambar dilesenkan melalui galeri terbuka Unsplash, sebahagian lagi disumbangkan oleh penyumbang dengan atribusi.", en: "All images displayed on this site remain the copyright of their original photographers. Most are licensed via the Unsplash open library; some are donated by attributed contributors.", zh: "本网站所展示的所有图片产权及版权均归原摄影者所有。图片主要通过 Unsplash 开放图库授权使用，另有部分来自贡献者署名授权。" },
+  footer_to_top: { ms: "Ke atas ↑", en: "Back to top ↑", zh: "回到顶部 ↑" }
+};
+const sourceSentence = {
+  ms: `Maklumat pelancongan di laman ini dirujuk dan disahkan berdasarkan sumber awam daripada <strong>${cityHall}</strong>, <strong>${tourismOffice}</strong> dan <strong>${nationalTourism}</strong>. Tidak mengandungi sebarang cadangan komersial.`,
+  en: `Tourism information on this site is referenced and cross-checked against public sources from <strong>${cityHall}</strong>, <strong>${tourismOffice}</strong> and <strong>${nationalTourism}</strong>. No commercial recommendations are included.`,
+  zh: `本站景点信息均参考并对照考证自<strong>${cityHall}</strong>、<strong>${tourismOffice}</strong>与<strong>${nationalTourism}</strong>公开资料，不包含任何商业性推荐。`
+};
 ---
 
-<BaseLayout title={`隐私政策 — ${projectName}`} description={`${projectName} 隐私政策，说明我们如何收集、使用和保护您的个人数据。`} noindex={true}>
+<BaseLayout
+  titleMs={`Dasar Privasi — ${projectName}`}
+  titleEn={`Privacy Policy — ${projectName}`}
+  titleZh={`隐私政策 — ${projectName}`}
+  descMs={`Dasar Privasi ${projectName} menerangkan cara kami mengumpul, menggunakan dan melindungi data peribadi anda.`}
+  descEn={`${projectName} Privacy Policy describing how we collect, use and protect your personal data.`}
+  descZh={`${projectName} 隐私政策，说明我们如何收集、使用和保护您的个人数据。`}
+  noindex={true}
+>
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "隐私政策",
-    description: `${projectName} 隐私政策`,
+    name: "Dasar Privasi / Privacy Policy / 隐私政策",
+    description: `${projectName} — Dasar Privasi 3 bahasa`,
     lastReviewed: "2026-08-17",
-    mainEntity: {
-      "@type": "CreativeWork",
-      name: "隐私政策"
-    }
+    mainEntity: { "@type": "CreativeWork", name: "Privacy Policy" }
   })} />
   <header class="site-header" id="atas">
-    <a class="brand" href="/" aria-label="返回首页"><img src="/upside-down-museum-logo.png" alt="" width="48" height="48" /><span><strong>Upside Down</strong><small>Museum · 槟城</small></span></a>
-    <nav aria-label="主导航"><a href="/#pengalaman">景点概览</a><a href="/#rancang">出行规划</a><a href="/#sekitar">周边推荐</a><a href="/#soalan">常见问题</a></nav>
+    <a class="brand" href="/" data-i18n="header_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
+      <img src="/upside-down-museum-logo.png" alt="" width="48" height="48" />
+      <span><strong>Upside Down</strong><small data-i18n="brand_small" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small></span>
+    </a>
+    <nav data-i18n="nav_aria" data-ms={t.nav_aria.ms} data-en={t.nav_aria.en} data-zh={t.nav_aria.zh} aria-label={t.nav_aria.ms}>
+      <a href="/#pengalaman" data-i18n="nav_pengalaman" data-ms={t.nav_pengalaman.ms} data-en={t.nav_pengalaman.en} data-zh={t.nav_pengalaman.zh}>{t.nav_pengalaman.ms}</a>
+      <a href="/#rancang" data-i18n="nav_rancang" data-ms={t.nav_rancang.ms} data-en={t.nav_rancang.en} data-zh={t.nav_rancang.zh}>{t.nav_rancang.ms}</a>
+      <a href="/#sekitar" data-i18n="nav_sekitar" data-ms={t.nav_sekitar.ms} data-en={t.nav_sekitar.en} data-zh={t.nav_sekitar.zh}>{t.nav_sekitar.ms}</a>
+      <a href="/#soalan" data-i18n="nav_soalan" data-ms={t.nav_soalan.ms} data-en={t.nav_soalan.en} data-zh={t.nav_soalan.zh}>{t.nav_soalan.ms}</a>
+    </nav>
+    <div class="lang-switcher" role="group" data-i18n="switcher_aria" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} aria-label={t.switcher_aria.ms}>
+      <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
+      <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
+      <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
+    </div>
   </header>
   <main>
     <section class="legal-hero" aria-labelledby="tajuk-hero">
       <div class="section-wrap legal-hero-inner">
-        <p class="eyebrow"><span></span> 法律声明 · {lastUpdated}</p>
-        <h1 id="tajuk-hero">隐私<em>政策</em></h1>
-        <p class="hero-intro">本政策阐明 {projectName} 如何收集、使用、存储及保护您在访问本网站时提供的个人数据。我们秉持数据最小化原则，仅在为您提供服务所必需的范围内处理信息。</p>
+        <p class="eyebrow"><span></span> <span data-i18n="hero_eyebrow" data-ms={t.hero_eyebrow.ms} data-en={t.hero_eyebrow.en} data-zh={t.hero_eyebrow.zh}>{t.hero_eyebrow.ms}</span></p>
+        <h1 id="tajuk-hero"><span data-i18n="hero_title_a" data-ms={t.hero_title_part_a.ms} data-en={t.hero_title_part_a.en} data-zh={t.hero_title_part_a.zh}>{t.hero_title_part_a.ms}</span><em data-i18n="hero_title_b" data-ms={t.hero_title_part_b.ms} data-en={t.hero_title_part_b.en} data-zh={t.hero_title_part_b.zh}>{t.hero_title_part_b.ms}</em></h1>
+        <p class="hero-intro" data-i18n="hero_intro" data-ms={t.hero_intro_ms.ms} data-en={t.hero_intro_ms.en} data-zh={t.hero_intro_ms.zh}>{t.hero_intro_ms.ms}</p>
       </div>
     </section>
     <div class="poster-break" aria-hidden="true"><span>↘</span><span>↗</span><span>↘</span></div>
     <section class="legal-content section-wrap">
       <div class="legal-toc" aria-label="目录">
-        <div class="section-marker"><span></span><i></i><span>本文目录</span></div>
+        <div class="section-marker"><span></span><i></i><span data-i18n="toc_title" data-ms={t.toc_title.ms} data-en={t.toc_title.en} data-zh={t.toc_title.zh}>{t.toc_title.ms}</span></div>
         <ol>
-          <li><a href="#kumpul">我们收集的信息</a></li>
-          <li><a href="#guna">我们如何使用您的信息</a></li>
-          <li><a href="#pihak-ketiga">第三方服务</a></li>
-          <li><a href="#hak">您的权利</a></li>
-          <li><a href="#simpan">数据存储与安全</a></li>
-          <li><a href="#hubungi">联系我们</a></li>
+          <li><a href="#kumpul" data-i18n="toc_1" data-ms={t.toc_1.ms} data-en={t.toc_1.en} data-zh={t.toc_1.zh}>{t.toc_1.ms}</a></li>
+          <li><a href="#guna" data-i18n="toc_2" data-ms={t.toc_2.ms} data-en={t.toc_2.en} data-zh={t.toc_2.zh}>{t.toc_2.ms}</a></li>
+          <li><a href="#pihak-ketiga" data-i18n="toc_3" data-ms={t.toc_3.ms} data-en={t.toc_3.en} data-zh={t.toc_3.zh}>{t.toc_3.ms}</a></li>
+          <li><a href="#hak" data-i18n="toc_4" data-ms={t.toc_4.ms} data-en={t.toc_4.en} data-zh={t.toc_4.zh}>{t.toc_4.ms}</a></li>
+          <li><a href="#simpan" data-i18n="toc_5" data-ms={t.toc_5.ms} data-en={t.toc_5.en} data-zh={t.toc_5.zh}>{t.toc_5.ms}</a></li>
+          <li><a href="#hubungi" data-i18n="toc_6" data-ms={t.toc_6.ms} data-en={t.toc_6.en} data-zh={t.toc_6.zh}>{t.toc_6.ms}</a></li>
         </ol>
       </div>
       <article class="legal-body">
         <section id="kumpul" class="legal-block">
-          <div class="section-marker"><span>01</span><i></i><span>我们收集的信息</span></div>
+          <div class="section-marker"><span>01</span><i></i><span data-i18n="marker_01" data-ms={t.marker_01.ms} data-en={t.marker_01.en} data-zh={t.marker_01.zh}>{t.marker_01.ms}</span></div>
           <h2>仅为服务所必需的<em>最低限度</em>数据。</h2>
           <p>我们严格遵循数据最小化原则，绝不收集与提供服务无关的个人信息。当您访问本网站时，可能被收集的数据类别包括：</p>
           <ul class="bullet-list">
@@ -66,7 +148,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           </ul>
         </section>
         <section id="guna" class="legal-block">
-          <div class="section-marker"><span>02</span><i></i><span>我们如何使用您的信息</span></div>
+          <div class="section-marker"><span>02</span><i></i><span data-i18n="marker_02" data-ms={t.marker_02.ms} data-en={t.marker_02.en} data-zh={t.marker_02.zh}>{t.marker_02.ms}</span></div>
           <h2>每一项处理都有<em>明确且合法</em>的目的。</h2>
           <p>我们基于正当利益、合同必要性或法律义务等合法基础处理您的个人数据，具体使用场景限于：</p>
           <ul class="bullet-list">
@@ -89,33 +171,33 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           </ul>
         </section>
         <section id="pihak-ketiga" class="legal-block">
-          <div class="section-marker"><span>03</span><i></i><span>第三方服务</span></div>
+          <div class="section-marker"><span>03</span><i></i><span data-i18n="marker_03" data-ms={t.marker_03.ms} data-en={t.marker_03.en} data-zh={t.marker_03.zh}>{t.marker_03.ms}</span></div>
           <h2>清晰列明<em>每一个</em>外部数据处理方。</h2>
           <p>本网站为提升功能与浏览体验，可能集成以下第三方服务。各服务提供商独立承担其数据处理责任，建议您查阅其相应的隐私政策：</p>
           <div class="third-party-grid">
             <article class="third-party-card">
-              <div class="block-topline"><span>地图服务</span><span aria-hidden="true">▰</span></div>
+              <div class="block-topline"><span data-i18n="card_map_label" data-ms={t.card_map_label.ms} data-en={t.card_map_label.en} data-zh={t.card_map_label.zh}>{t.card_map_label.ms}</span><span aria-hidden="true">▰</span></div>
               <h3>Google Maps</h3>
-              <p>用于嵌入式景点地图、地理定位与路线指引。当您加载地图模块时，Google 可能记录您的 IP 与交互行为。</p>
-              <a class="text-link dark-link" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">查看 Google 隐私政策 <span aria-hidden="true">↗</span></a>
+              <p data-i18n="card_map_desc" data-ms={t.card_map_desc.ms} data-en={t.card_map_desc.en} data-zh={t.card_map_desc.zh}>{t.card_map_desc.ms}</p>
+              <a class="text-link dark-link" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer"><span data-i18n="card_map_link" data-ms={t.card_map_link.ms} data-en={t.card_map_link.en} data-zh={t.card_map_link.zh}>{t.card_map_link.ms}</span> <span aria-hidden="true">↗</span></a>
             </article>
             <article class="third-party-card">
-              <div class="block-topline"><span>流量分析</span><span aria-hidden="true">▱</span></div>
+              <div class="block-topline"><span data-i18n="card_ga_label" data-ms={t.card_ga_label.ms} data-en={t.card_ga_label.en} data-zh={t.card_ga_label.zh}>{t.card_ga_label.ms}</span><span aria-hidden="true">▱</span></div>
               <h3>Google Analytics</h3>
-              <p>用于收集匿名访问统计，帮助我们理解访客如何与网站互动。启用 IP 匿名化功能后，您的 IP 地址会在欧盟境内被截断。</p>
-              <a class="text-link dark-link" href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">查看 Google Analytics 说明 <span aria-hidden="true">↗</span></a>
+              <p data-i18n="card_ga_desc" data-ms={t.card_ga_desc.ms} data-en={t.card_ga_desc.en} data-zh={t.card_ga_desc.zh}>{t.card_ga_desc.ms}</p>
+              <a class="text-link dark-link" href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer"><span data-i18n="card_ga_link" data-ms={t.card_ga_link.ms} data-en={t.card_ga_link.en} data-zh={t.card_ga_link.zh}>{t.card_ga_link.ms}</span> <span aria-hidden="true">↗</span></a>
             </article>
             <article class="third-party-card">
-              <div class="block-topline"><span>图片资源</span><span aria-hidden="true">✳</span></div>
+              <div class="block-topline"><span data-i18n="card_img_label" data-ms={t.card_img_label.ms} data-en={t.card_img_label.en} data-zh={t.card_img_label.zh}>{t.card_img_label.ms}</span><span aria-hidden="true">✳</span></div>
               <h3>Unsplash</h3>
-              <p>本网站所展示的实景照片来源于 Unsplash 开放图库。图片加载过程中，Unsplash 可能接收标准 HTTP 请求日志，不涉及账户级个人识别。</p>
-              <a class="text-link dark-link" href="https://unsplash.com/privacy" target="_blank" rel="noreferrer">查看 Unsplash 隐私政策 <span aria-hidden="true">↗</span></a>
+              <p data-i18n="card_img_desc" data-ms={t.card_img_desc.ms} data-en={t.card_img_desc.en} data-zh={t.card_img_desc.zh}>{t.card_img_desc.ms}</p>
+              <a class="text-link dark-link" href="https://unsplash.com/privacy" target="_blank" rel="noreferrer"><span data-i18n="card_img_link" data-ms={t.card_img_link.ms} data-en={t.card_img_link.en} data-zh={t.card_img_link.zh}>{t.card_img_link.ms}</span> <span aria-hidden="true">↗</span></a>
             </article>
           </div>
-          <p class="quiet-note">除上述列明服务商外，我们不会将您的个人数据出售、出租或共享给任何无关的广告网络、数据经纪商或营销机构。</p>
+          <p class="quiet-note" data-i18n="third_party_quite" data-ms={t.third_party_quite.ms} data-en={t.third_party_quite.en} data-zh={t.third_party_quite.zh}>{t.third_party_quite.ms}</p>
         </section>
         <section id="hak" class="legal-block">
-          <div class="section-marker"><span>04</span><i></i><span>您的权利</span></div>
+          <div class="section-marker"><span>04</span><i></i><span data-i18n="marker_04" data-ms={t.marker_04.ms} data-en={t.marker_04.en} data-zh={t.marker_04.zh}>{t.marker_04.ms}</span></div>
           <h2>数据主体始终享有<em>知情与控制</em>权。</h2>
           <p>根据《通用数据保护条例》（GDPR）、马来西亚《2010年个人数据保护法》（Personal Data Protection Act 2010, PDPA）及其他适用的数据保护立法，您对您的个人数据享有以下权利：</p>
           <ul class="bullet-list">
@@ -150,7 +232,7 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           </ul>
         </section>
         <section id="simpan" class="legal-block">
-          <div class="section-marker"><span>05</span><i></i><span>数据存储与安全</span></div>
+          <div class="section-marker"><span>05</span><i></i><span data-i18n="marker_05" data-ms={t.marker_05.ms} data-en={t.marker_05.en} data-zh={t.marker_05.zh}>{t.marker_05.ms}</span></div>
           <h2>技术与组织<em>双重保障</em>。</h2>
           <p>我们采取合理的技术与组织措施以保护您的个人数据免遭意外或非法销毁、丢失、篡改、未经授权的披露或访问：</p>
           <ul class="bullet-list">
@@ -169,14 +251,14 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
           </ul>
         </section>
         <section id="hubungi" class="legal-block">
-          <div class="section-marker"><span>06</span><i></i><span>联系我们</span></div>
+          <div class="section-marker"><span>06</span><i></i><span data-i18n="marker_06" data-ms={t.marker_06.ms} data-en={t.marker_06.en} data-zh={t.marker_06.zh}>{t.marker_06.ms}</span></div>
           <h2>疑问或请求？<em>我们会认真回应。</em></h2>
           <p>若您对本隐私政策有任何疑问、希望行使数据主体权利，或发现我们的数据处理活动存在瑕疵，请通过以下渠道与我们联系。我们将在收到请求后 30 个工作日内予以书面回复：</p>
           <div class="contact-card">
-            <div class="contact-row"><span>项目名称</span><strong>{projectName}</strong></div>
-            <div class="contact-row"><span>项目性质</span><strong>独立非营利游客信息指南</strong></div>
-            <div class="contact-row"><span>联系邮箱</span><strong>claritleonelmnicol@gmail.com</strong></div>
-            <div class="contact-row"><span>信息参考来源</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
+            <div class="contact-row"><span data-i18n="contact_project" data-ms={t.contact_project.ms} data-en={t.contact_project.en} data-zh={t.contact_project.zh}>{t.contact_project.ms}</span><strong>{projectName}</strong></div>
+            <div class="contact-row"><span data-i18n="contact_nature" data-ms={t.contact_nature.ms} data-en={t.contact_nature.en} data-zh={t.contact_nature.zh}>{t.contact_nature.ms}</span><strong data-i18n="contact_nature_val" data-ms={t.contact_nature_val.ms} data-en={t.contact_nature_val.en} data-zh={t.contact_nature_val.zh}>{t.contact_nature_val.ms}</strong></div>
+            <div class="contact-row"><span data-i18n="contact_email" data-ms={t.contact_email.ms} data-en={t.contact_email.en} data-zh={t.contact_email.zh}>{t.contact_email.ms}</span><strong>claritleonelmnicol@gmail.com</strong></div>
+            <div class="contact-row"><span data-i18n="contact_sources" data-ms={t.contact_sources.ms} data-en={t.contact_sources.en} data-zh={t.contact_sources.zh}>{t.contact_sources.ms}</span><strong>{cityHall} · {tourismOffice} · {nationalTourism}</strong></div>
           </div>
           <p class="quiet-note">我们保留不时更新本隐私政策的权利。如有重大变更，将在本页面显著位置标注更新日期并保留历史版本以供查阅。本版本最后更新日期：{lastUpdated}。</p>
         </section>
@@ -184,20 +266,45 @@ const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of T
     </section>
     <section class="closing-section">
       <div class="closing-copy">
-        <p class="eyebrow light"><span></span> 独立 · 非盈利 · 社区导向</p>
-        <h2>返回<em>首页</em>继续您的行程规划。</h2>
-        <a class="button button-paper" href="/">浏览景点指南 <span aria-hidden="true">↗</span></a>
+        <p class="eyebrow light"><span></span> <span data-i18n="closing_tagline" data-ms={t.closing_tagline.ms} data-en={t.closing_tagline.en} data-zh={t.closing_tagline.zh}>{t.closing_tagline.ms}</span></p>
+        <h2><span data-i18n="closing_title_a" data-ms={t.closing_title_a.ms} data-en={t.closing_title_a.en} data-zh={t.closing_title_a.zh}>{t.closing_title_a.ms}</span><em data-i18n="closing_title_b" data-ms={t.closing_title_b.ms} data-en={t.closing_title_b.en} data-zh={t.closing_title_b.zh}>{t.closing_title_b.ms}</em>继续您的行程规划。</h2>
+        <a class="button button-paper" href="/"><span data-i18n="closing_button" data-ms={t.closing_button.ms} data-en={t.closing_button.en} data-zh={t.closing_button.zh}>{t.closing_button.ms}</span> <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
-  <footer>
-    <a class="brand footer-brand" href="/" aria-label="返回首页"><img src="/upside-down-museum-logo.png" alt="" width="42" height="42" /><span><strong>Upside Down</strong><small>Museum · 槟城</small></span></a>
-    <div class="footer-legal-links">
-      <a href="/privacy">隐私政策</a><span>·</span>
-      <a href="/terms">服务条款</a><span>·</span>
-      <a href="/cookies">Cookie 设置</a>
+  <footer class="site-footer">
+    <div class="footer-grid section-wrap">
+      <div class="footer-brand-col">
+        <a class="brand footer-brand" href="#atas" data-i18n="footer_brand_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
+          <img src="/upside-down-museum-logo.png" alt="" width="42" height="42" />
+          <span>
+            <strong>Upside Down</strong>
+            <small data-i18n="brand_small_footer" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small>
+          </span>
+        </a>
+        <div class="lang-switcher" data-i18n="switcher_aria_footer" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
+          <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
+          <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
+          <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
+        </div>
+        <p class="footer-nonprofit" data-i18n="footer_nonprofit" data-ms={t.footer_nonprofit.ms} data-en={t.footer_nonprofit.en} data-zh={t.footer_nonprofit.zh}>{t.footer_nonprofit.ms}</p>
+        <p class="footer-sources" data-i18n="footer_sources" data-ms={sourceSentence.ms} data-en={sourceSentence.en} data-zh={sourceSentence.zh} set:html={sourceSentence.ms}></p>
+      </div>
+      <div class="footer-links-col">
+        <p class="footer-heading" data-i18n="footer_legal_heading" data-ms={t.footer_legal_heading.ms} data-en={t.footer_legal_heading.en} data-zh={t.footer_legal_heading.zh}>{t.footer_legal_heading.ms}</p>
+        <nav class="footer-nav" aria-label="法律页面导航">
+          <a href="/privacy" data-i18n="footer_legal_privacy" data-ms={t.footer_legal_privacy.ms} data-en={t.footer_legal_privacy.en} data-zh={t.footer_legal_privacy.zh}>{t.footer_legal_privacy.ms}</a>
+          <a href="/terms" data-i18n="footer_legal_terms" data-ms={t.footer_legal_terms.ms} data-en={t.footer_legal_terms.en} data-zh={t.footer_legal_terms.zh}>{t.footer_legal_terms.ms}</a>
+          <a href="/cookies" data-i18n="footer_legal_cookies" data-ms={t.footer_legal_cookies.ms} data-en={t.footer_legal_cookies.en} data-zh={t.footer_legal_cookies.zh}>{t.footer_legal_cookies.ms}</a>
+        </nav>
+        <p class="footer-copyright" data-i18n="footer_copyright" data-ms={t.footer_copyright.ms} data-en={t.footer_copyright.en} data-zh={t.footer_copyright.zh}>{t.footer_copyright.ms}</p>
+      </div>
+      <div class="footer-image-col">
+        <p class="footer-heading" data-i18n="footer_image_heading" data-ms={t.footer_image_heading.ms} data-en={t.footer_image_heading.en} data-zh={t.footer_image_heading.zh}>{t.footer_image_heading.ms}</p>
+        <p class="footer-image-note" data-i18n="footer_image_note" data-ms={t.footer_image_note.ms} data-en={t.footer_image_note.en} data-zh={t.footer_image_note.zh}>{t.footer_image_note.ms}</p>
+        <a class="footer-to-top" href="#atas" data-i18n="footer_to_top" data-ms={t.footer_to_top.ms} data-en={t.footer_to_top.en} data-zh={t.footer_to_top.zh}>{t.footer_to_top.ms}</a>
+      </div>
     </div>
-    <a href="#atas">回到顶部 ↑</a>
   </footer>
 </BaseLayout>
 
