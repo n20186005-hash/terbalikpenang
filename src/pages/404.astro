@@ -1,7 +1,106 @@
 ---
 /** Design reminder: preserve the indigo/coral heritage-poster language even on utility pages. */
 import BaseLayout from "../layouts/BaseLayout.astro";
+const projectName = "Upside Down Museum Guide";
+const t = {
+  header_aria_brand: { ms: "Kembali ke laman utama", en: "Back to homepage", zh: "返回首页" },
+  brand_small: { ms: "Muzium · Pulau Pinang", en: "Museum · Penang", zh: "Museum · 槟城" },
+  nav_aria: { ms: "Navigasi utama", en: "Main navigation", zh: "主导航" },
+  nav_pengalaman: { ms: "Pengalaman", en: "Experience", zh: "景点概览" },
+  nav_rancang: { ms: "Rancang", en: "Plan", zh: "出行规划" },
+  nav_sekitar: { ms: "Sekitar", en: "Nearby", zh: "周边推荐" },
+  nav_soalan: { ms: "Soalan", en: "FAQ", zh: "常见问题" },
+  switcher_aria: { ms: "Penukar bahasa", en: "Language switcher", zh: "语言切换器" },
+  lang_switch_ms: { ms: "MS", en: "MS", zh: "马来" },
+  lang_switch_en: { ms: "EN", en: "EN", zh: "英文" },
+  lang_switch_zh: { ms: "中", en: "中", zh: "中文" },
+  eyebrow: { ms: "Ralat 404", en: "404 Error", zh: "404 错误" },
+  title: { ms: "Halaman ini sudah ", en: "This page has ", zh: "这一页已经" },
+  title_em: { ms: "terbalik", en: "flipped upside down", zh: "颠倒" },
+  title_suffix: { ms: " terlalu jauh.", en: " too far.", zh: "太远了。" },
+  button: { ms: "Kembali ke panduan", en: "Back to the guide", zh: "返回景点指南" },
+  footer_nonprofit: { ms: "Laman web ini adalah projek panduan maklumat pelawat bebas dan bukan untung. Tiada pertalian dengan mana-mana agensi kerajaan atau organisasi rasmi.", en: "This website is an independent, non-profit visitor information guide project. It is not affiliated with any government agency or official organization.", zh: "本网站为一个独立的非营利游客信息指南项目，与任何政府机构或官方组织均无隶属关系。" },
+  footer_legal_heading: { ms: "Maklumat undang-undang", en: "Legal", zh: "法律信息" },
+  footer_legal_privacy: { ms: "Dasar Privasi", en: "Privacy Policy", zh: "隐私政策" },
+  footer_legal_terms: { ms: "Terma Perkhidmatan", en: "Terms of Service", zh: "服务条款" },
+  footer_legal_cookies: { ms: "Tetapan Cookie", en: "Cookie Settings", zh: "Cookie 设置" },
+  footer_copyright: { ms: `© 2026 ${projectName}. Hak cipta terpelihara.`, en: `© 2026 ${projectName}. All rights reserved.`, zh: `© 2026 ${projectName}。保留所有权利。` },
+  footer_image_heading: { ms: "Pernyataan hak cipta gambar", en: "Image copyright notice", zh: "图片产权声明" },
+  footer_image_note: { ms: "Semua gambar yang dipaparkan di laman ini adalah hak cipta pemilik fotografi asal. Kebanyakan gambar dilesenkan melalui galeri terbuka Unsplash, sebahagian lagi disumbangkan oleh penyumbang dengan atribusi.", en: "All images displayed on this site remain the copyright of their original photographers. Most are licensed via the Unsplash open library; some are donated by attributed contributors.", zh: "本网站所展示的所有图片产权及版权均归原摄影者所有。图片主要通过 Unsplash 开放图库授权使用，另有部分来自贡献者署名授权。" },
+  footer_to_top: { ms: "Ke atas ↑", en: "Back to top ↑", zh: "回到顶部 ↑" }
+};
+const cityHall = "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）";
+const tourismOffice = "槟城旅游局（Penang Global Tourism）";
+const nationalTourism = "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）";
+const sourceSentence = {
+  ms: `Maklumat pelancongan di laman ini dirujuk dan disahkan berdasarkan sumber awam daripada <strong>${cityHall}</strong>, <strong>${tourismOffice}</strong> dan <strong>${nationalTourism}</strong>. Tidak mengandungi sebarang cadangan komersial.`,
+  en: `Tourism information on this site is referenced and cross-checked against public sources from <strong>${cityHall}</strong>, <strong>${tourismOffice}</strong> and <strong>${nationalTourism}</strong>. No commercial recommendations are included.`,
+  zh: `本站景点信息均参考并对照考证自<strong>${cityHall}</strong>、<strong>${tourismOffice}</strong>与<strong>${nationalTourism}</strong>公开资料，不包含任何商业性推荐。`
+};
 ---
-<BaseLayout title="Halaman tidak ditemui — Upside Down Museum" description="Halaman yang dicari tidak ditemui." noindex>
-  <main class="not-found"><p class="eyebrow"><span></span> 404</p><h1>Halaman ini sudah <em>terbalik</em> terlalu jauh.</h1><a class="button button-coral" href="/">Kembali ke panduan</a></main>
+<BaseLayout
+  titleMs="Halaman tidak ditemui — Upside Down Museum Guide"
+  titleEn="Page not found — Upside Down Museum Guide"
+  titleZh="页面未找到 — Upside Down Museum Guide"
+  descMs="Halaman yang anda cari tidak ditemui. Kembali ke panduan utama untuk meneroka muzium terbalik di Pulau Pinang."
+  descEn="The page you were looking for was not found. Return to the main guide to explore the Upside Down Museum in Penang."
+  descZh="您访问的页面未找到。返回主指南继续探索槟城颠倒博物馆。"
+  noindex
+>
+  <header class="site-header" id="atas">
+    <a class="brand" href="/" data-i18n="header_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
+      <img src="/upside-down-museum-logo.png" alt="" width="48" height="48" />
+      <span><strong>Upside Down</strong><small data-i18n="brand_small" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small></span>
+    </a>
+    <nav data-i18n="nav_aria" data-ms={t.nav_aria.ms} data-en={t.nav_aria.en} data-zh={t.nav_aria.zh} aria-label={t.nav_aria.ms}>
+      <a href="/#pengalaman" data-i18n="nav_pengalaman" data-ms={t.nav_pengalaman.ms} data-en={t.nav_pengalaman.en} data-zh={t.nav_pengalaman.zh}>{t.nav_pengalaman.ms}</a>
+      <a href="/#rancang" data-i18n="nav_rancang" data-ms={t.nav_rancang.ms} data-en={t.nav_rancang.en} data-zh={t.nav_rancang.zh}>{t.nav_rancang.ms}</a>
+      <a href="/#sekitar" data-i18n="nav_sekitar" data-ms={t.nav_sekitar.ms} data-en={t.nav_sekitar.en} data-zh={t.nav_sekitar.zh}>{t.nav_sekitar.ms}</a>
+      <a href="/#soalan" data-i18n="nav_soalan" data-ms={t.nav_soalan.ms} data-en={t.nav_soalan.en} data-zh={t.nav_soalan.zh}>{t.nav_soalan.ms}</a>
+    </nav>
+    <div class="lang-switcher" role="group" data-i18n="switcher_aria" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} aria-label={t.switcher_aria.ms}>
+      <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
+      <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
+      <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
+    </div>
+  </header>
+  <main class="not-found">
+    <p class="eyebrow"><span></span> <span data-i18n="eyebrow" data-ms={t.eyebrow.ms} data-en={t.eyebrow.en} data-zh={t.eyebrow.zh}>{t.eyebrow.ms}</span></p>
+    <h1><span data-i18n="title" data-ms={t.title.ms} data-en={t.title.en} data-zh={t.title.zh}>{t.title.ms}</span><em data-i18n="title_em" data-ms={t.title_em.ms} data-en={t.title_em.en} data-zh={t.title_em.zh}>{t.title_em.ms}</em><span data-i18n="title_suffix" data-ms={t.title_suffix.ms} data-en={t.title_suffix.en} data-zh={t.title_suffix.zh}>{t.title_suffix.ms}</span></h1>
+    <a class="button button-coral" href="/" data-i18n="button" data-ms={t.button.ms} data-en={t.button.en} data-zh={t.button.zh}>{t.button.ms}</a>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid section-wrap">
+      <div class="footer-brand-col">
+        <a class="brand footer-brand" href="#atas" data-i18n="footer_brand_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
+          <img src="/upside-down-museum-logo.png" alt="" width="42" height="42" />
+          <span>
+            <strong>Upside Down</strong>
+            <small data-i18n="brand_small_footer" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small>
+          </span>
+        </a>
+        <div class="lang-switcher" data-i18n="switcher_aria_footer" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
+          <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
+          <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
+          <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
+        </div>
+        <p class="footer-nonprofit" data-i18n="footer_nonprofit" data-ms={t.footer_nonprofit.ms} data-en={t.footer_nonprofit.en} data-zh={t.footer_nonprofit.zh}>{t.footer_nonprofit.ms}</p>
+        <p class="footer-sources" data-i18n="footer_sources" data-ms={sourceSentence.ms} data-en={sourceSentence.en} data-zh={sourceSentence.zh} set:html={sourceSentence.ms}></p>
+      </div>
+      <div class="footer-links-col">
+        <p class="footer-heading" data-i18n="footer_legal_heading" data-ms={t.footer_legal_heading.ms} data-en={t.footer_legal_heading.en} data-zh={t.footer_legal_heading.zh}>{t.footer_legal_heading.ms}</p>
+        <nav class="footer-nav" aria-label="法律页面导航">
+          <a href="/privacy" data-i18n="footer_legal_privacy" data-ms={t.footer_legal_privacy.ms} data-en={t.footer_legal_privacy.en} data-zh={t.footer_legal_privacy.zh}>{t.footer_legal_privacy.ms}</a>
+          <a href="/terms" data-i18n="footer_legal_terms" data-ms={t.footer_legal_terms.ms} data-en={t.footer_legal_terms.en} data-zh={t.footer_legal_terms.zh}>{t.footer_legal_terms.ms}</a>
+          <a href="/cookies" data-i18n="footer_legal_cookies" data-ms={t.footer_legal_cookies.ms} data-en={t.footer_legal_cookies.en} data-zh={t.footer_legal_cookies.zh}>{t.footer_legal_cookies.ms}</a>
+        </nav>
+        <p class="footer-copyright" data-i18n="footer_copyright" data-ms={t.footer_copyright.ms} data-en={t.footer_copyright.en} data-zh={t.footer_copyright.zh}>{t.footer_copyright.ms}</p>
+      </div>
+      <div class="footer-image-col">
+        <p class="footer-heading" data-i18n="footer_image_heading" data-ms={t.footer_image_heading.ms} data-en={t.footer_image_heading.en} data-zh={t.footer_image_heading.zh}>{t.footer_image_heading.ms}</p>
+        <p class="footer-image-note" data-i18n="footer_image_note" data-ms={t.footer_image_note.ms} data-en={t.footer_image_note.en} data-zh={t.footer_image_note.zh}>{t.footer_image_note.ms}</p>
+        <a class="footer-to-top" href="#atas" data-i18n="footer_to_top" data-ms={t.footer_to_top.ms} data-en={t.footer_to_top.en} data-zh={t.footer_to_top.zh}>{t.footer_to_top.ms}</a>
+      </div>
+    </div>
+  </footer>
 </BaseLayout>
