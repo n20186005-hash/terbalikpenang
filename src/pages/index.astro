@@ -198,13 +198,13 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
         <small data-i18n="brand_small" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small>
       </span>
     </a>
-    <nav data-i18n="nav_aria" data-ms={t.nav_aria.ms} data-en={t.nav_aria.en} data-zh={t.nav_aria.zh} aria-label={t.nav_aria.ms}>
+    <nav data-i18n="nav_aria_label" data-ms={t.nav_aria.ms} data-en={t.nav_aria.en} data-zh={t.nav_aria.zh} aria-label={t.nav_aria.ms}>
       <a href="#pengalaman" data-i18n="nav_pengalaman" data-ms={t.nav_pengalaman.ms} data-en={t.nav_pengalaman.en} data-zh={t.nav_pengalaman.zh}>{t.nav_pengalaman.ms}</a>
       <a href="#rancang" data-i18n="nav_rancang" data-ms={t.nav_rancang.ms} data-en={t.nav_rancang.en} data-zh={t.nav_rancang.zh}>{t.nav_rancang.ms}</a>
       <a href="#sekitar" data-i18n="nav_sekitar" data-ms={t.nav_sekitar.ms} data-en={t.nav_sekitar.en} data-zh={t.nav_sekitar.zh}>{t.nav_sekitar.ms}</a>
       <a href="#soalan" data-i18n="nav_soalan" data-ms={t.nav_soalan.ms} data-en={t.nav_soalan.en} data-zh={t.nav_soalan.zh}>{t.nav_soalan.ms}</a>
     </nav>
-    <div class="lang-switcher" data-i18n="switcher_aria" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
+    <div class="lang-switcher" data-i18n="switcher_aria_label" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
       <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
       <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
       <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
@@ -227,14 +227,14 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
         </div>
         <p class="photo-credit" data-i18n="photo_credit" data-ms={t.photo_credit.ms} data-en={t.photo_credit.en} data-zh={t.photo_credit.zh}>{t.photo_credit.ms}</p>
       </div>
-      <div class="hero-visual" data-i18n="hero_visual_aria" data-ms={t.hero_visual_aria.ms} data-en={t.hero_visual_aria.en} data-zh={t.hero_visual_aria.zh} aria-label={t.hero_visual_aria.ms}>
+      <div class="hero-visual" data-i18n="hero_visual_aria_label" data-ms={t.hero_visual_aria.ms} data-en={t.hero_visual_aria.en} data-zh={t.hero_visual_aria.zh} aria-label={t.hero_visual_aria.ms}>
         <div class="poster-stamp"><span data-i18n="poster_stamp_1" data-ms={t.poster_stamp_1.ms} data-en={t.poster_stamp_1.en} data-zh={t.poster_stamp_1.zh}>{t.poster_stamp_1.ms}</span><br /><span data-i18n="poster_stamp_2" data-ms={t.poster_stamp_2.ms} data-en={t.poster_stamp_2.en} data-zh={t.poster_stamp_2.zh}>{t.poster_stamp_2.ms}</span></div>
         <img class="hero-graphic" data-fallback onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=abstract+upside+down+museum+geometric+pattern+indigo+coral+penang+shophouse&image_size=landscape_16_9'" src="/upside-down-museum-abstract-hero.png" alt="" aria-hidden="true" />
         <img class="hero-photo" onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+exterior+blue+shophouse+facade+georgetown+penang+malaysia&image_size=square_hd'" src="/upside-down-museum-exterior.jpg" data-i18n="hero_exterior_alt" data-ms={t.logo_alt.ms} data-en={t.logo_alt.en} data-zh={t.logo_alt.zh} alt={t.logo_alt.ms} />
         <p class="image-note" data-i18n="image_note" data-ms={t.image_note.ms} data-en={t.image_note.en} data-zh={t.image_note.zh}>{t.image_note.ms}</p>
         <div class="corner-frame" aria-hidden="true"></div>
       </div>
-      <div class="hero-facts" data-i18n="facts_aria" data-ms={t.facts_aria.ms} data-en={t.facts_aria.en} data-zh={t.facts_aria.zh} aria-label={t.facts_aria.ms}>
+      <div class="hero-facts" data-i18n="facts_aria_label" data-ms={t.facts_aria.ms} data-en={t.facts_aria.en} data-zh={t.facts_aria.zh} aria-label={t.facts_aria.ms}>
         <div><span data-i18n="facts_open_label" data-ms={t.facts_open_label.ms} data-en={t.facts_open_label.en} data-zh={t.facts_open_label.zh}>{t.facts_open_label.ms}</span><strong>09:30–18:30</strong><small data-i18n="facts_open_small" data-ms={t.facts_open_small.ms} data-en={t.facts_open_small.en} data-zh={t.facts_open_small.zh}>{t.facts_open_small.ms}</small></div>
         <div><span data-i18n="facts_price_label" data-ms={t.facts_price_label.ms} data-en={t.facts_price_label.en} data-zh={t.facts_price_label.zh}>{t.facts_price_label.ms}</span><strong>RM36</strong><small data-i18n="facts_price_small" data-ms={t.facts_price_small.ms} data-en={t.facts_price_small.en} data-zh={t.facts_price_small.zh}>{t.facts_price_small.ms}</small></div>
         <div><span data-i18n="facts_rating_label" data-ms={t.facts_rating_label.ms} data-en={t.facts_rating_label.en} data-zh={t.facts_rating_label.zh}>{t.facts_rating_label.ms}</span><strong>4.2 / 5</strong><small data-i18n="facts_rating_small" data-ms={t.facts_rating_small.ms} data-en={t.facts_rating_small.en} data-zh={t.facts_rating_small.zh}>{t.facts_rating_small.ms}</small></div>
@@ -280,7 +280,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
             <p data-i18n="p_02" data-ms={t.p_02.ms} data-en={t.p_02.en} data-zh={t.p_02.zh}>{t.p_02.ms}</p>
             <a class="button button-paper" href={callUrl}><span data-i18n="call_button" data-ms={t.call_button.ms} data-en={t.call_button.en} data-zh={t.call_button.zh}>{t.call_button.ms}</span> <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="ticket-list" data-i18n="tickets_aria" data-ms={t.tickets_aria.ms} data-en={t.tickets_aria.en} data-zh={t.tickets_aria.zh} aria-label={t.tickets_aria.ms}>
+          <div class="ticket-list" data-i18n="tickets_aria_label" data-ms={t.tickets_aria.ms} data-en={t.tickets_aria.en} data-zh={t.tickets_aria.zh} aria-label={t.tickets_aria.ms}>
             <div class="ticket-row"><span data-i18n="ticket_adult_label" data-ms={t.ticket_adult_label.ms} data-en={t.ticket_adult_label.en} data-zh={t.ticket_adult_label.zh}>{t.ticket_adult_label.ms}</span><strong>RM36</strong><small data-i18n="ticket_adult_small" data-ms={t.ticket_adult_small.ms} data-en={t.ticket_adult_small.en} data-zh={t.ticket_adult_small.zh}>{t.ticket_adult_small.ms}</small></div>
             <div class="ticket-row"><span data-i18n="ticket_child_label" data-ms={t.ticket_child_label.ms} data-en={t.ticket_child_label.en} data-zh={t.ticket_child_label.zh}>{t.ticket_child_label.ms}</span><strong>RM26</strong><small data-i18n="ticket_child_small" data-ms={t.ticket_child_small.ms} data-en={t.ticket_child_small.en} data-zh={t.ticket_child_small.zh}>{t.ticket_child_small.ms}</small></div>
             <div class="ticket-row"><span data-i18n="ticket_mykad_label" data-ms={t.ticket_mykad_label.ms} data-en={t.ticket_mykad_label.en} data-zh={t.ticket_mykad_label.zh}>{t.ticket_mykad_label.ms}</span><strong>RM26 / RM14</strong><small data-i18n="ticket_mykad_small" data-ms={t.ticket_mykad_small.ms} data-en={t.ticket_mykad_small.en} data-zh={t.ticket_mykad_small.zh}>{t.ticket_mykad_small.ms}</small></div>
@@ -413,7 +413,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
             <small data-i18n="brand_small_footer" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small>
           </span>
         </a>
-        <div class="lang-switcher" data-i18n="switcher_aria_footer" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
+        <div class="lang-switcher" data-i18n="switcher_aria_footer_label" data-ms={t.switcher_aria.ms} data-en={t.switcher_aria.en} data-zh={t.switcher_aria.zh} role="group" aria-label={t.switcher_aria.ms}>
           <button data-lang-switch="ms" type="button">{t.lang_switch_ms.ms}</button>
           <button data-lang-switch="en" type="button">{t.lang_switch_en.ms}</button>
           <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>

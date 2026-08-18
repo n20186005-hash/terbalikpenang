@@ -76,8 +76,23 @@ const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
               if (el.hasAttribute("content")) el.setAttribute("content", v);
             } else if (el.tagName === "TITLE") {
               el.textContent = v;
-            } else {
+            } else if (el.hasAttribute("aria-label")) {
+              el.setAttribute("aria-label", v);
+            } else if (el.hasAttribute("alt")) {
+              el.setAttribute("alt", v);
+            } else if (el.hasAttribute("title")) {
+              el.setAttribute("title", v);
+            } else if (el.childElementCount === 0) {
               el.textContent = v;
+            } else {
+              var textNodes = [];
+              for (var k = 0; k < el.childNodes.length; k++) {
+                var child = el.childNodes[k];
+                if (child.nodeType === Node.TEXT_NODE) textNodes.push(child);
+              }
+              if (textNodes.length === 1) {
+                textNodes[0].nodeValue = v;
+              }
             }
           }
           var switches = document.querySelectorAll("[data-lang-switch]");
