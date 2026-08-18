@@ -154,7 +154,12 @@ const t = {
   closing_button: { ms: "Mulakan perjalanan", en: "Start your visit", zh: "开启旅程" },
   footer_nonprofit: { ms: "Laman web ini adalah projek panduan maklumat pelawat bebas dan bukan untung. Tiada pertalian dengan mana-mana agensi kerajaan atau organisasi rasmi.", en: "This website is an independent, non-profit visitor information guide project. It is not affiliated with any government agency or official organization.", zh: "本网站为一个独立的非营利游客信息指南项目，与任何政府机构或官方组织均无隶属关系。" },
   footer_sources_prefix: { ms: "Maklumat pelancongan di laman ini dirujuk dan disahkan berdasarkan sumber awam daripada ", en: "The tourism information on this site is referenced and cross-checked against public sources from ", zh: "本站景点信息均参考并对照考证自" },
+  footer_sources_sep1: { ms: "、", en: ", ", zh: "、" },
+  footer_sources_sep2: { ms: " dan ", en: " and ", zh: "与" },
   footer_sources_suffix: { ms: ". Tidak mengandungi sebarang cadangan komersial.", en: ". No commercial recommendations are included.", zh: "公开资料，不包含任何商业性推荐。" },
+  footer_sources_org1: { ms: "Majlis Bandaraya Pulau Pinang (Penang Island City Council, 槟岛市政厅)", en: "Penang Island City Council (Majlis Bandaraya Pulau Pinang, 槟岛市政厅)", zh: "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）" },
+  footer_sources_org2: { ms: "Penang Global Tourism (PBT Pelancongan Pulau Pinang, 槟城旅游局)", en: "Penang Global Tourism (槟城旅游局)", zh: "槟城旅游局（Penang Global Tourism）" },
+  footer_sources_org3: { ms: "Kementerian Pelancongan, Seni & Budaya Malaysia (MOTAC, 马来西亚旅游、艺术与文化部)", en: "Ministry of Tourism, Arts & Culture Malaysia (MOTAC, 马来西亚旅游、艺术与文化部)", zh: "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）" },
   footer_legal_heading: { ms: "Maklumat undang-undang", en: "Legal", zh: "法律信息" },
   footer_legal_privacy: { ms: "Dasar Privasi", en: "Privacy Policy", zh: "隐私政策" },
   footer_legal_terms: { ms: "Terma Perkhidmatan", en: "Terms of Service", zh: "服务条款" },
@@ -170,12 +175,6 @@ const t = {
 };
 
 const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" });
-const sourceOrg1 = "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）";
-const sourceOrg2 = "槟城旅游局（Penang Global Tourism）";
-const sourceOrg3 = "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）";
-const footerSourcesMs = `${t.footer_sources_prefix.ms}<strong>${sourceOrg1}</strong>、<strong>${sourceOrg2}</strong> dan <strong>${sourceOrg3}</strong>${t.footer_sources_suffix.ms}`;
-const footerSourcesEn = `${t.footer_sources_prefix.en}<strong>${sourceOrg1}</strong>, <strong>${sourceOrg2}</strong> and <strong>${sourceOrg3}</strong>${t.footer_sources_suffix.en}`;
-const footerSourcesZh = `${t.footer_sources_prefix.zh}<strong>${sourceOrg1}</strong>、<strong>${sourceOrg2}</strong>与<strong>${sourceOrg3}</strong>${t.footer_sources_suffix.zh}`;
 ---
 
 <BaseLayout
@@ -420,7 +419,9 @@ const footerSourcesZh = `${t.footer_sources_prefix.zh}<strong>${sourceOrg1}</str
           <button data-lang-switch="zh" type="button">{t.lang_switch_zh.ms}</button>
         </div>
         <p class="footer-nonprofit" data-i18n="footer_nonprofit" data-ms={t.footer_nonprofit.ms} data-en={t.footer_nonprofit.en} data-zh={t.footer_nonprofit.zh}>{t.footer_nonprofit.ms}</p>
-        <p class="footer-sources" data-i18n="footer_sources" data-ms={footerSourcesMs} data-en={footerSourcesEn} data-zh={footerSourcesZh} set:html={footerSourcesMs}></p>
+        <p class="footer-sources">
+          <span data-i18n="footer_sources_prefix" data-ms={t.footer_sources_prefix.ms} data-en={t.footer_sources_prefix.en} data-zh={t.footer_sources_prefix.zh}>{t.footer_sources_prefix.ms}</span><strong data-i18n="footer_sources_org1" data-ms={t.footer_sources_org1.ms} data-en={t.footer_sources_org1.en} data-zh={t.footer_sources_org1.zh}>{t.footer_sources_org1.ms}</strong><span data-i18n="footer_sources_sep1" data-ms={t.footer_sources_sep1.ms} data-en={t.footer_sources_sep1.en} data-zh={t.footer_sources_sep1.zh}>{t.footer_sources_sep1.ms}</span><strong data-i18n="footer_sources_org2" data-ms={t.footer_sources_org2.ms} data-en={t.footer_sources_org2.en} data-zh={t.footer_sources_org2.zh}>{t.footer_sources_org2.ms}</strong><span data-i18n="footer_sources_sep2" data-ms={t.footer_sources_sep2.ms} data-en={t.footer_sources_sep2.en} data-zh={t.footer_sources_sep2.zh}>{t.footer_sources_sep2.ms}</span><strong data-i18n="footer_sources_org3" data-ms={t.footer_sources_org3.ms} data-en={t.footer_sources_org3.en} data-zh={t.footer_sources_org3.zh}>{t.footer_sources_org3.ms}</strong><span data-i18n="footer_sources_suffix" data-ms={t.footer_sources_suffix.ms} data-en={t.footer_sources_suffix.en} data-zh={t.footer_sources_suffix.zh}>{t.footer_sources_suffix.ms}</span>
+        </p>
       </div>
       <div class="footer-links-col">
         <p class="footer-heading" data-i18n="footer_legal_heading" data-ms={t.footer_legal_heading.ms} data-en={t.footer_legal_heading.en} data-zh={t.footer_legal_heading.zh}>{t.footer_legal_heading.ms}</p>
