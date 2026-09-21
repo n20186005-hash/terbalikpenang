@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 const siteURL = process.env.SITE_URL?.trim();
-const site = siteURL ? new URL(siteURL) : undefined;
+const site = siteURL || undefined;
 
 function manusStorageProxy() {
   return {

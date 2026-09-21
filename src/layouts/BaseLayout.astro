@@ -19,24 +19,40 @@ interface Props {
 const { titleMs, titleEn, titleZh, descMs, descEn, descZh, image = "/upside-down-museum-exterior.jpg", noindex = false } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
+// 服务端默认（爬虫看到的）语言设为英文：Search Console 数据显示英文查询占绝对多数，
+// 改为英文默认可提升英文搜索片段的 CTR；真实访客仍由前端按浏览器语言自动协商。
+const defaultLang = "en";
 ---
 
 <!doctype html>
-<html lang="ms">
+<html lang={defaultLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" data-i18n="meta_description" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descMs} />
+    <meta name="theme-color" content="#173B63" />
+    <meta name="description" data-i18n="meta_description" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descEn} />
     {canonical && <link rel="canonical" href={canonical.toString()} />}
+    {canonical && (
+      <>
+        <link rel="alternate" hreflang="en" href={canonical.toString()} />
+        <link rel="alternate" hreflang="ms" href={canonical.toString()} />
+        <link rel="alternate" hreflang="zh" href={canonical.toString()} />
+        <link rel="alternate" hreflang="x-default" href={canonical.toString()} />
+      </>
+    )}
     {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:type" content="website" />
-    <meta property="og:title" data-i18n="meta_og_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh} content={titleMs} />
-    <meta property="og:description" data-i18n="meta_og_desc" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descMs} />
-    <meta property="og:locale" data-i18n="meta_og_locale" data-ms="ms_MY" data-en="en_US" data-zh="zh_CN" content="ms_MY" />
+    <meta property="og:site_name" content="Upside Down Museum Penang" />
+    <meta property="og:title" data-i18n="meta_og_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh} content={titleEn} />
+    <meta property="og:description" data-i18n="meta_og_desc" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descEn} />
+    <meta property="og:locale" data-i18n="meta_og_locale" data-ms="ms_MY" data-en="en_US" data-zh="zh_CN" content="en_US" />
     {canonical && <meta property="og:url" content={canonical.toString()} />}
     {socialImage && <meta property="og:image" content={socialImage.toString()} />}
+    {socialImage && <meta property="og:image:alt" content="Upside Down Museum Penang — blue inverted shophouse on Lebuh Kimberley, George Town" />}
     <meta name="twitter:card" content="summary_large_image" />
-    <title data-i18n="meta_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh}>{titleMs}</title>
+    <meta name="twitter:title" data-i18n="meta_twitter_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh} content={titleEn} />
+    <meta name="twitter:description" data-i18n="meta_twitter_desc" data-ms={descMs} data-en={descEn} data-zh={descZh} content={descEn} />
+    <title data-i18n="meta_title" data-ms={titleMs} data-en={titleEn} data-zh={titleZh}>{titleEn}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.svg" sizes="32x32" type="image/svg+xml" />
     <link rel="icon" href="/favicon-16.svg" sizes="16x16" type="image/svg+xml" />
@@ -49,7 +65,7 @@ const socialImage = Astro.site ? new URL(image, Astro.site) : undefined;
       (function () {
         var STORAGE_KEY = "ui_lang";
         var SUPPORTED = { ms: true, en: true, zh: true };
-        var DEFAULT = "ms";
+        var DEFAULT = "en";
         function currentLang() {
           try {
             var s = localStorage.getItem(STORAGE_KEY);

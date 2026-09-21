@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# 强制 https 版本为收录标准；http 流量应在 Cloudflare 控制台开启
+# “Always Use HTTPS” 做 301 重定向后再被抓取。
+Sitemap: https://terbalikpenang.com/sitemap-index.xml

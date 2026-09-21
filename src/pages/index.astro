@@ -27,6 +27,20 @@ const attractionSchema = {
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.2", reviewCount: "5819", bestRating: "5" }
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Upside Down Museum Penang",
+  ...(pageURL ? { url: pageURL } : {}),
+  image: Astro.site ? new URL("/upside-down-museum-exterior.jpg", Astro.site).toString() : imageFallback,
+  telephone: "+60 4-264 2660",
+  priceRange: "RM26–RM36",
+  address: { "@type": "PostalAddress", streetAddress: "45, Lebuh Kimberley", addressLocality: "George Town", postalCode: "10100", addressRegion: "Pulau Pinang", addressCountry: "MY" },
+  geo: { "@type": "GeoCoordinates", latitude: 5.4158046, longitude: 100.3335296 },
+  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:30", closes: "18:30" }],
+  ...(mapUrl ? { hasMap: mapUrl } : {})
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -178,14 +192,15 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
 ---
 
 <BaseLayout
-  titleMs="Muzium Terbalik — George Town, Pulau Pinang"
-  titleEn="Upside Down Museum — George Town, Penang, Malaysia"
-  titleZh="颠倒博物馆 — 马来西亚槟城乔治市"
-  descMs="Panduan pelawat berguna untuk Muzium Terbalik di Lebuh Kimberley, George Town Pulau Pinang: harga tiket dalam RM, waktu operasi, cara ke sini, maklumat letak kereta, makanan jalanan dan mercu tanda warisan sekitar."
-  descEn="Practical visitor guide to Upside Down Museum on Lebuh Kimberley, George Town Penang: ticket prices in RM, opening hours, transport options, parking info, street food and nearby heritage landmarks."
-  descZh="槟城乔治市金伯利街颠倒博物馆实用游客指南：门票令吉价格、开放时间、交通方式、停车信息、街头美食与周边世遗景点。"
+  titleMs="Muzium Terbalik Penang · Panduan Pelawat George Town"
+  titleEn="Upside Down Museum Penang · George Town Travel Guide"
+  titleZh="槟城颠倒博物馆 · 乔治市旅游指南"
+  descMs="Panduan rasmi pelawat Muzium Terbalik Penang di Lebuh Kimberley, George Town: harga tiket (Dewasa RM36, Kanak-kanak RM26), waktu operasi harian 09:30–18:30, cara ke sini, tempat letak kereta dan mercu tanda warisan berdekatan."
+  descEn="Official visitor guide to Upside Down Museum Penang on Lebuh Kimberley, George Town: ticket prices (Adult RM36, Child RM26), daily opening hours 09:30–18:30, how to get here, parking and nearby heritage sights."
+  descZh="槟城乔治市金伯利街颠倒博物馆官方游客指南：门票价格（成人 RM36、儿童 RM26）、每日开放时间 09:30–18:30、交通方式、停车与周边世遗景点。"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(attractionSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script define:vars={{ fallback: imageFallback }} is:inline>
   window.__imgFallback = window.__imgFallback || document.currentScript.dataset.fallback || "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+georgetown+penang+shophouse+inverted+rooms+nyonya+colors&image_size=square_hd";
