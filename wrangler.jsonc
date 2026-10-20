@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "upside-down-museum-guide",
+  "name": "terbalikpenang",
+  "main": "src/worker.js",
   "compatibility_date": "2026-08-17",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "not_found_handling": "404-page"
   }
 }
