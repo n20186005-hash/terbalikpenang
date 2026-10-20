@@ -5,13 +5,11 @@
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const placeName = "Upside Down Museum Penang";
 const address = "45, Lebuh Kimberley, George Town, 10100 George Town, Pulau Pinang, Malaysia";
 const mapUrl = "https://maps.app.goo.gl/gk7T76pQTtcqWbXBA";
 const callUrl = "tel:+6042642660";
 const pageURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
 
-const imageFallback = "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+georgetown+penang+shophouse+interior+inverted+rooms+nyonya+colors&image_size=square_hd";
 
 const attractionSchema = {
   "@context": "https://schema.org",
@@ -19,37 +17,12 @@ const attractionSchema = {
   name: "Upside Down Museum Penang",
   ...(pageURL ? { url: pageURL } : {}),
   description: "Muzium ilusi terbalik interaktif di kawasan Warisan Dunia George Town, Pulau Pinang — bertempat di rumah kedai tradisional dengan pelbagai ruang tematik songsang dan hiasan gaya Nyonya tempatan, mencipta pengalaman fotografi kreatif.",
-  image: Astro.site ? new URL("/upside-down-museum-exterior.jpg", Astro.site).toString() : imageFallback,
+  image: Astro.site ? new URL("/upside-down-museum-exterior.jpg", Astro.site).toString() : undefined,
   address: { "@type": "PostalAddress", streetAddress: "45, Lebuh Kimberley", addressLocality: "George Town", postalCode: "10100", addressRegion: "Pulau Pinang", addressCountry: "MY" },
   geo: { "@type": "GeoCoordinates", latitude: 5.4158046, longitude: 100.3335296 },
   telephone: "+60 4-264 2660",
   openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:30", closes: "18:30" }],
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "4.2", reviewCount: "5819", bestRating: "5" }
-};
 
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Upside Down Museum Penang",
-  ...(pageURL ? { url: pageURL } : {}),
-  image: Astro.site ? new URL("/upside-down-museum-exterior.jpg", Astro.site).toString() : imageFallback,
-  telephone: "+60 4-264 2660",
-  priceRange: "RM26–RM36",
-  address: { "@type": "PostalAddress", streetAddress: "45, Lebuh Kimberley", addressLocality: "George Town", postalCode: "10100", addressRegion: "Pulau Pinang", addressCountry: "MY" },
-  geo: { "@type": "GeoCoordinates", latitude: 5.4158046, longitude: 100.3335296 },
-  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:30", closes: "18:30" }],
-  ...(mapUrl ? { hasMap: mapUrl } : {})
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    { "@type": "Question", name: "Berapa lama masa yang disyorkan untuk melawat Upside Down Museum Pulau Pinang?", acceptedAnswer: { "@type": "Answer", text: "Sediakan masa sekitar 1 jam untuk berjalan di seluruh ruang pameran dan bergambar. Jika anda ingin mengelakkan orang ramai untuk latar belakang yang lebih bersih, pilih waktu luar puncak pada hari bekerja." } },
-    { "@type": "Question", name: "Bolehkah mengambil gambar dan video di dalam muzium?", acceptedAnswer: { "@type": "Answer", text: "Boleh. Seluruh muzium ini direka khas untuk pengalaman fotografi ilusi. Kad rujukan pose disediakan di setiap ruang untuk membantu anda mencari sudut yang paling menarik." } },
-    { "@type": "Question", name: "Bagaimana untuk ke muzium dari Lapangan Terbang Antarabangsa Pulau Pinang?", acceptedAnswer: { "@type": "Answer", text: "Dari Lapangan Terbang Antarabangsa Pulau Pinang (PEN), cara paling terus ialah mengambil teksi atau e-hailing Grab terus ke Lebuh Kimberley. Perjalanan mengambil masa lebih kurang 30–45 minit bergantung pada trafik di bandar." } },
-    { "@type": "Question", name: "Adakah tempat letak kereta mudah didapati berhampiran muzium?", acceptedAnswer: { "@type": "Answer", text: "Tempat letak kereta di tepi jalan di teras warisan George Town sangat terhad. Sebaiknya guna tempat letak kereta awam berhampiran Komtar atau bangunan bertingkat, kemudian berjalan kaki atau ambil e-hailing jarak pendek." } }
-  ]
 };
 
 const t = {
@@ -64,8 +37,8 @@ const t = {
   logo_alt: { ms: "Logo rumah kedai biru terbalik Muzium Terbalik", en: "Upside Down Museum blue inverted shophouse logo", zh: "倒立蓝色店屋颠倒博物馆标志" },
   brand_small: { ms: "Muzium · Pulau Pinang", en: "Museum · Penang", zh: "Museum · 槟城" },
   eyebrow_location: { ms: "George Town · Pulau Pinang", en: "George Town · Penang", zh: "乔治市 · 槟城" },
-  hero_title_inner_a: { ms: "Di sini, ", en: "Here, ", zh: "在这里，" },
-  hero_title_inner_b: { ms: "lantai pun enggan kekal di bawah", en: "even the floor refuses to stay beneath you", zh: "连地板都不愿待在脚下" },
+  hero_title_inner_a: {"ms": "Muzium Terbalik Penang. ", "en": "Upside Down Museum Penang. ", "zh": "槟城颠倒博物馆。"},
+  hero_title_inner_b: {"ms": "Sudut baharu George Town.", "en": "A new angle on George Town.", "zh": "从新角度看乔治市。"},
   hero_intro: { ms: "Masuk ke sebuah rumah kedai tradisional di Lebuh Kimberley, dan lihat semula Pulau Pinang dari sudut yang songsang. Enam ruang tematik, satu memori George Town yang diterbalikkan sepenuhnya — banyak sebab untuk anda memutar skrin telefon.", en: "Step into a traditional shophouse on Lebuh Kimberley and rediscover Penang from an upside-down angle. Six themed rooms, one fully flipped George Town memory — plenty of reasons to rotate your phone screen.", zh: "走进金伯利街（Lebuh Kimberley）一间传统老店屋，用颠倒的视角重新看槟城。六大主题空间，一条完全翻转的乔治市记忆，给你无数旋转手机屏幕的理由。" },
   hero_plan: { ms: "Rancang lawatan", en: "Plan your visit", zh: "规划行程" },
   hero_open_map: { ms: "Buka peta", en: "Open map", zh: "打开地图" },
@@ -77,10 +50,10 @@ const t = {
   facts_aria: { ms: "Maklumat utama", en: "Key information", zh: "核心信息" },
   facts_open_label: { ms: "WAKTU", en: "HOURS", zh: "开放时间" },
   facts_open_small: { ms: "Buka setiap hari · Kemasukan terakhir 17:45", en: "Open daily · Last entry 17:45", zh: "每日开放 · 最晚入场 17:45" },
-  facts_price_label: { ms: "DARI", en: "FROM", zh: "票价起" },
-  facts_price_small: { ms: "Dewasa · Kanak-kanak RM26", en: "Adult · Child RM26", zh: "成人 · 儿童 RM26" },
+  facts_price_label: {"ms": "TIKET", "en": "TICKETS", "zh": "门票"},
+  facts_price_small: {"ms": "Harga semasa belum disahkan; semak operator", "en": "Current prices unverified; ask the operator", "zh": "未核当前票价；请向运营方确认"},
   facts_rating_label: { ms: "ULASAN", en: "RATING", zh: "游客评分" },
-  facts_rating_small: { ms: "5,819 ulasan Google Maps", en: "5,819 Google Maps reviews", zh: "5,819 则 Google Maps 评价" },
+  facts_rating_small: {"ms": "5,860 ulasan Google Maps · 19 Okt 2026", "en": "5,860 Google Maps reviews · 19 Oct 2026", "zh": "5,860条Google地图评价 · 2026年10月19日"},
   marker_01_label: { ms: "Kenapa datang", en: "Why visit", zh: "为什么值得来" },
   eyebrow_01: { ms: "Di dalam bingkai yang salah letak", en: "Inside a misaligned frame", zh: "在一个错位的画框里" },
   h2_01_a: { ms: "Rumah kedai yang biasa. ", en: "An ordinary shophouse. ", zh: "寻常的店屋。" },
@@ -89,7 +62,7 @@ const t = {
   story_room_alt: { ms: "Ruang tamu tematik dengan perabot songsang di dalam muzium", en: "Themed living room with inverted furniture inside the museum", zh: "颠倒博物馆内倒置家具的主题客厅场景" },
   figcaption_01: { ms: "JANGAN TERUS PERCAYA MATA ANDA.", en: "DON'T TRUST WHAT YOU FIRST SEE.", zh: "不要相信你第一眼看到的。" },
   note_a_title: { ms: "Ikut panduan dulu", en: "Follow the guide cards", zh: "跟着示范走" },
-  note_a_p: { ms: "Buat beberapa ujian gambar untuk mencari perasaan. Kad rujukan pose disediakan di setiap ruang untuk membantu anda memahami sudut kamera yang paling berkesan.", en: "Take a few test shots first. Reference pose cards in each space help you quickly understand the most effective camera angles.", zh: "先试拍一两张找感觉。每个空间旁都有参考姿势卡，帮助你快速理解最有效果的镜头角度。" },
+  note_a_p: {"ms": "Cuba beberapa gambar untuk mencari sudut. Ikut arahan kakitangan dan peraturan set semasa lawatan.", "en": "Try a few shots to find the angle. Follow staff instructions and current set rules.", "zh": "先试拍几张寻找角度，并遵守工作人员指引与现场布景规则。"},
   note_b_title: { ms: "Pilih waktu yang tepat", en: "Pick the right time", zh: "挑对时间更出片" },
   note_b_p: { ms: "Inginkan latar belakang bersih tanpa orang lalu? Pilih hari bekerja atau awal-awal buka pada jam 09:30. Ruang yang kosong membuatkan ilusi lebih nyata.", en: "Want a clean background with no passers-by? Pick weekdays or the opening hour at 09:30. Empty rooms make the illusion much more convincing.", zh: "想要干净、没有路人的背景？选工作日或刚开门的 09:30 前来。空荡的房间能让视觉错觉更逼真。" },
   note_c_title: { ms: "Jangan terburu-buru", en: "Take your time", zh: "别赶时间，慢慢来" },
@@ -102,12 +75,12 @@ const t = {
   call_button: { ms: "Telefon muzium", en: "Call the museum", zh: "致电博物馆" },
   tickets_aria: { ms: "Yuran kemasukan", en: "Admission tickets", zh: "入场票价" },
   ticket_adult_label: { ms: "DEWASA", en: "ADULT", zh: "成人" },
-  ticket_adult_small: { ms: "Yuran rujukan pelawat", en: "Reference visitor price", zh: "访客参考票价" },
+  ticket_adult_small: {"ms": "Sahkan harga dewasa semasa", "en": "Confirm current adult price", "zh": "确认当前成人票价"},
   ticket_child_label: { ms: "KANAK-KANAK", en: "CHILD", zh: "儿童" },
-  ticket_child_small: { ms: "Yuran rujukan pelawat", en: "Reference visitor price", zh: "访客参考票价" },
+  ticket_child_small: {"ms": "Sahkan harga dan had umur", "en": "Confirm child price and age rules", "zh": "确认儿童票价与年龄政策"},
   ticket_mykad_label: { ms: "PEMEGANG MyKad", en: "MyKad HOLDERS", zh: "大马卡 MyKad" },
-  ticket_mykad_small: { ms: "Dewasa / Kanak-kanak", en: "Adult / Child", zh: "成人 / 儿童" },
-  quiet_note: { ms: "Yuran dan waktu operasi mungkin berubah semasa cuti umum atau perayaan. Sebaiknya sahkan melalui telefon sebelum tiba, terutamanya untuk lawatan kumpulan besar.", en: "Ticket prices and opening hours may change on public holidays or festivities. It is best to confirm by phone before visiting, especially for large groups.", zh: "公共假期与节庆期间票价和营业时间可能调整。出发前建议电话确认，尤其是大团体到访。" },
+  ticket_mykad_small: {"ms": "Tanya kelayakan dan dokumen", "en": "Ask about eligibility and documents", "zh": "询问资格与证件要求"},
+  quiet_note: {"ms": "Harga dewasa, kanak-kanak, MyKad dan syarat umur belum disahkan pada 19 Oktober 2026. Semak terus dengan operator; pakej pelancongan pihak ketiga tidak semestinya tiket masuk muzium.", "en": "Adult, child and MyKad prices and age conditions were not verified on 19 October 2026. Confirm with the operator; third-party tour packages are not necessarily museum admission tickets.", "zh": "截至2026年10月19日，未核实成人、儿童、MyKad票价及年龄条件。请向运营方确认；第三方旅游套餐不等同博物馆入场票。"},
   marker_03_label: { ms: "Cara ke sini", en: "How to get here", zh: "如何抵达" },
   eyebrow_03: { ms: "Bukan tersesat. Cuma arahnya sedikit songsang.", en: "Not lost. Just a little upside down.", zh: "不是迷路。只是方向有点颠倒。" },
   h2_03_a: { ms: "Senang sampai ke ", en: "Easy to reach ", zh: "轻松抵达" },
@@ -155,11 +128,11 @@ const t = {
   faq_1_s: { ms: "Berapa lama masa yang disyorkan untuk melawat?", en: "How long should I allow for the visit?", zh: "建议预留多长时间参观？" },
   faq_1_p: { ms: "Sediakan masa lebih kurang 1 jam untuk melawat semua ruang dan bergambar. Jika ingin latar belakang bersih tanpa orang ramai, sebaiknya datang pada hari bekerja atau waktu pagi.", en: "Allow about 1 hour to see all spaces and take photos. For a clean, crowd-free background, come on a weekday or early in the morning.", zh: "建议约 1 小时从容逛完展区并拍照。如果想避开人群、拍出干净的背景，推荐工作日或上午时段前往。" },
   faq_2_s: { ms: "Bolehkah mengambil gambar di dalam?", en: "Is photography allowed inside?", zh: "馆内允许拍照吗？" },
-  faq_2_p: { ms: "Boleh — seluruh muzium ini direka khas untuk pengalaman fotografi ilusi. Kad rujukan pose disediakan di setiap ruang; pastikan storan telefon anda mencukupi.", en: "Yes — the entire museum is designed for illusion photography. Pose reference cards are provided in every space; just make sure you have enough phone storage left.", zh: "允许，整座博物馆本来就是为错觉摄影体验而设计的。每个空间旁都有示范姿势卡可以参考，记得给手机留够存储空间。" },
-  faq_3_s: { ms: "Perlu beli tiket awal?", en: "Do I need to buy tickets in advance?", zh: "需要提前购票吗？" },
-  faq_3_p: { ms: "Biasanya tidak perlu untuk pelawat individu. Jika lawatan kumpulan sekolah, rombongan syarikat, atau waktu cuti sekolah / cuti umum umum, lebih baik sahkan slot terlebih dahulu melalui telefon.", en: "Usually not required for individual visitors. For school groups, corporate trips, or peak school / public holiday seasons, confirming your slot by phone in advance is safer.", zh: "一般散客通常无需提前订票。如果是学校团体、公司团建，或正逢学校假期/公共假期旺季，建议提前致电确认档期更稳妥。" },
+  faq_2_p: {"ms": "Penang Global Tourism menerangkan pengalaman fotografi interaktif dalam ruang terbalik. Ikut peraturan operator tentang fotografi, peralatan dan penggunaan set.", "en": "Penang Global Tourism describes interactive photography in upside-down rooms. Follow the operator’s rules on photography, equipment and use of the sets.", "zh": "槟城旅游局介绍此处为颠倒房间中的互动摄影体验。请遵守运营方对拍照、器材及布景使用的规定。"},
+  faq_3_s: {"ms": "Berapakah harga tiket dan perlu tempahan?", "en": "What are ticket prices and do I need a booking?", "zh": "票价多少，需要预约吗？"},
+  faq_3_p: {"ms": "Harga semasa, diskaun MyKad, had umur dan syarat tempahan belum disahkan dalam panduan ini. Hubungi operator untuk kadar, dokumen, ketersediaan dan polisi pada tarikh lawatan.", "en": "This guide has not verified current prices, MyKad discounts, age limits or booking conditions. Contact the operator for rates, required documents, availability and policies on your visit date.", "zh": "本指南未核实当前票价、MyKad优惠、年龄限制或预约条件。请联系运营方确认到访日期的价格、所需证件、余票与政策。"},
   faq_4_s: { ms: "Sesuai untuk anak kecil?", en: "Suitable for young children?", zh: "适合带小朋友去吗？" },
-  faq_4_p: { ms: "Sangat sesuai untuk lawatan keluarga. Walau bagaimanapun, ibu bapa perlu sentiasa menemani dan memantau anak-anak semasa berjalan atau bergambar di set pameran bagi memastikan keselamatan semua.", en: "Highly suitable for family outings. However, parents should always accompany and supervise children while moving around or posing on the exhibition sets for everyone's safety.", zh: "非常适合家庭出游。不过小朋友在展区布景上走动或摆拍时，请家长全程陪同留意，确保大家安全。" },
+  faq_4_p: {"ms": "Untuk lawatan bersama kanak-kanak, tanya operator tentang kesesuaian set, akses, had umur dan peraturan. Temani anak semasa bergerak atau bergambar; panduan ini tidak menjamin kesesuaian untuk semua umur.", "en": "For visits with children, ask the operator about set suitability, access, age limits and rules. Accompany children while moving or posing; this guide does not guarantee suitability for every age.", "zh": "带儿童到访前，请向运营方询问布景适用性、通行条件、年龄限制与规则。走动和拍照时请陪同；本指南不保证适合所有年龄。"},
   faq_5_s: { ms: "Bagaimana jika hujan di George Town?", en: "What if it rains in George Town?", zh: "遇到乔治市下雨怎么办？" },
   faq_5_p: { ms: "Muzium ini adalah tempat tertutup — sangat sesuai walaupun hujan atau cuaca panas tengah hari. Susun laluan berjalan kaki dari tempat turun teksi/e-hailing ke pintu masuk untuk mengurangkan masa di luar rumah.", en: "The museum is indoors — perfect even when it rains or during hot midday weather. Plan a short walking route from your drop-off point to the entrance to minimize time in the open.", zh: "博物馆本身就是室内景点，下雨或午后炎热天气里都非常合适。建议提前规划好从下车点到馆门口的步行路线，减少在户外日晒雨淋的时间。" },
   closing_eyebrow: { ms: "Petunjuk kecil terakhir", en: "One last small tip", zh: "最后一个小提示" },
@@ -167,47 +140,48 @@ const t = {
   h2_closing_b: { ms: "Bawa balik keseluruhan album gambar songsang.", en: "Go home with a whole album upside down.", zh: "带回一整辑颠倒的照片。" },
   closing_button: { ms: "Mulakan perjalanan", en: "Start your visit", zh: "开启旅程" },
   footer_nonprofit: { ms: "Laman web ini adalah projek panduan maklumat pelawat bebas dan bukan untung. Tiada pertalian dengan mana-mana agensi kerajaan atau organisasi rasmi.", en: "This website is an independent, non-profit visitor information guide project. It is not affiliated with any government agency or official organization.", zh: "本网站为一个独立的非营利游客信息指南项目，与任何政府机构或官方组织均无隶属关系。" },
-  footer_sources_prefix: { ms: "Maklumat pelancongan di laman ini dirujuk dan disahkan berdasarkan sumber awam daripada ", en: "The tourism information on this site is referenced and cross-checked against public sources from ", zh: "本站景点信息均参考并对照考证自" },
+  footer_sources_prefix: {"ms": "Rujukan perancangan: ", "en": "Planning references: ", "zh": "行程参考："},
   footer_sources_sep1: { ms: "、", en: ", ", zh: "、" },
   footer_sources_sep2: { ms: " dan ", en: " and ", zh: "与" },
   footer_sources_suffix: { ms: ". Tidak mengandungi sebarang cadangan komersial.", en: ". No commercial recommendations are included.", zh: "公开资料，不包含任何商业性推荐。" },
-  footer_sources_org1: { ms: "Majlis Bandaraya Pulau Pinang (Penang Island City Council, 槟岛市政厅)", en: "Penang Island City Council (Majlis Bandaraya Pulau Pinang, 槟岛市政厅)", zh: "槟岛市政厅（Penang Island City Council, Majlis Bandaraya Pulau Pinang）" },
-  footer_sources_org2: { ms: "Penang Global Tourism (PBT Pelancongan Pulau Pinang, 槟城旅游局)", en: "Penang Global Tourism (槟城旅游局)", zh: "槟城旅游局（Penang Global Tourism）" },
-  footer_sources_org3: { ms: "Kementerian Pelancongan, Seni & Budaya Malaysia (MOTAC, 马来西亚旅游、艺术与文化部)", en: "Ministry of Tourism, Arts & Culture Malaysia (MOTAC, 马来西亚旅游、艺术与文化部)", zh: "马来西亚旅游、艺术与文化部（Ministry of Tourism, Arts & Culture Malaysia, MOTAC）" },
+  footer_sources_org1: {"ms": "Penang Global Tourism", "en": "Penang Global Tourism", "zh": "Penang Global Tourism"},
+  footer_sources_org2: {"ms": "Google Maps", "en": "Google Maps", "zh": "Google Maps"},
+  footer_sources_org3: {"ms": "Operator muzium", "en": "Museum operator", "zh": "博物馆运营方"},
   footer_legal_heading: { ms: "Maklumat undang-undang", en: "Legal", zh: "法律信息" },
   footer_legal_privacy: { ms: "Dasar Privasi", en: "Privacy Policy", zh: "隐私政策" },
   footer_legal_terms: { ms: "Terma Perkhidmatan", en: "Terms of Service", zh: "服务条款" },
   footer_legal_cookies: { ms: "Tetapan Cookie", en: "Cookie Settings", zh: "Cookie 设置" },
   footer_copyright: { ms: "© 2026 Upside Down Museum Guide. Hak cipta terpelihara.", en: "© 2026 Upside Down Museum Guide. All rights reserved.", zh: "© 2026 Upside Down Museum Guide。保留所有权利。" },
   footer_image_heading: { ms: "Pernyataan hak cipta gambar", en: "Image copyright notice", zh: "图片产权声明" },
-  footer_image_note: { ms: "Semua gambar yang dipaparkan di laman ini adalah hak cipta pemilik fotografi asal. Kebanyakan gambar dilesenkan melalui galeri terbuka Unsplash, sebahagian lagi disumbangkan oleh penyumbang dengan atribusi.", en: "All images displayed on this site remain the copyright of their original photographers. Most are licensed via the Unsplash open library; some are donated by attributed contributors.", zh: "本网站所展示的所有图片产权及版权均归原摄影者所有。图片主要通过 Unsplash 开放图库授权使用，另有部分来自贡献者署名授权。" },
+  footer_image_note: {"ms": "Gambar disampaikan sebagai aset laman. Hak cipta kekal milik pemilik masing-masing; tiada lesen baharu didakwa.", "en": "Images are served as site assets. Copyright remains with the respective owners; no new licence is asserted.", "zh": "图片作为网站资源提供，版权归各自所有者；本站不新增授权声明。"},
   footer_to_top: { ms: "Ke atas ↑", en: "Back to top ↑", zh: "回到顶部 ↑" },
   lang_switch_ms: { ms: "MS", en: "MS", zh: "马来" },
   lang_switch_en: { ms: "EN", en: "EN", zh: "英文" },
   lang_switch_zh: { ms: "中", en: "中", zh: "中文" },
+  source_snapshot: {"ms": "Disemak 19 Oktober 2026: Google Maps 4.2/5 daripada 5,860 ulasan pihak ketiga. Waktu 09:30–18:30, kemasukan terakhir 17:45 menurut Penang Global Tourism. Semak perubahan dengan operator.", "en": "Checked 19 October 2026: Google Maps 4.2/5 from 5,860 third-party reviews. Hours 09:30–18:30, last admission 17:45 according to Penang Global Tourism. Check changes with the operator.", "zh": "2026年10月19日核对：Google地图4.2/5分、5,860条第三方评价。槟城旅游局列示09:30–18:30开放、17:45最晚入场。请向运营方确认变动。"},
   switcher_aria: { ms: "Penukar bahasa", en: "Language switcher", zh: "语言切换器" }
 };
 
-const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" });
+const faqSchemaFor = (lang: "ms" | "en" | "zh") => ({
+  "@context":"https://schema.org", "@type":"FAQPage",
+  mainEntity: [1,2,3,4,5].map(n => ({"@type":"Question",name:t[`faq_${n}_s` as keyof typeof t][lang],acceptedAnswer:{"@type":"Answer",text:t[`faq_${n}_p` as keyof typeof t][lang]}}))
+});
+
 ---
 
 <BaseLayout
   titleMs="Muzium Terbalik Penang · Panduan Pelawat George Town"
   titleEn="Upside Down Museum Penang · George Town Travel Guide"
   titleZh="槟城颠倒博物馆 · 乔治市旅游指南"
-  descMs="Panduan rasmi pelawat Muzium Terbalik Penang di Lebuh Kimberley, George Town: harga tiket (Dewasa RM36, Kanak-kanak RM26), waktu operasi harian 09:30–18:30, cara ke sini, tempat letak kereta dan mercu tanda warisan berdekatan."
-  descEn="Official visitor guide to Upside Down Museum Penang on Lebuh Kimberley, George Town: ticket prices (Adult RM36, Child RM26), daily opening hours 09:30–18:30, how to get here, parking and nearby heritage sights."
-  descZh="槟城乔治市金伯利街颠倒博物馆官方游客指南：门票价格（成人 RM36、儿童 RM26）、每日开放时间 09:30–18:30、交通方式、停车与周边世遗景点。"
+  descMs="Panduan bebas Muzium Terbalik Penang: 45 Lebuh Kimberley, George Town, waktu 09:30–18:30, kemasukan terakhir 17:45 dan perkara untuk disahkan tentang tiket."
+  descEn="Independent Upside Down Museum Penang guide: 45 Lebuh Kimberley, George Town, 09:30–18:30 hours, last admission 17:45 and ticket details to confirm."
+  descZh="槟城颠倒博物馆独立指南：乔治市金伯利街45号，09:30–18:30开放、17:45最晚入场，以及购票前须向运营方确认的事项。"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(attractionSchema)} />
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <script define:vars={{ fallback: imageFallback }} is:inline>
-  window.__imgFallback = window.__imgFallback || document.currentScript.dataset.fallback || "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+georgetown+penang+shophouse+inverted+rooms+nyonya+colors&image_size=square_hd";
-  </script>
+  <script is:inline type="application/ld+json" data-i18n="faq_schema" data-ms={JSON.stringify(faqSchemaFor("ms"))} data-en={JSON.stringify(faqSchemaFor("en"))} data-zh={JSON.stringify(faqSchemaFor("zh"))} set:html={JSON.stringify(faqSchemaFor("ms"))} />
   <header class="site-header" id="atas">
     <a class="brand" href="#atas" data-i18n="header_brand_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
-      <img data-fallback src="/upside-down-museum-logo.png" onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+logo+blue+shophouse+inverted+roof+penang&image_size=square'" data-i18n="logo_alt" data-ms={t.logo_alt.ms} data-en={t.logo_alt.en} data-zh={t.logo_alt.zh} alt={t.logo_alt.ms} width="48" height="48" />
+      <img data-fallback src="/upside-down-museum-logo.png" data-i18n="logo_alt" data-ms={t.logo_alt.ms} data-en={t.logo_alt.en} data-zh={t.logo_alt.zh} alt={t.logo_alt.ms} width="48" height="48" />
       <span>
         <strong>Upside Down</strong>
         <small data-i18n="brand_small" data-ms={t.brand_small.ms} data-en={t.brand_small.en} data-zh={t.brand_small.zh}>{t.brand_small.ms}</small>
@@ -244,14 +218,14 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
       </div>
       <div class="hero-visual" data-i18n="hero_visual_aria_label" data-ms={t.hero_visual_aria.ms} data-en={t.hero_visual_aria.en} data-zh={t.hero_visual_aria.zh} aria-label={t.hero_visual_aria.ms}>
         <div class="poster-stamp"><span data-i18n="poster_stamp_1" data-ms={t.poster_stamp_1.ms} data-en={t.poster_stamp_1.en} data-zh={t.poster_stamp_1.zh}>{t.poster_stamp_1.ms}</span><br /><span data-i18n="poster_stamp_2" data-ms={t.poster_stamp_2.ms} data-en={t.poster_stamp_2.en} data-zh={t.poster_stamp_2.zh}>{t.poster_stamp_2.ms}</span></div>
-        <img class="hero-graphic" data-fallback onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=abstract+upside+down+museum+geometric+pattern+indigo+coral+penang+shophouse&image_size=landscape_16_9'" src="/upside-down-museum-abstract-hero.png" alt="" aria-hidden="true" />
-        <img class="hero-photo" onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+exterior+blue+shophouse+facade+georgetown+penang+malaysia&image_size=square_hd'" src="/upside-down-museum-exterior.jpg" data-i18n="hero_exterior_alt" data-ms={t.logo_alt.ms} data-en={t.logo_alt.en} data-zh={t.logo_alt.zh} alt={t.logo_alt.ms} />
+        <img class="hero-graphic" data-fallback src="/upside-down-museum-abstract-hero.png" alt="" aria-hidden="true" />
+        <img class="hero-photo" src="/upside-down-museum-exterior.jpg" data-i18n="hero_exterior_alt" data-ms={t.logo_alt.ms} data-en={t.logo_alt.en} data-zh={t.logo_alt.zh} alt={t.logo_alt.ms} />
         <p class="image-note" data-i18n="image_note" data-ms={t.image_note.ms} data-en={t.image_note.en} data-zh={t.image_note.zh}>{t.image_note.ms}</p>
         <div class="corner-frame" aria-hidden="true"></div>
       </div>
       <div class="hero-facts" data-i18n="facts_aria_label" data-ms={t.facts_aria.ms} data-en={t.facts_aria.en} data-zh={t.facts_aria.zh} aria-label={t.facts_aria.ms}>
         <div><span data-i18n="facts_open_label" data-ms={t.facts_open_label.ms} data-en={t.facts_open_label.en} data-zh={t.facts_open_label.zh}>{t.facts_open_label.ms}</span><strong>09:30–18:30</strong><small data-i18n="facts_open_small" data-ms={t.facts_open_small.ms} data-en={t.facts_open_small.en} data-zh={t.facts_open_small.zh}>{t.facts_open_small.ms}</small></div>
-        <div><span data-i18n="facts_price_label" data-ms={t.facts_price_label.ms} data-en={t.facts_price_label.en} data-zh={t.facts_price_label.zh}>{t.facts_price_label.ms}</span><strong>RM36</strong><small data-i18n="facts_price_small" data-ms={t.facts_price_small.ms} data-en={t.facts_price_small.en} data-zh={t.facts_price_small.zh}>{t.facts_price_small.ms}</small></div>
+        <div><span data-i18n="facts_price_label" data-ms={t.facts_price_label.ms} data-en={t.facts_price_label.en} data-zh={t.facts_price_label.zh}>{t.facts_price_label.ms}</span><strong>—</strong><small data-i18n="facts_price_small" data-ms={t.facts_price_small.ms} data-en={t.facts_price_small.en} data-zh={t.facts_price_small.zh}>{t.facts_price_small.ms}</small></div>
         <div><span data-i18n="facts_rating_label" data-ms={t.facts_rating_label.ms} data-en={t.facts_rating_label.en} data-zh={t.facts_rating_label.zh}>{t.facts_rating_label.ms}</span><strong>4.2 / 5</strong><small data-i18n="facts_rating_small" data-ms={t.facts_rating_small.ms} data-en={t.facts_rating_small.en} data-zh={t.facts_rating_small.zh}>{t.facts_rating_small.ms}</small></div>
       </div>
     </section>
@@ -270,7 +244,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
           <p data-i18n="p_01" data-ms={t.p_01.ms} data-en={t.p_01.en} data-zh={t.p_01.zh}>{t.p_01.ms}</p>
         </div>
         <figure class="tilt-photo photo-room">
-          <img onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+room+with+inverted+furniture+nyonya+style+living+room&image_size=portrait_4_3'" src="/upside-down-museum-room.jpg" data-i18n="story_room_alt" data-ms={t.story_room_alt.ms} data-en={t.story_room_alt.en} data-zh={t.story_room_alt.zh} alt={t.story_room_alt.ms} loading="lazy" />
+          <img src="/upside-down-museum-room.jpg" data-i18n="story_room_alt" data-ms={t.story_room_alt.ms} data-en={t.story_room_alt.en} data-zh={t.story_room_alt.zh} alt={t.story_room_alt.ms} loading="lazy" />
           <figcaption data-i18n="figcaption_01" data-ms={t.figcaption_01.ms} data-en={t.figcaption_01.en} data-zh={t.figcaption_01.zh}>{t.figcaption_01.ms}</figcaption>
         </figure>
         <div class="story-notes">
@@ -296,17 +270,17 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
             <a class="button button-paper" href={callUrl}><span data-i18n="call_button" data-ms={t.call_button.ms} data-en={t.call_button.en} data-zh={t.call_button.zh}>{t.call_button.ms}</span> <span aria-hidden="true">↗</span></a>
           </div>
           <div class="ticket-list" data-i18n="tickets_aria_label" data-ms={t.tickets_aria.ms} data-en={t.tickets_aria.en} data-zh={t.tickets_aria.zh} aria-label={t.tickets_aria.ms}>
-            <div class="ticket-row"><span data-i18n="ticket_adult_label" data-ms={t.ticket_adult_label.ms} data-en={t.ticket_adult_label.en} data-zh={t.ticket_adult_label.zh}>{t.ticket_adult_label.ms}</span><strong>RM36</strong><small data-i18n="ticket_adult_small" data-ms={t.ticket_adult_small.ms} data-en={t.ticket_adult_small.en} data-zh={t.ticket_adult_small.zh}>{t.ticket_adult_small.ms}</small></div>
-            <div class="ticket-row"><span data-i18n="ticket_child_label" data-ms={t.ticket_child_label.ms} data-en={t.ticket_child_label.en} data-zh={t.ticket_child_label.zh}>{t.ticket_child_label.ms}</span><strong>RM26</strong><small data-i18n="ticket_child_small" data-ms={t.ticket_child_small.ms} data-en={t.ticket_child_small.en} data-zh={t.ticket_child_small.zh}>{t.ticket_child_small.ms}</small></div>
-            <div class="ticket-row"><span data-i18n="ticket_mykad_label" data-ms={t.ticket_mykad_label.ms} data-en={t.ticket_mykad_label.en} data-zh={t.ticket_mykad_label.zh}>{t.ticket_mykad_label.ms}</span><strong>RM26 / RM14</strong><small data-i18n="ticket_mykad_small" data-ms={t.ticket_mykad_small.ms} data-en={t.ticket_mykad_small.en} data-zh={t.ticket_mykad_small.zh}>{t.ticket_mykad_small.ms}</small></div>
+            <div class="ticket-row"><span data-i18n="ticket_adult_label" data-ms={t.ticket_adult_label.ms} data-en={t.ticket_adult_label.en} data-zh={t.ticket_adult_label.zh}>{t.ticket_adult_label.ms}</span><strong>—</strong><small data-i18n="ticket_adult_small" data-ms={t.ticket_adult_small.ms} data-en={t.ticket_adult_small.en} data-zh={t.ticket_adult_small.zh}>{t.ticket_adult_small.ms}</small></div>
+            <div class="ticket-row"><span data-i18n="ticket_child_label" data-ms={t.ticket_child_label.ms} data-en={t.ticket_child_label.en} data-zh={t.ticket_child_label.zh}>{t.ticket_child_label.ms}</span><strong>—</strong><small data-i18n="ticket_child_small" data-ms={t.ticket_child_small.ms} data-en={t.ticket_child_small.en} data-zh={t.ticket_child_small.zh}>{t.ticket_child_small.ms}</small></div>
+            <div class="ticket-row"><span data-i18n="ticket_mykad_label" data-ms={t.ticket_mykad_label.ms} data-en={t.ticket_mykad_label.en} data-zh={t.ticket_mykad_label.zh}>{t.ticket_mykad_label.ms}</span><strong>—</strong><small data-i18n="ticket_mykad_small" data-ms={t.ticket_mykad_small.ms} data-en={t.ticket_mykad_small.en} data-zh={t.ticket_mykad_small.zh}>{t.ticket_mykad_small.ms}</small></div>
             <p class="quiet-note" data-i18n="quiet_note" data-ms={t.quiet_note.ms} data-en={t.quiet_note.en} data-zh={t.quiet_note.zh}>{t.quiet_note.ms}</p>
           </div>
         </div>
       </div>
-      <img class="inverted-city" onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+georgetown+penang+shophouse+silhouette+heritage+pattern+indigo&image_size=landscape_16_9'" src="/upside-down-museum-pattern.png" alt="" aria-hidden="true" />
+      <img class="inverted-city" src="/upside-down-museum-pattern.png" alt="" aria-hidden="true" />
     </section>
     <section class="route-section section-wrap" aria-labelledby="tajuk-ke-sini">
-      <div class="route-art" aria-hidden="true"><img onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=route+map+illustration+georgetown+penang+heritage+streets+coral+lines&image_size=portrait_4_3'" src="/upside-down-museum-route-art.png" alt="" loading="lazy" /></div>
+      <div class="route-art" aria-hidden="true"><img src="/upside-down-museum-route-art.png" alt="" loading="lazy" /></div>
       <div class="route-copy">
         <div class="section-marker">
           <span>03</span><i></i>
@@ -381,7 +355,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
             </ul>
           </article>
           <figure class="nearby-photo">
-            <img onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=upside+down+museum+inverted+kitchen+room+nyonya+style+people+posing+for+photo&image_size=portrait_4_3'" src="/upside-down-museum-interior.jpg" data-i18n="nearby_photo_alt" data-ms={t.nearby_photo_alt.ms} data-en={t.nearby_photo_alt.en} data-zh={t.nearby_photo_alt.zh} alt={t.nearby_photo_alt.ms} loading="lazy" />
+            <img src="/upside-down-museum-interior.jpg" data-i18n="nearby_photo_alt" data-ms={t.nearby_photo_alt.ms} data-en={t.nearby_photo_alt.en} data-zh={t.nearby_photo_alt.zh} alt={t.nearby_photo_alt.ms} loading="lazy" />
             <figcaption data-i18n="figcaption_04" data-ms={t.figcaption_04.ms} data-en={t.figcaption_04.en} data-zh={t.figcaption_04.zh}>{t.figcaption_04.ms}</figcaption>
           </figure>
         </div>
@@ -397,7 +371,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
         <h2 id="tajuk-soalan">
           <span data-i18n="h2_05_a" data-ms={t.h2_05_a.ms} data-en={t.h2_05_a.en} data-zh={t.h2_05_a.zh}>{t.h2_05_a.ms}</span><em data-i18n="h2_05_b" data-ms={t.h2_05_b.ms} data-en={t.h2_05_b.en} data-zh={t.h2_05_b.zh}>{t.h2_05_b.ms}</em>
         </h2>
-        <img onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=family+visiting+upside+down+museum+penang+posing+in+inverted+room+colorful&image_size=square_hd'" src="/upside-down-museum-group.jpg" data-i18n="faq_group_alt" data-ms={t.faq_group_alt.ms} data-en={t.faq_group_alt.en} data-zh={t.faq_group_alt.zh} alt={t.faq_group_alt.ms} loading="lazy" />
+        <img src="/upside-down-museum-group.jpg" data-i18n="faq_group_alt" data-ms={t.faq_group_alt.ms} data-en={t.faq_group_alt.en} data-zh={t.faq_group_alt.zh} alt={t.faq_group_alt.ms} loading="lazy" />
       </div>
       <div class="faq-list">
         <details open><summary data-i18n="faq_1_s" data-ms={t.faq_1_s.ms} data-en={t.faq_1_s.en} data-zh={t.faq_1_s.zh}>{t.faq_1_s.ms}<span>+</span></summary><p data-i18n="faq_1_p" data-ms={t.faq_1_p.ms} data-en={t.faq_1_p.en} data-zh={t.faq_1_p.zh}>{t.faq_1_p.ms}</p></details>
@@ -408,7 +382,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
       </div>
     </section>
     <section class="closing-section">
-      <img class="closing-pattern" onerror="this.onerror=null;this.src='https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=inverted+georgetown+penang+shophouse+skyline+pattern+ink+texture&image_size=landscape_16_9'" src="/upside-down-museum-pattern.png" alt="" aria-hidden="true" />
+      <img class="closing-pattern" src="/upside-down-museum-pattern.png" alt="" aria-hidden="true" />
       <div class="closing-copy">
         <p class="eyebrow light"><span></span> <span data-i18n="closing_eyebrow" data-ms={t.closing_eyebrow.ms} data-en={t.closing_eyebrow.en} data-zh={t.closing_eyebrow.zh}>{t.closing_eyebrow.ms}</span></p>
         <h2>
@@ -419,6 +393,7 @@ const T = (k) => ({ ms: t[k]?.ms ?? "", en: t[k]?.en ?? "", zh: t[k]?.zh ?? "" }
     </section>
   </main>
   <footer class="site-footer">
+    <div class="section-wrap"><p><span data-i18n="source_snapshot" data-ms={t.source_snapshot.ms} data-en={t.source_snapshot.en} data-zh={t.source_snapshot.zh}>{t.source_snapshot.ms}</span> <a href="https://www.mypenang.gov.my/view_directory.php?id=S3ZWb3hERHUrS1BiRTJjMGFCUWo0UT09">Penang Global Tourism</a> · <a href="https://mypenang.gov.my/uploads/downloads/PTM-ENG2026-1.pdf">2026 tourism map</a>. <a href="https://www.facebook.com/upsidedownmuseum">Operator page linked by PGT</a>. </p></div>
     <div class="footer-grid section-wrap">
       <div class="footer-brand-col">
         <a class="brand footer-brand" href="#atas" data-i18n="footer_brand_aria" data-ms={t.header_aria_brand.ms} data-en={t.header_aria_brand.en} data-zh={t.header_aria_brand.zh} aria-label={t.header_aria_brand.ms}>
